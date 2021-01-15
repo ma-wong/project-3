@@ -1,0 +1,33 @@
+{
+  "name": "project-3",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ma-wong/project-3.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ma-wong/project-3/issues"
+  },
+  "homepage": "https://github.com/ma-wong/project-3#readme",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "draft-js": "^0.11.7",
+    "express": "^4.17.1",
+    "highlight.js": "^10.5.0",
+    "mysql2": "^2.2.5",
+    "nodemailer": "^6.4.17",
+    "passport": "^0.4.1",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "sequelize": "^6.3.5"
+  }
+}
