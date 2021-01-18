@@ -7,7 +7,7 @@ module.exports = function(sequelize, DataTypes) {
             allowNull: false,
         },
         code: {
-            type: DataTypes.STRING(10),
+            type: DataTypes.TEXT,
             //changed to get the server running 
             allowNull: false,
         },
