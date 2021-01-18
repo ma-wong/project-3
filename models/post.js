@@ -7,7 +7,8 @@ module.exports = function(sequelize, DataTypes) {
             allowNull: false,
         },
         code: {
-            type: DataTypes.STRING(200000),
+            type: DataTypes.STRING(10),
+            //changed to get the server running 
             allowNull: false,
         },
         userid: {
