@@ -15,7 +15,7 @@ module.exports = function(sequelize, DataTypes) {
             allowNull: false,
         },
         tags: {
-            type: DataTypes.ARRAY(Sequelize.TEXT),
+            type: DataTypes.STRING,
             allowNull: true
         }
     });
