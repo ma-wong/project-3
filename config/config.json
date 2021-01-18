@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "root",
-    "password": "securepass12!",
+    "password": "password",
     "database": "snippet",
     "host": "127.0.0.1",
     "dialect": "mysql"
