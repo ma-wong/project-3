@@ -10,11 +10,7 @@ module.exports = function(sequelize, DataTypes) {
             type: DataTypes.TEXT,
             //changed to get the server running 
             allowNull: false,
-        },
-        userid: {
-            type: DataTypes.STRING,
-            allowNull: false,
-        },        
+        },       
         description: {
             type: DataTypes.TEXT,
             allowNull: true
