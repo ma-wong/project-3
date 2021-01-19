@@ -6,7 +6,7 @@ router.route("/")
     .get(postController.readAll)
 
 router.route("/:id")
-    .destroy(postController.delete)
+    .delete(postController.delete)
     .put(postController.update)
 
 module.exports = router;

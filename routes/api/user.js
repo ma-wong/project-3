@@ -7,6 +7,6 @@ router.route("/")
 
 router.route("/")
     .put(userController.update)
-    .destroy(userController.delete)
+    .delete(userController.delete)
 
 module.exports = router;

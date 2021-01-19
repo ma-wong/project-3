@@ -12,5 +12,17 @@ module.exports = {
         })
         .then((dbPostData) => {res.json(dbPostData)})
         .catch( err => {throw err});
+    },
+    read: function(req, res) {
+        db.PostData.findAll({})
+        .then((dbPostData) => {res.json(dbPostData)})
+        .catch( err => {throw err});
+    },
+    readOne: function(req, res) {
+        db.PostData.findOne({
+            where: { id: req.params.id }
+        })
+        .then((dbPostData) => {res.json(dbPostData)})
+        .catch( err => {throw err});
     }
 };
