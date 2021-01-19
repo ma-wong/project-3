@@ -1,4 +1,4 @@
-const db = require("../models/postData.js");
+const db = require("../models/");
 
 module.exports = {
     create: function(req, res) {
