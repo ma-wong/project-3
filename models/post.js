@@ -27,10 +27,6 @@ module.exports = function(sequelize, DataTypes) {
             type: DataTypes.STRING,
             allowNull: false
         },
-        viewCount: {
-            type: DataTypes.INT,
-            defaultValue: 0
-        }
     });
     Post.associate = function(models) {
         Post.hasMany(models.postData, {
