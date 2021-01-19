@@ -5,6 +5,7 @@ const PORT = process.env.PORT || 3001;
 const app = express();
 var db = require("./models");
 const passport = require("./config/passport");
+const routes = require("./routes");
 
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
@@ -21,7 +22,10 @@ app.use(
   app.use(passport.session());
 
 // Define API routes here
-require("./routes/apiroutes.js")(app);
+app.use(routes);
+app.use((req, res) => {
+  res.sendFile(path.join(__dirname, "./client/public/index.html"))
+});
 
 
 db.sequelize.sync({ force: true }).then(() => {
