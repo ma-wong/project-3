@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import API from "../utils/API";
-import SearchResultsContainer from "../components/SearchResultsContainer";
+import { SearchResultsItem, SearchResultsList } from "../components/SearchResultsContainer";
 
 function SearchResults() {
     const [searchResults, setSearchResults] = useState([]);
@@ -21,6 +21,10 @@ function SearchResults() {
     return (
         <div>
             <h1>Search For Code Snippets</h1>
+            <SearchResultsList>
+                <SearchResultsItem />
+
+            </SearchResultsList>
         </div>
     )
 
