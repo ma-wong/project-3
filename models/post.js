@@ -22,7 +22,27 @@ module.exports = function(sequelize, DataTypes) {
         tags: {
             type: DataTypes.STRING,
             allowNull: true
+        },
+        language: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
+        viewCount: {
+            type: DataTypes.INT,
+            defaultValue: 0
         }
     });
+    Post.associate = function(models) {
+        Post.hasMany(models.postData, {
+            onDelete:"cascade"
+        });
+    };
+    Post.associate = function(models) {
+        Post.belongsTo(models.User, {
+            foreignKey: {
+                allowNull: false
+            }
+        });
+    };
     return Post;
 }
