@@ -3,7 +3,7 @@ import {Form, Button} from 'react-bootstrap';
 import SearchBar from '../components/SearchBar';
 
 function Search(){
-    const btnStyle = {"margin": "0 auto", "display":"block", "borderRadius": "50%","padding":"10%","margin":"1%", "flex":"1"};
+    const btnStyle = {"margin": "0 auto", "display":"block", "margin":"1%", "flex":"1", "position":"relative"};
     const languages = ['React','JS','HTML','CSS','Bootstrap']
     return(
         <>
@@ -13,7 +13,7 @@ function Search(){
             {languages.map((value, index) => {
                 while(index < 4){
                 return <Button variant="light" size="lg" style={btnStyle}>
-                {value}
+                    {value} 
                 </Button>}
             })}
             </div>
