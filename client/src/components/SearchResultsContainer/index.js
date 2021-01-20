@@ -1,6 +1,6 @@
-import { convertToRaw } from "draft-js";
 import React from "react";
 import Img from "./Img/cow.jpg";
+import "./style.css";
 
 export function SearchResultsList({ children }) {
     return <ul className="list-group">{children}</ul>;
@@ -11,7 +11,7 @@ export function SearchResultsItem(props) {
         <li className="list-group-item">
             <div className="container">
                 <div className="row">
-                    <div className="card mb-3">
+                    <div className="results-card card mb-3">
                         <div className="row g-0">
                             <img className="snippet-img col-md-7" src={Img} />
                             <div className="col-md-5">
