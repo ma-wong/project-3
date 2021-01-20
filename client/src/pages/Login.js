@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import LoginForm from "../components/LoginForm"
 import API from "../utils/API";
-import { Redirect } from 'react-router-dom'
-
+import { useHistory } from 'react-router-dom'
 
 
 function Login() {
+    const history = useHistory();
+
     const [userState, setUser] = useState({
         username: "",
         password: "",
@@ -38,43 +39,18 @@ function Login() {
             })
               .then(response => {
                 console.log(response)
-                   /// ls
+                   
                 if (response.status === 200) {
-                    setUser({
-                        ...userState,
-                        loggedIn: true
-                    })
-
+                    history.push("/");
                 }
                 });
           }
-
-      
-          // If we have an email and password we run the loginUser function and clear the form
-   //       loginUser(userState.username, userState.password);
-        
-        // loginUser does a post to our "api/login" route and if successful, redirects us the the members page
-        // function loginUser(username, password) {
-        //   $.post("/api/login", {
-        //     username: username,
-        //     password: password,
-        //   })
-        //     .then(function() {
-        //         //Probably use react router here
-        //       window.location.replace("/home");
-        //       // If there's an error, log the error
-        //     })
-        //     .catch(function(err) {
-        //       console.log(err);
-        //     });
-        // }
-
 
     return(
         <LoginForm 
         handleInputChange={handleInputChange}
         handleFormSubmit = {handleFormSubmit}
-        email = {userState.emai}
+        username = {userState.username}
         password = {userState.password}
         />
     )

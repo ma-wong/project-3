@@ -2,7 +2,7 @@ import React from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './loginStyle.css'
 
-function LoginForm({ email, password, handleInputChange, handleFormSubmit }) {
+function LoginForm({ username, password, handleInputChange, handleFormSubmit }) {
   return (
  <div className="container">
     <div className="row">
@@ -14,14 +14,14 @@ function LoginForm({ email, password, handleInputChange, handleFormSubmit }) {
               <div className="form-label-group">
                 <input 
                 onChange={handleInputChange} 
-                type="email" 
-                id="inputEmail" 
+                type="input" 
+                id="inputUsername" 
                 className="form-control" 
-                placeholder="Email address" 
-                name="email"
-                value={email}
+                placeholder="Username" 
+                name="username"
+                value={username}
                 required autoFocus />
-                <label htmlFor="inputEmail">Email address</label>
+                <label htmlFor="inputUsername">Username</label>
               </div>
               <div className="form-label-group">
                 <input 
