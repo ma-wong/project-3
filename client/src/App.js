@@ -6,6 +6,7 @@ import Navhead from "./components/Nav";
 import Signup from "./pages/SignUp";
 import Login from "./pages/Login";
 import Home from './pages/Home';
+import Account from './pages/Account';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route exact path="/" component={Home}/>
           <Route exact path="/login" component={Login} />
           <Route exact path="/signup" component={Signup} />
+          <Route exact path="/account" component={Account} />
           <Route component={NoMatch} />
         </Switch>
       </div>

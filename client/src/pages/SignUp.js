@@ -41,7 +41,6 @@ function Signup() {
           .catch(err => console.log(err));
         signUpUser(userState.email, userState.username, userState.password, userState.emailable, userState.profileUrl);
     };
-    //picture.thumbnail
 
     const signUpUser = (email, username, password, profileUrl) => {
         API.signUpUser({
