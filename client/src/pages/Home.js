@@ -5,7 +5,7 @@ function Home() {
     return (
     <>
         <Splash
-        loggedIn="tru"
+        loggedIn="true"
         />
     </>
     );
