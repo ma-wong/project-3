@@ -8,6 +8,8 @@ import Home from './pages/Home';
 import SearchBar from './pages/Search'
 import Create from "./pages/Create";
 import Account from './pages/Account';
+import Details from "./pages/Details";
+import SearchResults from "./pages/SearchResults";
 
 function App() {
   return (
@@ -22,6 +24,8 @@ function App() {
           <Route exact path="/signup" component={Signup} />
           <Route exact path="/create" component={Create} />
           <Route exact path="/account" component={Account} />
+          <Route exact path="/details" component={Details} />
+          <Route exact path="/results" component={SearchResults} />
           <Route component={NoMatch} />
         </Switch>
       </div>

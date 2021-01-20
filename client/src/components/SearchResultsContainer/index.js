@@ -1,6 +1,6 @@
 import React from "react";
 import Img from "./Img/cow.jpg";
-import "./style.css";
+import "./SearchResultsContainer.css";
 
 export function SearchResultsList({ children }) {
     return <ul className="list-group">{children}</ul>;
