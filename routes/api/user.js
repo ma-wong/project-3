@@ -10,17 +10,17 @@ router.route("/")
 
 router.route("/login")
     .post(
-        function (req, res, next) {
-            console.log("loging in");
-            console.log(req.body)
-            next()
-        },
-        passport.authenticate("local"),
-        (req, res) => {
-            console.log("logged in for reals", req.user);
-            res.send(req.user)
+        passport.authenticate("local"), function(req, res) {
+            res.json(req.user);
+            localStorage.setItem("")
         }
     );
+router.route("/logout")
+        .get(
+            function(req, res) {
+                req.logout();
+            }
+        )
 
 router.route("/all")
     .get(userController.readAll)

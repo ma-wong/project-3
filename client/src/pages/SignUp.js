@@ -1,21 +1,19 @@
 import React, { useState } from "react";
-import { useHistory } from "react-router-dom";
 import { Mailer } from 'nodemailer-react';
-import { Redirect } from 'react-router-dom'
-
+import { useHistory } from 'react-router-dom'
 import SignUpForm from "../components/SignUpForm";
 import API from "../utils/API";
 import ls from "local-storage";
 function Signup() {
+    const history = useHistory();
+
     const [userState, setUser] = useState({
         username: "",
         email: "",
         password: "",
         confirmPassword: "",
     });
-    const [redirectState, setRedirect] = useState({
-        redirectTo: null
-    })
+
 //put this into it's own file but for now do this
     const handleInputChange = event => {
         const { name, value } = event.target;
@@ -35,12 +33,8 @@ function Signup() {
             alert("Fill out your results")
             return;
           }
-          API.getRandomUserImage()
-          .then(res => {
-              console.log(res);
-          })
-          .catch(err => console.log(err));
-        signUpUser(userState.email, userState.username, userState.password, userState.emailable);
+
+        signUpUser(userState.email, userState.username, userState.password);
     };
 
     const signUpUser = (email, username, password) => {
@@ -49,12 +43,17 @@ function Signup() {
           username: username,
           password: password,
         })
-          .then(function(data) {
-            API.loginUser(data).then({
-               
-            });
-          })
-      }
+          .then(function(response) {
+              console.log(response)
+              console.log(password);
+            API.loginUser({
+                username: username,
+                password: password
+            }).then(()=> {
+                history.push("/");
+          });
+        });
+    }
     return (
         <div>
             <SignUpForm
@@ -67,7 +66,6 @@ function Signup() {
             </SignUpForm>
         </div>
     )
-
-}
+    }
 
 export default Signup;
