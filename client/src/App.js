@@ -4,6 +4,7 @@ import NoMatch from "./pages/NoMatch";
 import Navhead from "./components/Nav";
 import Signup from "./pages/SignUp";
 import Login from "./pages/Login";
+import Home from './pages/Home';
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <div>
       <Navhead />
           <Switch>
+          <Route exact path="/" component={Home}/>
           <Route exact path="/login" component={Login} />
           <Route exact path="/signup" component={Signup} />
           <Route component={NoMatch} />
