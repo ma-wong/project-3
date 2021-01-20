@@ -1,4 +1,3 @@
-
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import NoMatch from "./pages/NoMatch";
@@ -6,6 +5,7 @@ import Navhead from "./components/Nav";
 import Signup from "./pages/SignUp";
 import Login from "./pages/Login";
 import Home from './pages/Home';
+import SearchBar from './pages/Search'
 
 function App() {
   return (
@@ -15,6 +15,7 @@ function App() {
       <Navhead />
           <Switch>
           <Route exact path="/" component={Home}/>
+          <Route exact path="/search" component={SearchBar}/>
           <Route exact path="/login" component={Login} />
           <Route exact path="/signup" component={Signup} />
           <Route component={NoMatch} />
