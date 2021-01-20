@@ -45,3 +45,21 @@
     display: flex;
     justify-content: center;
 }
+
+@media (max-width:1500px) {
+    .create-form {
+        width:55vw;
+    }
+}
+
+@media (max-width:1000px) {
+    .create-form {
+        width:65vw;
+    }
+}
+
+@media (max-width:700px) {
+    .create-form {
+        width:75vw;
+    }
+}
