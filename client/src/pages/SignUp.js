@@ -9,7 +9,6 @@ function Signup() {
         email: "",
         password: "",
         confirmPassword: "",
-        profileUrl: ""
     });
 //put this into it's own file but for now do this
     const handleInputChange = event => {
@@ -33,27 +32,21 @@ function Signup() {
           API.getRandomUserImage()
           .then(res => {
               console.log(res);
-              setUser({
-                ...userState,
-                profileUrl: res.data.results[0].picture.thumbnail
-            });
           })
           .catch(err => console.log(err));
-        signUpUser(userState.email, userState.username, userState.password, userState.emailable, userState.profileUrl);
+        signUpUser(userState.email, userState.username, userState.password, userState.emailable);
     };
 
-    const signUpUser = (email, username, password, profileUrl) => {
+    const signUpUser = (email, username, password) => {
         API.signUpUser({
           email: email,
           username: username,
           password: password,
-          profileUrl: profileUrl
         })
           .then(function(data) {
             // let history = useHistory();
             // history.push("/home");
           })
-          .catch(console.log("ahhhhhh"));
       }
     return (
         <div>
