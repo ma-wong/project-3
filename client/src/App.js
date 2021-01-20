@@ -4,18 +4,12 @@ import NoMatch from "./pages/NoMatch";
 import Nav from "./components/Nav";
 import Signup from "./pages/SignUp";
 import Login from "./pages/Login";
+import Home from "./pages/Home"
 
 function App() {
   return (
-    <Router>
-      <div>
-        <Switch>
-          <Route exact path="/login" component={Login} />
-          <Route exact path="/signup" component={Signup} />
-          <Route component={NoMatch} />
-        </Switch>
-      </div>
-    </Router>
+    <Home
+    loggedIn="false"/>
   );
 }
 
