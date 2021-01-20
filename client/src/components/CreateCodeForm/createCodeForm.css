@@ -1,0 +1,47 @@
+.create-code-background {
+    display: flex;
+    height: 90vh;
+    margin-right: 15%;
+    margin-left: 15%;
+    justify-content: center;
+    align-items: center;
+}
+
+.create-form {
+    display: flex;
+    flex-direction: column;
+    width: 33vw;
+    height: 50vh;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+}
+
+.create-form > * {
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+
+.create-form textarea {
+    height: 45%;
+    width: 90%;
+}
+
+.create-form :nth-child(1){
+    width: 60%;
+    margin-top: 1%;
+}
+
+.create-form :nth-child(4){
+    width: 15%;
+}
+
+.create-form :nth-child(6){
+    margin-top:1%;
+}
+
+.create-form .tags-box {
+    width: 90%;
+    display: flex;
+    justify-content: center;
+}
