@@ -20,7 +20,7 @@ function Signup() {
 //WRITE THIS FUNc
     const handleFormSubmit = event => {
         event.preventDefault();
-        console.log("username is " + userState.email);
+        console.log("email is " + userState.email);
         console.log("username is " + userState.username);
         console.log("password is " + userState.password);
     };
