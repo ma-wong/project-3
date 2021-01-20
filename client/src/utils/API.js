@@ -9,5 +9,8 @@ export default {
   },
   signUpUser: function(userData) {
     return axios.post("api/user", userData)
+  },
+  loginUser: function() {
+    return axios("")
   }
 };

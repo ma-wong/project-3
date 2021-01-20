@@ -6,10 +6,10 @@ module.exports = {
             email: req.body.email,
             password: req.body.password,
             username: req.body.username,
-            profileUrl: req.bod.profileUrl
         })
         .then((dbUser) => {res.json(dbUser)})
         .catch(err => {throw err});
+         //res.redirect(307, "/api/login");
     },
     readAll: function(req, res) {
         db.User.findAll({})
