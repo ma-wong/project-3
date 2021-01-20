@@ -24,24 +24,24 @@ function Login() {
           }
       
           // If we have an email and password we run the loginUser function and clear the form
-          loginUser(userState.username, userState.password);
+   //       loginUser(userState.username, userState.password);
         };
       
         // loginUser does a post to our "api/login" route and if successful, redirects us the the members page
-        function loginUser(username, password) {
-          $.post("/api/login", {
-            username: username,
-            password: password,
-          })
-            .then(function() {
-                //Probably use react router here
-              window.location.replace("/home");
-              // If there's an error, log the error
-            })
-            .catch(function(err) {
-              console.log(err);
-            });
-        }
+        // function loginUser(username, password) {
+        //   $.post("/api/login", {
+        //     username: username,
+        //     password: password,
+        //   })
+        //     .then(function() {
+        //         //Probably use react router here
+        //       window.location.replace("/home");
+        //       // If there's an error, log the error
+        //     })
+        //     .catch(function(err) {
+        //       console.log(err);
+        //     });
+        // }
 
 
     return(
