@@ -1,0 +1,12 @@
+.no-login-box {
+    display: flex;
+    flex-direction: column;
+    height: 95vh;
+    justify-content: center;
+    align-items: center;
+}
+
+.no-login-box button {
+    width: 100px;
+    margin: 1%;
+}
