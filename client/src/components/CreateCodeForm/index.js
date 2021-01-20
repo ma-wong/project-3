@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import "./style.css";
+import "./createCodeForm.css";
 
 function CreateCodeForm(){
+    var tags =[];
     return(
         <div className="create-code-background">
             <div className="create-form-container">
