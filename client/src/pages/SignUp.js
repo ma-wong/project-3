@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { Mailer } from 'nodemailer-react';
 import SignUpForm from "../components/SignUpForm";
+import API from "../utils/API";
 function Signup() {
     const [userState, setUser] = useState({
         username: "",
@@ -43,17 +44,17 @@ function Signup() {
     //picture.thumbnail
 
     const signUpUser = (email, username, password, profileUrl) => {
-        $.post("/api/signup", {
+        API.signUpUser({
           email: email,
           username: username,
           password: password,
           profileUrl: profileUrl
         })
           .then(function(data) {
-            let history = useHistory();
-            history.push("/home");
+            // let history = useHistory();
+            // history.push("/home");
           })
-          .catch(handleLoginErr);
+          .catch(console.log("ahhhhhh"));
       }
     return (
         <div>

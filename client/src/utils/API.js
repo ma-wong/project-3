@@ -7,7 +7,7 @@ export default {
   getRandomUserImage: function() {
     return axios.get(BASEURL);
   },
-  signUpUser: function() {
+  signUpUser: function(userData) {
     return axios.post("/api/signup", userData)
   }
 };
