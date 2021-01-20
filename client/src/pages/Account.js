@@ -1,28 +1,37 @@
 import React, { useState } from "react";
-import LoginForm from "../components/LoginForm"
+import AccountInfoCard from "../components/AccountInfoCard"
 
 function Account() {
-    const [userState, setUser] = useState({
-        email: "",
-        password: "",
+    const [userInfo, setUserInfo] = useState({
+        email: "Jimmy@gmail.com",
+        username: "jimmy",
+        profileUrl: "https://cdn.vox-cdn.com/thumbor/CmMjXu8KUUpGp0nMRWCYtKBJURY=/1400x788/filters:format(png)/cdn.vox-cdn.com/uploads/chorus_asset/file/19921093/mgidarccontentnick.comc008fa9d_d.png"
     });
 
     const handleInputChange = event => {
         const { name, value } = event.target;
-        setUser({
-            ...userState,
+        setUserInfo({
+            ...userInfo,
             [name]: value
         });
     };
-//WRITE THIS FUNc
-    const handleFormSubmit = event => {
+
+    const handleSave = event => {
         event.preventDefault();
-        console.log("username is " + userState.email);
-        console.log("password is " + userState.password);
+        console.log("username is " + userInfo.username);
+        console.log("email is " + userInfo.email);
     };
+//WRITE THIS FUNc
 
     return(
        <div>
+           <AccountInfoCard 
+           handleFormSubmit={handleSave}
+           handleInputChange={handleInputChange}
+           email ={userInfo.email}
+           username={userInfo.username}
+           profileUrl={userInfo.profileUrl}
+           />
        </div>
     )
 
