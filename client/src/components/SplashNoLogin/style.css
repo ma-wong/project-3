@@ -9,4 +9,6 @@
 .no-login-box button {
     width: 100px;
     margin: 1%;
+    height: 50px;
+    font-size: 18px;
 }
