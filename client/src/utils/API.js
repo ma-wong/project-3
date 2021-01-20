@@ -6,5 +6,8 @@ const BASEURL = "https://randomuser.me/api/?results=1";
 export default {
   getRandomUserImage: function() {
     return axios.get(BASEURL);
+  },
+  signUpUser: function() {
+    return axios.post("/api/signup", userData)
   }
 };
