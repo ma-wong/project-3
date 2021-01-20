@@ -1,6 +1,6 @@
 import React from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './style.css'
+import './loginStyle.css'
 
 function LoginForm({ email, password, handleInputChange, handleFormSubmit }) {
   return (

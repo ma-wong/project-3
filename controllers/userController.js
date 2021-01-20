@@ -1,14 +1,24 @@
+const { response } = require("express");
 const db = require("../models");
 
 module.exports = {
     create: function(req, res) {
-        db.User.create({
-            email: req.body.email,
-            password: req.body.password,
-            username: req.body.username,
-        })
-        .then((dbUser) => {res.json(dbUser)})
-        .catch(err => {throw err});
+
+        db.User.findOne({
+            where: { emai: req.params.emai}
+           }).then(response =>{
+               if (response) {
+                   console.log("you already have an account")
+               } else {
+                db.User.create({
+                    email: req.body.email,
+                    password: req.body.password,
+                    username: req.body.username,
+                })
+                .then((dbUser) => {res.json(dbUser)})
+                .catch(err => {throw err});
+               }
+           })
          //res.redirect(307, "/api/login");
     },
     readAll: function(req, res) {

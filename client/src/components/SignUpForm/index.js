@@ -1,6 +1,6 @@
 import React from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './style.css'
+import './signUpStyle.css'
 
 function SignUpForm({ username, email, password, confirmPassword, handleInputChange, handleFormSubmit }) {
 
