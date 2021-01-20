@@ -3,6 +3,7 @@ import { useHistory } from "react-router-dom";
 import { Mailer } from 'nodemailer-react';
 import SignUpForm from "../components/SignUpForm";
 import API from "../utils/API";
+import ls from "local-storage";
 function Signup() {
     const [userState, setUser] = useState({
         username: "",
@@ -44,8 +45,9 @@ function Signup() {
           password: password,
         })
           .then(function(data) {
-            // let history = useHistory();
-            // history.push("/home");
+            API.loginUser(data).then({
+               /// ls
+            });
           })
       }
     return (

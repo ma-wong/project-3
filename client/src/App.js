@@ -10,6 +10,9 @@ import Create from "./pages/Create";
 import Account from './pages/Account';
 
 function App() {
+const getUser = () => {
+  
+}
   return (
     <>
     <Router>

@@ -3,8 +3,9 @@ import LoginForm from "../components/LoginForm"
 
 function Login() {
     const [userState, setUser] = useState({
-        email: "",
+        username: "",
         password: "",
+        loggedIn: false
     });
 
     const handleInputChange = event => {
@@ -22,11 +23,32 @@ function Login() {
             alert("Fill in all credentials please")
             return;
           }
+          loginUser(userState.username, userState.password);
+
+        };
+      
+          const loginUser = (username, password) => {
+            API.loginUser({
+              username: username,
+              password: password,
+            })
+              .then(response => {
+                console.log(response)
+                   /// ls
+                if (response.status === 200) {
+                    setUser({
+                        ...userState,
+                        loggedIn: true
+                    })
+                    
+                }
+                });
+          }
+
       
           // If we have an email and password we run the loginUser function and clear the form
    //       loginUser(userState.username, userState.password);
-        };
-      
+        
         // loginUser does a post to our "api/login" route and if successful, redirects us the the members page
         // function loginUser(username, password) {
         //   $.post("/api/login", {
