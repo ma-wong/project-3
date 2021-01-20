@@ -1,12 +1,15 @@
 const router = require('express').Router();
 const userController = require("../../controllers/userController");
 
-router.route("/")
+router.route("/api/signup")
     .post(userController.create)
-    .get(userController.readAll)
 
-router.route("/")
+router.route("user/:id")
+    .get(userController.readOne)
     .put(userController.update)
     .delete(userController.delete)
+
+router.route("/user")
+    .get(userController.readAll)
 
 module.exports = router;

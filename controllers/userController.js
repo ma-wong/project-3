@@ -5,7 +5,8 @@ module.exports = {
         db.User.create({
             email: req.body.email,
             password: req.body.password,
-            username: req.body.username
+            username: req.body.username,
+            profileUrl: req.bod.profileUrl
         })
         .then((dbUser) => {res.json(dbUser)})
         .catch(err => {throw err});

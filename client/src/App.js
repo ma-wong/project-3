@@ -7,6 +7,7 @@ import Signup from "./pages/SignUp";
 import Login from "./pages/Login";
 import Home from './pages/Home';
 import Create from "./pages/Create";
+import Account from './pages/Account';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route exact path="/login" component={Login} />
           <Route exact path="/signup" component={Signup} />
           <Route exact path="/create" component={Create} />
+          <Route exact path="/account" component={Account} />
           <Route component={NoMatch} />
         </Switch>
       </div>
@@ -28,3 +30,21 @@ function App() {
 }
 
 export default App;
+
+
+
+
+// Morgans Testing Code -----------------
+// import React from "react";
+// import SearchResults from "./pages/SearchResults";
+
+// function App() {
+//   return (
+//       <div>
+//           <SearchResults />
+//       </div>
+//   )
+// }
+
+// export default App;
+// ------------------------------------------

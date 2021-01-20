@@ -1,5 +1,6 @@
 import React from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import './style.css'
 
 function AccountInfoCard({ email, username, profileUrl, handleInputChange, handleFormSubmit }) {
   return (
@@ -8,8 +9,23 @@ function AccountInfoCard({ email, username, profileUrl, handleInputChange, handl
       <div className="col-sm-9 col-md-7 col-lg-5 mx-auto">
         <div className="card card-signin my-5">
           <div className="card-body">
-            <h5 className="card-title text-center">{username}</h5>
- 
+            <div className ="row">
+                <div className = "col-md-12">
+            <img src={profileUrl} alt="avatar"/>
+                </div>
+            </div>
+            <div className ="row">
+                <div className = "col-md-12">
+                <h5>Username: <span contentEditable="true">{username}</span></h5>
+                </div>
+            </div>
+            <div className ="row">
+                <div className = "col-md-12">
+                <h5>Email: <span contentEditable="true">{email}</span></h5>
+                </div>
+            </div>
+            
+            <button className="btn btn-lg btn-primary btn-block text-uppercase">Save Changes</button>
         </div>
       </div>
     </div>
