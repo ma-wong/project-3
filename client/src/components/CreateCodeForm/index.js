@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 
 function CreateCodeForm(){
-    <div>
-        
-    </div>
+    return(
+        <div className="create-code-container">
+            
+        </div>
+    )
 }
 
 export default CreateCodeForm;
