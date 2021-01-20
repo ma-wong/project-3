@@ -11,7 +11,7 @@ function AccountInfoCard({ email, username, profileUrl, handleInputChange, handl
           <div className="card-body">
             <div className ="row">
                 <div className = "col-md-12">
-            <img src={profileUrl} alt="avatar"/>
+            <img className="avatar-img" src={profileUrl} alt="avatar"/>
                 </div>
             </div>
             <div className ="row">
@@ -25,7 +25,7 @@ function AccountInfoCard({ email, username, profileUrl, handleInputChange, handl
                 </div>
             </div>
             
-            <button className="btn btn-lg btn-primary btn-block text-uppercase">Save Changes</button>
+            <button className="account-info-btn btn btn-lg btn-primary btn-block text-uppercase">Save Changes</button>
         </div>
       </div>
     </div>

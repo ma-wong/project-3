@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { Mailer } from 'nodemailer-react';
+import { Redirect } from 'react-router-dom'
+
 import SignUpForm from "../components/SignUpForm";
 import API from "../utils/API";
 import ls from "local-storage";
@@ -11,6 +13,9 @@ function Signup() {
         password: "",
         confirmPassword: "",
     });
+    const [redirectState, setRedirect] = useState({
+        redirectTo: null
+    })
 //put this into it's own file but for now do this
     const handleInputChange = event => {
         const { name, value } = event.target;
@@ -46,7 +51,7 @@ function Signup() {
         })
           .then(function(data) {
             API.loginUser(data).then({
-               /// ls
+               
             });
           })
       }
