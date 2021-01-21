@@ -1,5 +1,7 @@
 import React, { Component } from "react"
 import "../pageStyles/Details.css";
+import { useHistory } from 'react-router-dom'
+
 
 class Details extends Component {
     constructor(props) {

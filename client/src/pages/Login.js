@@ -42,6 +42,7 @@ function Login() {
                    
                 if (response.status === 200) {
                     history.push("/");
+                    localStorage.setItem("login", true);
                 }
                 });
           }

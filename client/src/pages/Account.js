@@ -1,13 +1,24 @@
 import React, { useState } from "react";
-import AccountInfoCard from "../components/AccountInfoCard"
+import AccountInfoCard from "../components/AccountInfoCard";
+import { useHistory } from 'react-router-dom'
 
 function Account() {
+    const history = useHistory();
+
     const [userInfo, setUserInfo] = useState({
         email: "Jimmy@gmail.com",
         username: "jimmy",
         profileUrl: "https://cdn.vox-cdn.com/thumbor/CmMjXu8KUUpGp0nMRWCYtKBJURY=/1400x788/filters:format(png)/cdn.vox-cdn.com/uploads/chorus_asset/file/19921093/mgidarccontentnick.comc008fa9d_d.png"
     });
 
+    useEffect(() => {
+        let isLoggedIn = localStorage.getItem("login")
+        if (isLoggedIn) {
+          return;
+        } else {
+            history.push("/login")
+        }
+    });
     const handleInputChange = event => {
         const { name, value } = event.target;
         setUserInfo({
