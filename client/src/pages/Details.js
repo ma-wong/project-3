@@ -24,12 +24,14 @@ class Details extends Component {
 
     getPostById = id => {
         API.getPost(id)
-        .then(res => 
+        .then(res => {
+            console.log(res)
             this.setState({
                 postDetails: res.data
-            }),
-            console.log(this.state.postDetails)
-        )
+            },() => {
+                console.log(this.state.postDetails)
+            })
+        })
         .catch(err => console.log(err));
     }
 
@@ -50,7 +52,7 @@ class Details extends Component {
                             className="form-control"
                             id="code-block-text"
                             ref={(textarea) => this.textArea = textarea}
-                            // value={this.postDetails.code}
+                            value={this.state.postDetails.code}
                         />
                         <label for="code-block-text">Code Block</label>
                     </div>
@@ -67,7 +69,14 @@ class Details extends Component {
                     </div>
                 </div>
                 <div className="row">
-                    <DetailedCode />
+                    <DetailedCode 
+                        title={this.state.postDetails.title}
+                        description={this.state.postDetails.description}
+                        tags={this.state.postDetails.tags}
+                        language={this.state.postDetails.language}
+                        updatedAt={this.state.postDetails.updatedAt}
+                        userId={this.state.postDetails.userId}
+                    />
                 </div>
                 <div className="row">
                     <div className="col-md-8">
