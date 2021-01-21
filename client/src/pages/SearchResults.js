@@ -21,7 +21,6 @@ function SearchResults() {
 
     return (
         <div>
-            <h1>Search For Code Snippets</h1>
             <SearchInput />
             <SearchResultsList>
                 <SearchResultsItem />

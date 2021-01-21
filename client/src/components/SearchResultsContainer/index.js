@@ -23,7 +23,7 @@ export function SearchResultsItem(props) {
                                         <button className="btn btn-primary" type="button">Another Tag</button>
                                     </div>
                                     <br />
-                                    <p className="card-text col-md-5"><small className="text-muted">Last updated 3 mins ago</small></p>
+                                    <p className="card-text"><small className="text-muted">Last updated 3 mins ago</small></p>
                                 </div>
                             </div>
                         </div>
