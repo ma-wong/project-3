@@ -10,6 +10,7 @@ import Create from "./pages/Create";
 import Account from './pages/Account';
 import Details from "./pages/Details";
 import SearchResults from "./pages/SearchResults";
+import Browse from './pages/Browse'
 
 function App() {
 const getUser = () => {
@@ -29,6 +30,7 @@ const getUser = () => {
           <Route exact path="/account" component={Account} />
           <Route exact path="/details" component={Details} />
           <Route exact path="/results" component={SearchResults} />
+          <Route exact path="/browse" component={Browse} />
           <Route component={NoMatch} />
         </Switch>
       </div>
