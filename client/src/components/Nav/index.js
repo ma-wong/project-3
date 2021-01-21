@@ -1,35 +1,62 @@
 import React, { Component } from "react";
 import "./nav.css";
 // import {Form, Button, Nav, FormControl, Navbar, NavDropdown} from 'react-bootstrap'
-import {Nav, Navbar} from 'react-bootstrap'
+import { Navbar, Dropdown, DropdownButton } from 'react-bootstrap'
 
 
 class Navhead extends Component {
+
+  // constructor(props) {
+  //   super(props)
+  //   this.state = {
+  //     test: "testing",
+  //     viewBlocks: true,
+  //     viewUserCircle: false,
+  //   }
+  // }
   render() {
     return (
-        <Navbar bg="light" expand="lg">
-        <Navbar.Brand href="#home">Left Dropdown</Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
+      <Navbar bg="dark" expand="lg">
+        <div>
+          <Dropdown>
+            <Dropdown.Toggle variant="success" id="dropdown-basic">
+              Left Dropdown
+           </Dropdown.Toggle>
+
+            <Dropdown.Menu>
+              <Dropdown.Item href="#/action-1">My Blocks</Dropdown.Item>
+              <Dropdown.Item href="#/action-2">Recent Blocks</Dropdown.Item>
+              <Dropdown.Item href="#/action-3">Popular Blocks</Dropdown.Item>
+              <Dropdown.Item href="#/action-4">Create Block</Dropdown.Item>
+            </Dropdown.Menu>
+          </Dropdown>
+          {/* <Navbar.Brand href="#home">Left Dropdown</Navbar.Brand> */}
+          {/* <Navbar.Toggle aria-controls="basic-navbar-nav" onClick={() => this.setState({ viewBlocks: true, viewUserCircle: false })} />
+          <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="mr-auto">
-            <Nav.Link href="#home">My Blocks</Nav.Link>
-            <Nav.Link href="#home">Recent Blocks</Nav.Link>
-            <Nav.Link href="#home">Popular Blocks</Nav.Link>
-            <Nav.Link href="#home">Create Block</Nav.Link>
-            {/* <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-                <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-                <NavDropdown.Divider />
-                <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
-            </NavDropdown> */}
+              {this.state.viewBlocks ?
+                <>
+                  <div> <Nav.Link href="#home">My Blocks</Nav.Link>
+                    <Nav.Link href="#home">Recent Blocks</Nav.Link>
+                    <Nav.Link href="#home">Popular Blocks</Nav.Link>
+                    <Nav.Link href="#home">Create Block</Nav.Link>
+                  </div>
+                </> : ""}
             </Nav>
-            {/* <Form inline>
-            <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-            <Button variant="outline-success">Search</Button>
-            </Form> */}
-        </Navbar.Collapse>
-        </Navbar>
+          </Navbar.Collapse> */}
+        </div>
+
+        <div>
+          <DropdownButton id="dropdown-basic-button" title="Cir Btn To Come">
+          {/* <DropdownButton id="dropdown-basic-button" title="User cir button" onClick={() => this.setState({ viewBlocks: false, viewUserCircle: true })}>
+            {this.state.viewUserCircle ? */}
+                <Dropdown.Item href="#/action-1">My Account</Dropdown.Item>
+                <Dropdown.Item href="#/action-2">Account Settings</Dropdown.Item>
+                <Dropdown.Item href="#/action-3">Help</Dropdown.Item>
+              {/* </> : ""} */}
+          </DropdownButton>
+        </div>
+      </Navbar>
     )
   }
 }
