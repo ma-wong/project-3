@@ -1,35 +1,32 @@
 import React from "react";
-import "./style.css";
+import "./SearchInput.css";
 
 function SearchInput({ q, handleInputChange, handleSearchSubmit }) {
     return (
-        <form>
-            <div className="container">
-                <div className="row">
-                    
-                    <div className="search-input form-group col-md-10">
-                        <input
-                            className="form-control"
-                            id="Title"
-                            type="text"
-                            value={q}
-                            placeholder="Search For Code"
-                            name="q"
-                            onChange={handleInputChange}
-                            required
-                        />
-                    </div>
-                    <div className="col-md-2">
-                        <button
-                            onClick={handleSearchSubmit}
-                            type="submit"
-                            className="btn btn-danger float-right">
-                            Search
-                        </button>
-                    </div>
-                </div>
+        <div className="container">
+                
+            <div className="input-group results-search-bar">
+                <input
+                    type="text"
+                    className="form-control search-input"
+                    placeholder="Search For Code"
+                    aria-describedby="button-addon2"
+                    id="Title"
+                    value={q}
+                    name="q"
+                    onChange={handleInputChange}
+                    required
+                />
+                <button
+                    onClick={handleSearchSubmit}
+                    className="btn btn-secondary"
+                    type="submit"
+                    id="search-input-btn">
+                    <i className="fa fa-search"></i>
+                </button>
             </div>
-        </form>
+
+        </div>
     );
 }
   

@@ -29,8 +29,17 @@ class Details extends Component {
                             className="form-control"
                             id="code-block-text"
                             ref={(textarea) => this.textArea = textarea}
-                            value="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sed blandit libero volutpat sed cras ornare arcu dui vivamus. Convallis tellus id interdum velit laoreet id donec ultrices. Fringilla ut morbi tincidunt augue interdum velit euismod in pellentesque. Convallis posuere morbi leo urna molestie at elementum eu. Porttitor massa id neque aliquam vestibulum morbi. Nullam eget felis eget nunc lobortis mattis. Vivamus arcu felis bibendum ut tristique et egestas quis ipsum. Rhoncus est pellentesque elit ullamcorper dignissim. Maecenas sed enim ut sem viverra aliquet eget sit.
-                            Et netus et malesuada fames ac turpis egestas maecenas pharetra. Condimentum lacinia quis vel eros donec. Nullam ac tortor vitae purus faucibus ornare suspendisse sed nisi. Elementum eu facilisis sed odio morbi quis commodo odio. Montes nascetur ridiculus mus mauris vitae ultricies leo integer. Id porta nibh venenatis cras sed. Justo eget magna fermentum iaculis. Sagittis id consectetur purus ut faucibus. Ridiculus mus mauris vitae ultricies leo. Lectus urna duis convallis convallis tellus id interdum. Nunc consequat interdum varius sit amet."
+                            value="MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO
+                            MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO
+                            MoO MoO Moo MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO Moo MoO MoO
+                            MoO MoO MoO MoO MoO Moo Moo MoO MoO MoO Moo OOO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO
+                            MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO Moo MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO
+                            MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO
+                            MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO
+                            MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO Moo MOo
+                            MOo MOo MOo MOo MOo MOo MOo MOo MOo MOo MOo MOo MOo MOo MOo MOo MOo MOo MOo MOo MOo MOo MOo MOo MOo MOo MOo MOo MOo MOo MOo MOo MOo MOo MOo
+                            MOo MOo MOo MOo MOo Moo MOo MOo MOo MOo MOo MOo MOo MOo Moo MoO MoO MoO Moo MOo MOo MOo MOo MOo MOo Moo MOo MOo MOo MOo MOo MOo MOo MOo Moo
+                            OOO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO Moo"
                         />
                         <label for="code-block-text">Code Block</label>
                     </div>

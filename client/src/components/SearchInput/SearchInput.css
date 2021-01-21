@@ -1,0 +1,11 @@
+.results-search-bar {
+    margin: 2rem 0rem;
+}
+
+.search-input {
+    border: 3px solid grey;
+}
+
+#search-input-btn {
+    border: 1px solid grey;
+}
