@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import API from "../utils/API";
 import { SearchResultsItem, SearchResultsList } from "../components/SearchResultsContainer";
 import SearchInput from "../components/SearchInput";
+import { useHistory } from 'react-router-dom'
+
 
 function SearchResults() {
     const history = useHistory();

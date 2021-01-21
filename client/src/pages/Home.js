@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import Splash from '../components/Splash';
 import { useHistory } from 'react-router-dom'
 

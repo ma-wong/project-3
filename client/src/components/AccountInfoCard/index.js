@@ -2,7 +2,7 @@ import React from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './accountStyle.css'
 
-function AccountInfoCard({ email, username, profileUrl, handleInputChange, handleFormSubmit }) {
+function AccountInfoCard({ email, username, profileUrl, handleInputChange, handleFormSubmit, handleLogout}) {
   return (
 <div className="container">
     <div className="row">
