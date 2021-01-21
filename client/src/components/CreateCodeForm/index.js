@@ -18,11 +18,21 @@ function CreateCodeForm(){
     const languageOptions = languages.map((language) =>
         <option value={language[1]}>{language[0]}</option>
     ); 
+
+    const [state, setState] = useState({
+        selectedLanguage: ""
+    });
     
     function handleKeyPress(event) {
         event.preventDefault();
         if (event.key === "Enter") {
         }
+    };
+
+    function handleLanguageSelect(event) {
+        setState({
+            selectedLanguage: event.target.value
+        });
     };
 
     return(
@@ -31,10 +41,10 @@ function CreateCodeForm(){
                 <form className="create-form">
                     <input type="text" name="title" placeholder="title" className="create-code-title"/>
                     <label for="language">Select the coding language:</label>
-                    <select name="language" placeholder="language">{languageOptions}</select>
+                    <select name="language" placeholder="language" onClick={handleLanguageSelect}>{languageOptions}</select>
                     <div className="code-preview-container">
                         <textarea name="code-block" />
-                        <pre><code></code></pre>
+                        <pre><code className={state.selectedLanguage}></code></pre>
                     </div>
                     <input type="text" name="tags" placeholder="tags" onKeyPress={handleKeyPress}/>
                     <div className="tags-box">
