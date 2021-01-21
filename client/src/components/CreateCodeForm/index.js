@@ -15,12 +15,13 @@ function CreateCodeForm(){
     ["Oxygene","oxygene"],["PF","pf"],["PHP","php3"],["Parser3","parser3"],["Perl","pl"],["Plaintext","txt"],["Pony","pony"],["PostgreSQL","pgsql"],["PowerShell","ps"],["Processing","processing"],["Prolog","prolog"],["Properties","properties"],["Protocol Buffers","protobuf"],["Puppet","pp"],["Python","py"],["Python profiler results","profile"],
     ["Python REPL","pycon"],["Q","k"],["QML","qml"],["R","r"],["ReasonML","re"],["RenderMan RIB","rib"],["RenderMan RSL","rsl"],["Roboconf","graph"],["Ruby","rb"],["Rust","rs"],["SAS","sas"],["SCSS","scss"],["SQL","sql"],["STEP Part 21","p21"],["Scala","scala"],["Scheme","scheme"],["Scilab","sci"],["Shell","shell"],["Smali","smali"],["Smalltalk","st"],
     ["SML","ml"],["Stan","stan"],["Stata","stata"],["Stylus","stylus"],["SubUnit","subunit"],["Swift","swift"],["Tcl","tcl"],["Test Anything Protocol","tap"],["Thrift","thrift"],["TP","tp"],["Twig","twig"],["Typescript","ts"],["VB.Net","vb"],["VBScript","vbs"],["VHDL","vhdl"],["Vala","vala"],["Verilog","v"],["Vim Script","vim"],["X++","axapta"],["x86 Assembly","x86asm"],["XL","xl"],["XQuery","xq"],["YAML","yml"],["Zephir","zep"]]
+    
     function handleKeyPress(event) {
         event.preventDefault();
         if (event.key === "Enter") {
-
         }
-    }
+    };
+
     return(
         <div className="create-code-background">
             <div className="create-form-container">
@@ -44,7 +45,7 @@ function CreateCodeForm(){
                 </form>
             </div>
         </div>
-    )
-}
+    );
+};
 
 export default CreateCodeForm;
