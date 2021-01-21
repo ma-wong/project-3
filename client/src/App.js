@@ -28,7 +28,7 @@ const getUser = () => {
           <Route exact path="/signup" component={Signup} />
           <Route exact path="/create" component={Create} />
           <Route exact path="/account" component={Account} />
-          <Route exact path="/details" component={Details} />
+          <Route exact path="/details/:id" component={Details} />
           <Route exact path="/results" component={SearchResults} />
           <Route exact path="/browse" component={Browse} />
           <Route component={NoMatch} />

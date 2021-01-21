@@ -18,6 +18,8 @@ export default {
   },
   getUser: function() {
     return axios.get("api/user/user_data")
+  },
+  getPost: async function(id) {
+    return axios.get("/api/post/" + id);
   }
-  
 };
