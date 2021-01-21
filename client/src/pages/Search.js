@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {Form, Button} from 'react-bootstrap'; 
 import SearchBar from '../components/SearchBar';
 import { useHistory } from 'react-router-dom'
