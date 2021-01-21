@@ -50,6 +50,7 @@ function Signup() {
                 username: username,
                 password: password
             }).then(()=> {
+                localStorage.setItem("login", true);
                 history.push("/");
           });
         });
