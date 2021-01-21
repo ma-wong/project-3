@@ -1,6 +1,7 @@
 const { response } = require("express");
 const db = require("../models");
 
+
 module.exports = {
     create: function(req, res) {
         const { email, password, username } = req.body
@@ -28,11 +29,19 @@ module.exports = {
     },
     // Parameters for findone, delete and update may need to be adjusted to something other than ID idk;
     readOne: function(req, res) {
-        db.User.findOne({
-             where: { id: req.params.id}
-            })
-        .then((dbUser) => {res.json(dbUser)})
-        .catch( err => {throw err});
+        if (!req.user) {
+            // The user is not logged in, send back an empty object
+            res.json({});
+          } else {
+              console.log(res)
+            // Otherwise send back the user's email and id
+            // Sending back a password, even a hashed password, isn't a good idea
+            res.json({
+              email: req.user.email,
+              username: req.user.username,
+              id: req.user.id,
+            });
+          }
     },
     delete: function(req, res) {
         db.User.destroy({
