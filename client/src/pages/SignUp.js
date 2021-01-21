@@ -3,7 +3,7 @@ import { Mailer } from 'nodemailer-react';
 import { useHistory } from 'react-router-dom'
 import SignUpForm from "../components/SignUpForm";
 import API from "../utils/API";
-import ls from "local-storage";
+
 function Signup() {
     const history = useHistory();
 

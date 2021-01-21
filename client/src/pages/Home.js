@@ -13,7 +13,7 @@ function Home() {
         } else {
             history.push("/login")
         }
-    });
+    }, []);
     return (
     <>
         <Splash
