@@ -13,7 +13,7 @@ function Create() {
         } else {
             history.push("/login")
         }
-    });
+    }, []);
     return(
         <div>
             <CreateCodeForm />
