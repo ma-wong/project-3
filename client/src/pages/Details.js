@@ -3,14 +3,34 @@ import "../pageStyles/Details.css";
 import DetailedCode from "../components/DetailedCode";
 import Rating from "../components/Rating";
 import Comments from "../components/Comments";
+import API from "../utils/API";
 
 class Details extends Component {
     constructor(props) {
         super(props)
 
         this.state = {
+        postDetails: [],
         copySuccess: false
         }
+    }
+
+    componentDidMount() {
+        const url = new URL(window.location.href);
+        const id = url.pathname.split("/")[2];
+        console.log(id);
+        this.getPostById(id);
+    }
+
+    getPostById = id => {
+        API.getPost(id)
+        .then(res => 
+            this.setState({
+                postDetails: res.data
+            }),
+            console.log(this.state.postDetails)
+        )
+        .catch(err => console.log(err));
     }
 
     copyCodeToClipboard = () => {
@@ -19,6 +39,7 @@ class Details extends Component {
         document.execCommand("copy")
         this.setState({copySuccess: true})
     }
+
 
     render() {
         return (
@@ -29,17 +50,7 @@ class Details extends Component {
                             className="form-control"
                             id="code-block-text"
                             ref={(textarea) => this.textArea = textarea}
-                            value="MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO
-                            MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO
-                            MoO MoO Moo MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO Moo MoO MoO
-                            MoO MoO MoO MoO MoO Moo Moo MoO MoO MoO Moo OOO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO
-                            MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO Moo MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO
-                            MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO
-                            MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO
-                            MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO Moo MOo
-                            MOo MOo MOo MOo MOo MOo MOo MOo MOo MOo MOo MOo MOo MOo MOo MOo MOo MOo MOo MOo MOo MOo MOo MOo MOo MOo MOo MOo MOo MOo MOo MOo MOo MOo MOo
-                            MOo MOo MOo MOo MOo Moo MOo MOo MOo MOo MOo MOo MOo MOo Moo MoO MoO MoO Moo MOo MOo MOo MOo MOo MOo Moo MOo MOo MOo MOo MOo MOo MOo MOo Moo
-                            OOO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO MoO Moo"
+                            // value={this.postDetails.code}
                         />
                         <label for="code-block-text">Code Block</label>
                     </div>
