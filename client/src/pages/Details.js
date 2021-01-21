@@ -75,7 +75,7 @@ class Details extends Component {
                         tags={this.state.postDetails.tags}
                         language={this.state.postDetails.language}
                         updatedAt={this.state.postDetails.updatedAt}
-                        userId={this.state.postDetails.userId}
+                        userId={this.state.postDetails.UserId}
                     />
                 </div>
                 <div className="row">
