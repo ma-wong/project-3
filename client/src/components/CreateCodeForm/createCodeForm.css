@@ -41,11 +41,11 @@
     margin-top: 1%;
 }
 
-.create-form :nth-child(4){
+.create-form :nth-child(5){
     width: 15%;
 }
 
-.create-form :nth-child(6){
+.create-form :nth-child(7){
     margin-top:1%;
 }
 
@@ -53,6 +53,11 @@
     width: 90%;
     display: flex;
     justify-content: center;
+}
+
+.create-form label {
+    margin-top: 0%;
+    margin-bottom: 0%;
 }
 
 @media (max-width:1500px) {

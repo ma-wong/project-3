@@ -30,6 +30,7 @@ function CreateCodeForm(){
             <div className="create-form-container">
                 <form className="create-form">
                     <input type="text" name="title" placeholder="title" className="create-code-title"/>
+                    <label for="language">Select the coding language:</label>
                     <select name="language" placeholder="language">{languageOptions}</select>
                     <div className="code-preview-container">
                         <textarea name="code-block" />
