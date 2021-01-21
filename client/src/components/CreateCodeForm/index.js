@@ -3,7 +3,6 @@ import "./createCodeForm.css";
 import hljs from "highlight.js"
 
 function CreateCodeForm(){
-    var tags = [];
     var userSelectedLanguage = "";
     const languages = [["1C","1c"],["ABNF","abnf"],["Access logs","accesslog"],["Ada","ada"],["Arduino","arduino"],["ARM Assembler","armasm"],["AVR assembler","avrasm"],["ActionScript","actionscript"],["AngelScript","asc"],["Apache","apache"],["AppleScript","applescript"],["Arcade","arcade"],
     ["AsciiDoc","asciidoc"],["AspectJ","aspectj"],["AutoHotkey","autohotkey"],["AutoIt","autoit"],["Awk","awk"],["Bash","bash"],["Basic","basic"],["BNF","bnf"],["Brainfuck","bf"],["C#","cs"],["C","c"],["C++","cpp"],["C/AL","cal"],["Cache Object Script","cos"],["CMake","cmake"],["Coq","coq"],["CSP","csp"],["CSS","css"],
@@ -18,11 +17,22 @@ function CreateCodeForm(){
     const languageOptions = languages.map((language) =>
         <option value={language[1]}>{language[0]}</option>
     ); 
+
+    const [state, setState] = useState({
+        selectedLanguage: "",
+        tags:[]
+    });
     
     function handleKeyPress(event) {
         event.preventDefault();
         if (event.key === "Enter") {
         }
+    };
+
+    function handleLanguageSelect(event) {
+        setState({
+            selectedLanguage: event.target.value
+        });
     };
 
     return(
@@ -31,10 +41,10 @@ function CreateCodeForm(){
                 <form className="create-form">
                     <input type="text" name="title" placeholder="title" className="create-code-title"/>
                     <label for="language">Select the coding language:</label>
-                    <select name="language" placeholder="language">{languageOptions}</select>
+                    <select name="language" placeholder="language" onClick={handleLanguageSelect}>{languageOptions}</select>
                     <div className="code-preview-container">
                         <textarea name="code-block" />
-                        <pre><code></code></pre>
+                        <pre><code className={state.selectedLanguage}></code></pre>
                     </div>
                     <input type="text" name="tags" placeholder="tags" onKeyPress={handleKeyPress}/>
                     <div className="tags-box">
