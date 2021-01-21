@@ -4,7 +4,6 @@ const userController = require("../../controllers/userController");
 
 router.route("/")
     .post(userController.create)
-    .get(userController.readOne)
     .put(userController.update)
     .delete(userController.delete)
 
@@ -12,7 +11,6 @@ router.route("/login")
     .post(
         passport.authenticate("local"), function(req, res) {
             res.json(req.user);
-            localStorage.setItem("")
         }
     );
 router.route("/logout")
@@ -24,5 +22,8 @@ router.route("/logout")
 
 router.route("/all")
     .get(userController.readAll)
+
+router.route('/user_data')
+    .get(userController.readOne)
 
 module.exports = router;

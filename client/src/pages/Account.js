@@ -15,6 +15,7 @@ function Account() {
     useEffect(() => {
         let isLoggedIn = localStorage.getItem("login")
         if (isLoggedIn) {
+            getUser()
           return;
         } else {
             history.push("/login")
@@ -22,9 +23,17 @@ function Account() {
     }, []);
 
     const getUser = () => {
-
+        console.log("doing it");
+        API.getUser().then((response) => {
+            console.log(response)
+            setUserInfo({
+                ...userInfo,
+                email: response.data.email,
+                username: response.data.username,
+                profileUrl: ""
+            })
+        })
     }
-
 
     const handleInputChange = event => {
         const { name, value } = event.target;
