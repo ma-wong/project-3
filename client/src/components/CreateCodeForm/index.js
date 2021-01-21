@@ -3,7 +3,6 @@ import "./createCodeForm.css";
 import hljs from "highlight.js"
 
 function CreateCodeForm(){
-    var tags = [];
     var userSelectedLanguage = "";
     const languages = [["1C","1c"],["ABNF","abnf"],["Access logs","accesslog"],["Ada","ada"],["Arduino","arduino"],["ARM Assembler","armasm"],["AVR assembler","avrasm"],["ActionScript","actionscript"],["AngelScript","asc"],["Apache","apache"],["AppleScript","applescript"],["Arcade","arcade"],
     ["AsciiDoc","asciidoc"],["AspectJ","aspectj"],["AutoHotkey","autohotkey"],["AutoIt","autoit"],["Awk","awk"],["Bash","bash"],["Basic","basic"],["BNF","bnf"],["Brainfuck","bf"],["C#","cs"],["C","c"],["C++","cpp"],["C/AL","cal"],["Cache Object Script","cos"],["CMake","cmake"],["Coq","coq"],["CSP","csp"],["CSS","css"],
@@ -20,7 +19,8 @@ function CreateCodeForm(){
     ); 
 
     const [state, setState] = useState({
-        selectedLanguage: ""
+        selectedLanguage: "",
+        tags:[]
     });
     
     function handleKeyPress(event) {
