@@ -50,6 +50,7 @@ function CreateCodeForm(){
     };
 
     function handleDeleteTag(event) {
+        event.preventDefault();
         var tagArray = tags;
         var newTagArray = tagArray.filter(a => a !== event.target.name);
         setTags(newTagArray);
