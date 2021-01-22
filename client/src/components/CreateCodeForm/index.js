@@ -22,7 +22,11 @@ function CreateCodeForm(){
     const [selectedLanguage, setSelectedLanguage] = useState("");
     const [tags, setTags] = useState([]);
 
-    const renderedTags = tags.map((tag)=><div className="create-code-tag" name={tag}>{tag}</div>);
+    const renderedTags = tags.map((tag)=>
+    <div className="create-code-tag" name={tag}>
+        <p>{tag}</p>
+        <button name={tag} onClick={handleDeleteTag}>X</button>
+    </div>);
 
     useEffect(() => {
     }, [tags]);
@@ -43,6 +47,12 @@ function CreateCodeForm(){
             event.preventDefault();
             return false;
         }
+    };
+
+    function handleDeleteTag(event) {
+        var tagArray = tags;
+        var newTagArray = tagArray.filter(a => a !== event.target.name);
+        setTags(newTagArray);
     };
 
     return(
