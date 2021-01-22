@@ -23,6 +23,19 @@ export default {
   getPost: async function(id) {
     return axios.get("/api/post/" + id);
   },
+
+  getPostAll: function(){
+    return axios.get("/api/post/")
+  },
+  getPostLikes: function(){
+    return axios.get("/api/post/likes")
+  },
+  getPostViews: function(){
+    return axios.get("/api/post/views")
+  },
+  getPostComments: function(){
+    return axios.get("/api/post/comments")
+  },
   getPostAll: function() {
     return axios.get("/api/post/");
   },
