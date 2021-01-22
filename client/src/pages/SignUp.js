@@ -149,7 +149,6 @@ class Signup extends React.Component {
                 fileInputState = {this.fileInputState}
                 handleFileInputChange = {this.handleFileInputChange}
                 previewSource = {this.state.previewSource}
-                handleLogin = {this.handleLogin}
             >
             </SignUpForm>
         </div>
