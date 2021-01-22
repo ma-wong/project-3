@@ -26,7 +26,7 @@ module.exports = {
     },
     readOne: function(req, res) {
         db.PostData.findOne({
-            where: { id: req.params.id }
+            where: { PostId: req.params.id }
         })
         .then((dbPostData) => {res.json(dbPostData)})
         .catch( err => {throw err});

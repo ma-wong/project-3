@@ -3,6 +3,7 @@ import "../pageStyles/Details.css";
 import DetailedCode from "../components/DetailedCode";
 import Rating from "../components/Rating";
 import Comments from "../components/Comments";
+import CommentDiv from "../components/CommentDiv"
 import API from "../utils/API";
 
 class Details extends Component {
@@ -11,6 +12,7 @@ class Details extends Component {
 
         this.state = {
         postDetails: [],
+        comments: [],
         copySuccess: false
         }
     }
@@ -42,8 +44,8 @@ class Details extends Component {
         this.setState({copySuccess: true})
     }
 
-    // logCopyCount = id => {
-    //     API.update({
+    // updateCopyCount = () => {
+    //     API.updatePostData({
 
     //     })
     // }
@@ -73,6 +75,7 @@ class Details extends Component {
                         }
                     </div>
                 </div>
+                
                 <div className="row">
                     <DetailedCode 
                         title={this.state.postDetails.title}
@@ -83,6 +86,7 @@ class Details extends Component {
                         userId={this.state.postDetails.UserId}
                     />
                 </div>
+
                 <div className="row">
                     <div className="col-md-8">
                         <Comments />
@@ -91,6 +95,16 @@ class Details extends Component {
                         <Rating />
                     </div>
                 </div>
+                
+               {this.state.comments.map(comment =>
+                 <CommentDiv
+                 id={comment.id}
+                 key={comment.id}
+                 author={comment.author}
+                 profileUrl={comment.profileUrl}
+                 body={comment.body}
+               />
+                )}
             </div>
         )
     }

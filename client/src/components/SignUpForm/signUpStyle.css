@@ -130,6 +130,18 @@
     padding-left: 10%;
     padding-right: 20%;
   }
+
+  .login-link-div{
+    display: flex; 
+    text-align: center;
+    padding-left: 15%;
+    padding-right: 15%;
+    margin-top: 4%;
+  }
+
+  #login-link {
+    text-align: center;
+  }
   
   /* Fallback for Edge
   -------------------------------------------------- */

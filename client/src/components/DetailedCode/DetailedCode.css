@@ -5,3 +5,8 @@
 .author-info {
     text-align: right;
 }
+
+.tags,
+.language-info {
+    margin: auto;
+}
