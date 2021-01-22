@@ -42,6 +42,11 @@ class Details extends Component {
         this.setState({copySuccess: true})
     }
 
+    // logCopyCount = id => {
+    //     API.update({
+
+    //     })
+    // }
 
     render() {
         return (
