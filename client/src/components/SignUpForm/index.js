@@ -2,7 +2,7 @@ import React from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './signUpStyle.css'
 
-function SignUpForm({ username, email, password, confirmPassword, handleInputChange, handleFormSubmit }) {
+function SignUpForm({ username, email, password, confirmPassword, handleInputChange, handleFormSubmit, handleGithub, fileInputState, handleFileInputChange, previewSource }) {
 
   return (
  <div className="container">
@@ -12,6 +12,23 @@ function SignUpForm({ username, email, password, confirmPassword, handleInputCha
           <div className="card-body">
             <h5 className="card-title text-center">Sign Up</h5>
             <form className="form-signin">
+            <div className="form-label-group">
+            <input
+                    id="fileInput"
+                    type="file"
+                    name="image"
+                    accept="image/*"
+                    onChange={handleFileInputChange}
+                    value={fileInputState}
+                    />
+                   {previewSource && (
+                <img
+                    src={previewSource}
+                    alt="chosen"
+                    className="signup-img"
+                />
+            )}
+             </div>
               <div className="form-label-group">
                 <input
                  onChange={handleInputChange} 
@@ -69,6 +86,7 @@ function SignUpForm({ username, email, password, confirmPassword, handleInputCha
                 <label className="custom-control-label" htmlFor="customCheck1">Agree to Terms and Conditions</label>
               </div>
               <button onClick={handleFormSubmit} className="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Sign Up</button>
+              <button onClick={handleGithub} className="btn githubBttn btn-block text-uppercase" type="submit">Sign Up With Github</button>
               <hr />
               <div className="terms">
                     <a href="/">Terms of Service</a>

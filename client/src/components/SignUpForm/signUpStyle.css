@@ -6,6 +6,26 @@
   body {
     background: pink;
   }
+
+  .signup-img{
+    border-radius: 50%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    height: 150px;
+    margin-bottom: 6%;
+}
+
+.image-upload>input {
+  display: none;
+}
+
+  .githubBttn{
+    background-color: black;
+    margin-top: 4%;
+    color: white;
+  }
   
   .card-signin {
     border: 0;
@@ -22,6 +42,11 @@
   .card-signin .card-body {
     padding: 2rem;
   }
+
+  .form-input {
+    display: block;
+    margin-bottom: 10px;
+}
   
   .form-signin {
     width: 100%;
