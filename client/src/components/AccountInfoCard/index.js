@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import {Image, Video, Transformation, CloudinaryContext} from 'cloudinary-react';
 import './accountStyle.css'
 
-function AccountInfoCard({ email, username, profileUrl, handleInputChange, handleFormSubmit, handleLogout}) {
+function AccountInfoCard({ email, username, profileUrl, createdAt, handleInputChange, handleFormSubmit, handleLogout}) {
   return (
 <div className="container">
     <div className="row">
@@ -12,7 +12,7 @@ function AccountInfoCard({ email, username, profileUrl, handleInputChange, handl
           <div className="card-body">
             <div className ="row">
                 <div className = "col-md-12">
-                <Image cloudName="dnjau9tbe" publicId="samples/bike.jpg" width="300" crop="scale" />
+                  <img className="avatar-img" src={profileUrl}/>
                 </div>
             </div>
             <div className ="row">
@@ -25,6 +25,17 @@ function AccountInfoCard({ email, username, profileUrl, handleInputChange, handl
                 <h5>Email: <span contentEditable="true">{email}</span></h5>
                 </div>
             </div>
+            <div className ="row">
+                <div className = "col-md-12">
+                <h5>Created Account: <span>{createdAt}</span></h5>
+                </div>
+            </div>
+            <div className ="row">
+                <div className = "col-md-12">
+                <h5>Kata: <span>7</span></h5>
+                </div>
+            </div>
+            <hr />
             <button className="account-info-btn btn btn-lg btn-primary btn-block text-uppercase">Save Changes</button>
         </div>
       </div>
