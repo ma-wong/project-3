@@ -1,5 +1,6 @@
 import React from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import {Image, Video, Transformation, CloudinaryContext} from 'cloudinary-react';
 import './accountStyle.css'
 
 function AccountInfoCard({ email, username, profileUrl, handleInputChange, handleFormSubmit, handleLogout}) {
@@ -11,7 +12,7 @@ function AccountInfoCard({ email, username, profileUrl, handleInputChange, handl
           <div className="card-body">
             <div className ="row">
                 <div className = "col-md-12">
-            <img className="avatar-img" src={profileUrl} alt="avatar"/>
+                <Image cloudName="dnjau9tbe" publicId="samples/bike.jpg" width="300" crop="scale" />
                 </div>
             </div>
             <div className ="row">

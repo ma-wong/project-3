@@ -18,6 +18,12 @@ export default {
   },
   getUser: function() {
     return axios.get("api/user/user_data")
+  },
+  uploadImage: function(image){
+    return axios.post("/api/user/image", image)
+  },
+  getComments: function(postid){
+    return axios.get("api/comments/:postid")
   }
   
 };

@@ -3,13 +3,15 @@ import "../pageStyles/Details.css";
 import DetailedCode from "../components/DetailedCode";
 import Rating from "../components/Rating";
 import Comments from "../components/Comments";
+import Commentdiv from "../components/CommentDiv";
 
 class Details extends Component {
     constructor(props) {
         super(props)
 
         this.state = {
-        copySuccess: false
+        copySuccess: false,
+        comments: []
         }
     }
 
@@ -65,6 +67,19 @@ class Details extends Component {
                     <div className="col-md-4">
                         <Rating />
                     </div>
+                </div>
+                <div className="row">
+                        <div className="col-md-8">
+                        {this.state.comments.map(comment => (
+          <Commentdiv
+            id={comment.id}
+            key={comment.id}
+            author={comment.author}
+            profileUrl={comment.profileUrl}
+            body={comment.body}
+          />
+        ))}
+                        </div>
                 </div>
             </div>
         )

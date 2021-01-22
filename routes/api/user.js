@@ -26,4 +26,9 @@ router.route("/all")
 router.route('/user_data')
     .get(userController.readOne)
 
+// router.route("/image")
+//     .post(
+//         cloudinary.v2.uploader.unsigned_upload(req.body.image, "prof_pic")
+//     )
+
 module.exports = router;

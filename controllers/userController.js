@@ -4,7 +4,7 @@ const db = require("../models");
 
 module.exports = {
     create: function(req, res) {
-        const { email, password, username } = req.body
+        const { email, password, username, profileUrl } = req.body
         db.User.findOne({
             where: { email }
            }).then(response =>{
@@ -14,7 +14,8 @@ module.exports = {
                 db.User.create({
                     email,
                     password,
-                    username
+                    username,
+                    profileUrl
                 })
                 .then((dbUser) => {res.json(dbUser)})
                 .catch(err => {throw err});
