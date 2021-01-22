@@ -2,7 +2,7 @@ import React from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './signUpStyle.css'
 
-function SignUpForm({ username, email, password, confirmPassword, handleInputChange, handleFormSubmit, handleGithub, fileInputState, handleFileInputChange, previewSource }) {
+function SignUpForm({ username, email, password, confirmPassword, handleInputChange, handleFormSubmit, handleGithub, fileInputState, handleFileInputChange, previewSource, handleLogin }) {
 
   return (
  <div className="container">
@@ -91,6 +91,9 @@ function SignUpForm({ username, email, password, confirmPassword, handleInputCha
               <div className="terms">
                     <a href="/">Terms of Service</a>
                     <a href="/">Privacy</a>
+                </div>
+                <div className="login-link-div">
+                    <a id="login-link" href="/login">Already have an account? Login</a>
                 </div>
             </form>
         </div>
