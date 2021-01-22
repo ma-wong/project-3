@@ -25,7 +25,6 @@ function AccountInfoCard({ email, username, profileUrl, handleInputChange, handl
                 <h5>Email: <span contentEditable="true">{email}</span></h5>
                 </div>
             </div>
-            
             <button className="account-info-btn btn btn-lg btn-primary btn-block text-uppercase">Save Changes</button>
         </div>
       </div>

@@ -18,13 +18,13 @@ export default {
     return axios.get("/api/user/logout");
   },
   getUser: function() {
-    return axios.get("api/user/user_data")
+    return axios.get("api/user/user_data");
   },
   getPost: async function(id) {
     return axios.get("/api/post/" + id);
   },
   getPostAll: function() {
-    return axios.get("/api/post/")
+    return axios.get("/api/post/");
   },
   getPostData: function(id) {
     return axios.get("/api/postdata/" + id);
@@ -34,5 +34,8 @@ export default {
   },
   getPostsBySearch: function(query) {
     return axios.get("/api/post", { params: {q: query } });
+  },
+  getComments: function(postid) {
+    return axios.get("api/comment/" + postid)
   }
 };
