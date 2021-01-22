@@ -16,6 +16,7 @@ function SearchResults() {
             history.push("/login")
         }
     });
+    
     const [searchResults, setSearchResults] = useState([]);
     const [codeSearch, setCodeSearch] = useState("");
 
