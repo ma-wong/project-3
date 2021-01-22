@@ -6,7 +6,7 @@ export function SearchResultsList({ children }) {
     return <ul className="list-group">{children}</ul>;
 }
 
-export function SearchResultsItem(props) {
+export function SearchResultsItem({ title, description, tags, updatedAt }) {
     return (
         <div className="container">
             <li className="list-group-item">
@@ -15,14 +15,13 @@ export function SearchResultsItem(props) {
                         <img className="snippet-img col-md-7" src={Img} />
                         <div className="col-md-5">
                             <div className="card-body">
-                                <h5 className="card-title">Code Snippet Title</h5>
-                                <p className="card-text">This is a description of the code snippet</p>
+                                <h5 className="card-title">Code Snippet Title: {title} </h5>
+                                <p className="card-text">This is a description of the code snippet: {description} </p>
                                 <div className="d-grid gap-2 d-md-block">
-                                    <button className="btn btn-primary" type="button">Tag</button>
-                                    <button className="btn btn-primary" type="button">Another Tag</button>
+                                    <button className="btn btn-primary" type="button">Tags: {tags} </button>
                                 </div>
                                 <br />
-                                <p className="card-text"><small className="text-muted">Last updated 3 mins ago</small></p>
+                                <p className="card-text"><small className="text-muted">Last updated 3 mins ago: {updatedAt} </small></p>
                             </div>
                         </div>
                     </div>
