@@ -1,61 +1,62 @@
 import React, { useState } from "react";
 import { Mailer } from 'nodemailer-react';
 import { useHistory } from 'react-router-dom'
+import { withRouter } from 'react-router-dom'
 import SignUpForm from "../components/SignUpForm";
 import API from "../utils/API";
 import axios from "axios";
 
 
 
-function Signup() {
-    const history = useHistory();
+class Signup extends React.Component {
+    //this.history = useHistory();
+    constructor(props) {
+        super(props)
 
-    const [userState, setUser] = useState({
+    }
+
+    state = {
         username: "",
         email: "",
         password: "",
         confirmPassword: "",
-        profileUrl: ""
-    });
+        profileUrl: "",
+        fileInputState: "",
+        previewSource: "",
+        image: "",
+        redirect: false
+    }
 
-    const [fileInputState, setFileInputState] = useState('');
-    const [previewSource, setPreviewSource] = useState('');
 
-    const [image, setImage] = useState('');
-
-
-//put this into it's own file but for now do this
-    const handleInputChange = event => {
+     handleInputChange = event => {
         const { name, value } = event.target;
-        setUser({
-            ...userState,
+        this.setState({
             [name]: value
         });
     };
-    const handleFormSubmit = event => {
+     handleFormSubmit = event => {
         event.preventDefault();
-        console.log("email is " + userState.email);
-        console.log("username is " + userState.username);
-        console.log("password is " + userState.password);
+        console.log("email is " + this.state.email);
+        console.log("username is " + this.state.username);
+        console.log("password is " + this.state.password);
 
-        if (!userState.email || !userState.username || !userState.password) {
+        if (!this.state.email || !this.state.username || !this.state.password) {
             alert("Fill out your results")
             return;
           }
-
-          uploadImage()
+          this.uploadImage()
 
        // signUpUser(userState.email, userState.username, userState.password);
     };
 
-    const signUpUser = (email, username, password, profileUrl) => {
+     signUpUser = (email, username, password, profileUrl) => {
         API.signUpUser({
           email: email,
           username: username,
           password: password,
           profileUrl: profileUrl
         })
-          .then(function(response) {
+          .then((response) => {
               console.log(response)
               console.log(password);
             API.loginUser({
@@ -63,67 +64,85 @@ function Signup() {
                 password: password
             }).then(()=> {
                 localStorage.setItem("login", true);
-                history.push("/");
-          });
+                this.setState({
+                    redirect: true
+                }, () => {
+                    this.renderRedirect()
+                })
+          })
         });
     }
 
     //Github functionality
 
-    const handleGithub = event => {
+     handleGithub = event => {
         event.preventDefault();
 
     }
 
     //image functionality
 
-    const handleFileInputChange = (e) => {
+     handleFileInputChange = (e) => {
         const file = e.target.files[0];
-        setImage(file)
-        previewFile(file);
-        setFileInputState(e.target.value);
+        this.setState({
+            image: file,
+            fileInputState: e.target.value
+        })
+        this.previewFile(file);
     };
 
-    const previewFile = (file) => {
+     previewFile = (file) => {
         const reader = new FileReader();
         reader.readAsDataURL(file);
         reader.onloadend = () => {
-            setPreviewSource(reader.result);
+            this.setState({
+                previewSource: reader.result
+            })
         };
     };
 
-    const uploadImage = async () => {
+     uploadImage = async () => {
         const formData = new FormData();
-        formData.append('file', image);
+        formData.append('file', this.state.image);
         formData.append('upload_preset', "gogabeqt");
         try {
           const res = await axios.post('https://api.cloudinary.com/v1_1/dnjau9tbe/image/upload', formData);
           const imageUrl = res.data.secure_url;
-          setUser({
-              ...userState,
+          this.setState({
               profileUrl: imageUrl
+          }, ()=> {
+            this.signUpUser(this.state.email, this.state.username, this.state.password, this.state.profileUrl)
           })
-          signUpUser(userState.email, userState.username, userState.password, userState.profileUrl)
         } catch (err) {
           console.error(err);
         }
       };
+
+      renderRedirect = () => {
+          console.log("hello")
+        if (this.state.redirect) {
+          return this.props.history.push("/")
+        }
+      }
+    render() {
     return (
         <div>
+            {this.renderRedirect}
             <SignUpForm
-                handleInputChange={handleInputChange}
-                handleFormSubmit = {handleFormSubmit}
-                handleGithub = {handleGithub}
-                username = {userState.username}
-                email = {userState.emai}
-                password = {userState.password}
-                fileInputState = {fileInputState}
-                handleFileInputChange = {handleFileInputChange}
-                previewSource = {previewSource}
+                handleInputChange={this.handleInputChange}
+                handleFormSubmit = {this.handleFormSubmit}
+                handleGithub = {this.handleGithub}
+                username = {this.state.username}
+                email = {this.state.emai}
+                password = {this.state.password}
+                fileInputState = {this.fileInputState}
+                handleFileInputChange = {this.handleFileInputChange}
+                previewSource = {this.state.previewSource}
             >
             </SignUpForm>
         </div>
-    )
+          )
+        }
     }
 
 export default Signup;

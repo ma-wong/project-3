@@ -18,12 +18,15 @@ export default {
     return axios.get("/api/user/logout");
   },
   getUser: function() {
-    return axios.get("api/user/user_data")
+    return axios.get("api/user/user_data");
   },
   getPost: async function(id) {
     return axios.get("/api/post/" + id);
   },
   getPostAll: function(){
-    return axios.get("/api/post/")
+    return axios.get("/api/post/");
+  },
+  getComments: function(postid) {
+    return axios.get("api/comment/" + postid)
   }
 };
