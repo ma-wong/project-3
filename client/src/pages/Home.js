@@ -5,7 +5,7 @@ import { useHistory } from 'react-router-dom'
 
 function Home() {
     const history = useHistory();
-    
+        
     useEffect(() => {
         let isLoggedIn = localStorage.getItem("login")
         if (isLoggedIn) {
@@ -16,9 +16,7 @@ function Home() {
     }, []);
     return (
     <>
-        <Splash
-        loggedIn="true"
-        />
+        <Splash/>
     </>
     );
   }

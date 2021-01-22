@@ -1,11 +1,13 @@
 import React from 'react';
 import SplashNoLogin from '../SplashNoLogin'
 import SplashLogin from '../SplashLogin'
-function Splash(props){
+function Splash(){
+
+    let isLoggedIn = localStorage.getItem("login")
     
     return(
         <>
-        {props.loggedIn === "true" ? 
+        {isLoggedIn === true ? 
         <SplashNoLogin />
         :
         <SplashLogin />
