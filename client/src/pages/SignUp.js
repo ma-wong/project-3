@@ -24,7 +24,8 @@ class Signup extends React.Component {
         fileInputState: "",
         previewSource: "",
         image: "",
-        redirect: false
+        redirect: false,
+        loginRedirect: false
     }
 
 
@@ -122,7 +123,17 @@ class Signup extends React.Component {
           console.log("hello")
         if (this.state.redirect) {
           return this.props.history.push("/")
+        } else if (this.state.loginRedirect) {
+            return this.props.history.push("/login")
         }
+      }
+
+    handleLogin = () => {
+        this.setState({
+            loginRedirect: true
+        },() => {
+            this.renderRedirect()
+        })
       }
     render() {
     return (
@@ -138,6 +149,7 @@ class Signup extends React.Component {
                 fileInputState = {this.fileInputState}
                 handleFileInputChange = {this.handleFileInputChange}
                 previewSource = {this.state.previewSource}
+                handleLogin = {this.handleLogin}
             >
             </SignUpForm>
         </div>
