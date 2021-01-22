@@ -1,90 +1,49 @@
-import React, { useEffect, useState } from 'react';
-import {Button} from 'react-bootstrap';
+import React, { useEffect, useState, useLayoutEffect } from 'react';
 import Tag from '../Tag'
 import hljs from 'highlight.js';
 import '../../pageStyles/atom-one-dark.css';
 import API from '../../utils/API'
 
 
-function BrowseResults (){
-    const sample = [{
-        title:'Sample Title #1',
-        code:`var a = ["a", "b", "c"];
-        a.forEach(function(entry) {
-            console.log(entry);
-        });`,
-        description:'test description',
-        tags:['forEach Loop','JS101'],
-        language:'js'
-    },{
-        title:'Sample Title #2',
-        code:`<!doctype html>
-
-        <html lang="en">
-        <head>
-          <meta charset="utf-8">
-        
-          <title>The HTML5 Herald</title>
-          <meta name="description" content="The HTML5 Herald">
-          <meta name="author" content="SitePoint">
-        
-          <link rel="stylesheet" href="css/styles.css?v=1.0">
-        
-        </head>
-        
-        <body>
-          <script src="js/scripts.js"></script>
-        </body>
-        </html>`,
-        description:'test description',
-        tags:['starter','HTML101'],
-        language:'html'
-    },{
-        title:'Sample Title #3',
-        code:`a.button1{
-             display:inline-block;
-             padding:0.35em 1.2em;
-             border:0.1em solid #FFFFFF;
-             margin:0 0.3em 0.3em 0;
-             border-radius:0.12em;
-             box-sizing: border-box;
-             text-decoration:none;
-             font-family:'Roboto',sans-serif;
-             font-weight:300;
-             color:#FFFFFF;
-             text-align:center;
-             transition: all 0.2s;
-            }
-            a.button1:hover{
-             color:#000000;
-             background-color:#FFFFFF;
-            }
-            @media all and (max-width:30em){
-             a.button1{
-              display:block;
-              margin:0.4em auto;
-             }
-            }`,
-        description:'test description',
-        tags:['button','CSS101'],
-        language:'css'}]
-
+function BrowseResults (props){
     const [codeList, setCodeList] = useState([]);
 
+    let sort = props.sort;
+
+    console.log(sort);
+
     useEffect( () => {
-        let mounted = true;        
-        API.getPostAll()
-        .then(res => {
-            if(mounted) {
-                setCodeList(res.data)
-                console.log(codeList)
-            }
-        })
+        switch(sort){
+            case "views":
+                API.getPostViews()
+                .then(res => {
+                    setCodeList(res.data);
+                }).catch(err => console.log(err))
+                break;
+            case "likes":
+                API.getPostLikes()
+                .then(res => {
+                    setCodeList(res.data);
+                }).catch(err => console.log(err))
+                break;
+            case "comments":
+                API.getPostComments()
+                .then(res => {
+                    setCodeList(res.data);
+                }).catch(err => console.log(err))
+                break;
+            default:
+                API.getPostAll()
+                .then(res => {
+                    setCodeList(res.data);
+                }).catch(err => console.log(err))}
+    },[])
+
+    useLayoutEffect( () => {
         document.querySelectorAll("pre code").forEach(e => {
             hljs.highlightBlock(e);
           });
-        return () => mounted = false;        
-    },[])
+    })
 
     return(
         <>
