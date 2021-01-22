@@ -23,8 +23,17 @@ export default {
   getPost: async function(id) {
     return axios.get("/api/post/" + id);
   },
-  getPostAll: function(){
+  getPostAll: function() {
     return axios.get("/api/post/");
+  },
+  getPostData: function(id) {
+    return axios.get("/api/postdata/" + id);
+  },
+  updatePostData: function(id, postData) {
+    return axios.put("/api/postdata/" + id, postData);
+  },
+  getPostsBySearch: function(query) {
+    return axios.get("/api/post", { params: {q: query } });
   },
   getComments: function(postid) {
     return axios.get("api/comment/" + postid)
