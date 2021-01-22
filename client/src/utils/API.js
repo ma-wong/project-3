@@ -25,5 +25,11 @@ export default {
   },
   getPostAll: function(){
     return axios.get("/api/post/")
+  },
+  getPostData: function(id) {
+    return axios.get("/api/postdata/" + id);
+  },
+  updatePostData: function(id, postData) {
+    return axios.put("/api/postdata/" + id, postData);
   }
 };

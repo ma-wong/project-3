@@ -42,8 +42,8 @@ class Details extends Component {
         this.setState({copySuccess: true})
     }
 
-    // logCopyCount = id => {
-    //     API.update({
+    // updateCopyCount = () => {
+    //     API.updatePostData({
 
     //     })
     // }
@@ -73,6 +73,7 @@ class Details extends Component {
                         }
                     </div>
                 </div>
+                
                 <div className="row">
                     <DetailedCode 
                         title={this.state.postDetails.title}
@@ -83,6 +84,7 @@ class Details extends Component {
                         userId={this.state.postDetails.UserId}
                     />
                 </div>
+
                 <div className="row">
                     <div className="col-md-8">
                         <Comments />
