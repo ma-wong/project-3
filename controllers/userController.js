@@ -41,6 +41,8 @@ module.exports = {
               email: req.user.email,
               username: req.user.username,
               id: req.user.id,
+              profileUrl: req.user.profileUrl,
+              createdAt: req.user.createdAt
             });
           }
     },

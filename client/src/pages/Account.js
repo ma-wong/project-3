@@ -9,7 +9,8 @@ function Account() {
     const [userInfo, setUserInfo] = useState({
         email: "",
         username: "",
-        profileUrl: ""
+        profileUrl: "",
+        createdAt: new Date().toLocaleString()
     }); 
 
     useEffect(() => {
@@ -30,7 +31,8 @@ function Account() {
                 ...userInfo,
                 email: response.data.email,
                 username: response.data.username,
-                profileUrl: ""
+                profileUrl: response.data.profileUrl,
+                createdAt: new Date(response.data.createdAt).toLocaleDateString("en-US")
             })
         })
     }
@@ -67,6 +69,7 @@ function Account() {
            email ={userInfo.email}
            username={userInfo.username}
            profileUrl={userInfo.profileUrl}
+           createdAt={userInfo.createdAt}
            />
        </div>
     )
