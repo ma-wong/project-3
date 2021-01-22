@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./createCodeForm.css";
 import hljs from "highlight.js"
+import { render } from "react-dom";
 
 function CreateCodeForm(){
     var userSelectedLanguage = "";
@@ -16,39 +17,48 @@ function CreateCodeForm(){
     ["SML","ml"],["Stan","stan"],["Stata","stata"],["Stylus","stylus"],["SubUnit","subunit"],["Swift","swift"],["Tcl","tcl"],["Test Anything Protocol","tap"],["Thrift","thrift"],["TP","tp"],["Twig","twig"],["Typescript","ts"],["VB.Net","vb"],["VBScript","vbs"],["VHDL","vhdl"],["Vala","vala"],["Verilog","v"],["Vim Script","vim"],["X++","axapta"],["x86 Assembly","x86asm"],["XL","xl"],["XQuery","xq"],["YAML","yml"],["Zephir","zep"]];
     const languageOptions = languages.map((language) =>
         <option value={language[1]}>{language[0]}</option>
-    ); 
+    );
 
-    const [state, setState] = useState({
-        selectedLanguage: "",
-        tags:[]
-    });
-    
-    function handleKeyPress(event) {
-        event.preventDefault();
-        if (event.key === "Enter") {
-        }
-    };
+    const [selectedLanguage, setSelectedLanguage] = useState("");
+    const [tags, setTags] = useState([]);
+
+    const renderedTags = tags.map((tag)=><div className="create-code-tag" name={tag}>{tag}</div>);
+
+    useEffect(() => {
+    }, [tags]);
 
     function handleLanguageSelect(event) {
-        setState({
-            selectedLanguage: event.target.value
-        });
+        setSelectedLanguage(event.target.value);
+    };
+
+    function keyUpFunction(event) {
+        if (event.key === "Enter") {
+            setTags([...tags, event.target.value]);
+            event.target.value = "";
+        };
+    };
+
+    function keyDownFunction(event) {
+        if (event.key === "Enter") {
+            event.preventDefault();
+            return false;
+        }
     };
 
     return(
         <div className="create-code-background">
             <div className="create-form-container">
-                <form className="create-form">
+                <form className="create-form" autoComplete="off">
                     <input type="text" name="title" placeholder="title" className="create-code-title"/>
                     <label for="language">Select the coding language:</label>
                     <select name="language" placeholder="language" onClick={handleLanguageSelect}>{languageOptions}</select>
                     <div className="code-preview-container">
                         <textarea name="code-block" />
-                        <pre><code className={state.selectedLanguage}></code></pre>
+                        <pre><code className={selectedLanguage}></code></pre>
                     </div>
-                    <input type="text" name="tags" placeholder="tags" onKeyPress={handleKeyPress}/>
+                    <input type="text" name="tags" placeholder="tags" onKeyDown={keyDownFunction} onKeyUp={keyUpFunction}/>
                     <div className="tags-box">
-                        Tags will appear here.
+                        {renderedTags}
                     </div>
                     <button>Submit</button>
                 </form>
