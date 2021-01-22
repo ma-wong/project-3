@@ -17,26 +17,35 @@
     background-color: white;
 }
 
+.code-preview-container {
+    display: flex;
+    width: 95%;
+    justify-content: center;
+    height: 53%;
+}
+
+.code-preview-container > * {
+    width: 45%;
+    height: 100%;
+    margin-left: 2%;
+    margin-right: 2%;
+}
+
 .create-form > * {
     margin-top: 2%;
     margin-bottom: 2%;
 }
 
-.create-form textarea {
-    height: 45%;
-    width: 90%;
-}
-
-.create-form :nth-child(1){
+.create-form .create-code-title {
     width: 60%;
     margin-top: 1%;
 }
 
-.create-form :nth-child(4){
+.create-form :nth-child(5){
     width: 15%;
 }
 
-.create-form :nth-child(6){
+.create-form :nth-child(7){
     margin-top:1%;
 }
 
@@ -44,6 +53,11 @@
     width: 90%;
     display: flex;
     justify-content: center;
+}
+
+.create-form label {
+    margin-top: 0%;
+    margin-bottom: 0%;
 }
 
 @media (max-width:1500px) {

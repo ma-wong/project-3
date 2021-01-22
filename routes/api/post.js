@@ -8,5 +8,6 @@ router.route("/")
 router.route("/:id")
     .delete(postController.delete)
     .put(postController.update)
+    .get(postController.findOne)
 
 module.exports = router;

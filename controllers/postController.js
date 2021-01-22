@@ -32,6 +32,15 @@ module.exports = {
         })
         .then((dbPost) => {res.json(dbPost)})
         .catch( err => {throw err});
+    },
+    findOne: function(req, res) {
+        db.Post.findOne({
+            where: {
+                id: req.params.id
+            }
+        })
+        .then((dbPost) => {res.json(dbPost)})
+        .catch( err => {throw err});
     }
     // Still needs search by title and tag routes
 };

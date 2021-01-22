@@ -6,16 +6,16 @@ import { useHistory } from 'react-router-dom'
 
 
 function SearchResults() {
-    // const history = useHistory();
+    const history = useHistory();
 
-    // useEffect(() => {
-    //     let isLoggedIn = localStorage.getItem("login")
-    //     if (isLoggedIn) {
-    //       return;
-    //     } else {
-    //         history.push("/login")
-    //     }
-    // });
+    useEffect(() => {
+        let isLoggedIn = localStorage.getItem("login")
+        if (isLoggedIn) {
+          return;
+        } else {
+            history.push("/login")
+        }
+    });
     const [searchResults, setSearchResults] = useState([]);
     const [codeSearch, setCodeSearch] = useState("");
 

@@ -1,3 +1,4 @@
+
 import axios from "axios";
 
 const BASEURL = "https://randomuser.me/api/?results=1";
@@ -19,11 +20,7 @@ export default {
   getUser: function() {
     return axios.get("api/user/user_data")
   },
-  uploadImage: function(image){
-    return axios.post("/api/user/image", image)
-  },
-  getComments: function(postid){
-    return axios.get("api/comments/:postid")
+  getPost: async function(id) {
+    return axios.get("/api/post/" + id);
   }
-  
 };
