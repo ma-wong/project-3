@@ -11,9 +11,6 @@ module.exports = function(sequelize, DataTypes) {
             len: [1]
           }
       },
-      postid: {
-        type: DataTypes.STRING
-      },
      profileUrl: {
       type: DataTypes.STRING,
       allowNull: false

@@ -9,7 +9,7 @@ module.exports = {
     readAll: function(req, res) {
         db.Comment.findAll({
             where: {
-              postid: req.params.postid
+              PostId: req.params.postid
             }
           }).then(function(dbComment) {
             res.json(dbComment);
