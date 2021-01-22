@@ -7,8 +7,14 @@ module.exports = {
         .catch(err => {throw err});
     },
     update: function(req, res) {
-        db.PostData.update({
-            where: { id: req.params.id }
+        db.PostData.update(
+              {
+                copies: req.body.copies
+              },
+              {
+              where: {
+                PostId: req.params.id
+              }
         })
         .then((dbPostData) => {res.json(dbPostData)})
         .catch( err => {throw err});
