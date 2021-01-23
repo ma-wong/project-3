@@ -42,7 +42,7 @@ app.use((req, res) => {
 });
 
 app.get('/api/user/send/:email', function (req, res) {
-  
+  console.log("sending Email");
   mailOptions = {
     to: req.params.email,
     subject: "Confirm your Email address",
