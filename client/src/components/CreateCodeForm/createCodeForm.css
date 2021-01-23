@@ -41,7 +41,7 @@
     margin-top: 1%;
 }
 
-.create-form :nth-child(5){
+.create-form .tag-input{
     width: 15%;
 }
 
@@ -58,6 +58,27 @@
 .create-form label {
     margin-top: 0%;
     margin-bottom: 0%;
+}
+
+.create-code-tag {
+    display: flex;
+    margin-right: 1%;
+    margin-left: 1%;
+    width: auto;
+}
+
+.create-code-tag p {
+    background-color: grey;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    padding-left: 3%;
+    padding-right: 3%;
+}
+
+.create-code-tag button {
+    height: 25px;
+    width: 25px;
+    font-size: 10px;
 }
 
 @media (max-width:1500px) {

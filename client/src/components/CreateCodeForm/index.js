@@ -36,7 +36,15 @@ function CreateCodeForm(){
     };
 
     function keyUpFunction(event) {
-        if (event.key === "Enter") {
+        if (event.key === "Enter" && tags.length === 6) {
+            alert("No more than 6 tags.")
+            event.target.value = "";
+            return false;
+        } if (event.key === "Enter" && /\s/.test(event.target.value) === true) {
+            alert("Tags must contain zero spaces.");
+            event.target.value = "";
+            return false;
+        } else if (event.key === "Enter") {
             setTags([...tags, event.target.value]);
             event.target.value = "";
         };
@@ -67,7 +75,7 @@ function CreateCodeForm(){
                         <textarea name="code-block" />
                         <pre><code className={selectedLanguage}></code></pre>
                     </div>
-                    <input type="text" name="tags" placeholder="tags" onKeyDown={keyDownFunction} onKeyUp={keyUpFunction}/>
+                    <input type="text" name="tags" placeholder="tags" onKeyDown={keyDownFunction} onKeyUp={keyUpFunction} className="tag-input"/>
                     <div className="tags-box">
                         {renderedTags}
                     </div>
