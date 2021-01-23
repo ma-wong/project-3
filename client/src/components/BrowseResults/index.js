@@ -9,9 +9,7 @@ function BrowseResults (props){
     const [codeList, setCodeList] = useState([]);
 
     let sort = props.sort;
-
-    console.log(sort);
-
+    
     useEffect( () => {
         switch(sort){
             case "views":
@@ -35,9 +33,11 @@ function BrowseResults (props){
             default:
                 API.getPostAll()
                 .then(res => {
+                    console.log(res)
                     setCodeList(res.data);
-                }).catch(err => console.log(err))}
-    },[])
+                }).catch(err => console.log(err))
+            }
+    },[sort])
 
     useLayoutEffect( () => {
         document.querySelectorAll("pre code").forEach(e => {
@@ -47,7 +47,7 @@ function BrowseResults (props){
 
     return(
         <>
-        {codeList.map((val, index) => {
+        {codeList?.map((val, index) => {
                 if(index < 4){
                 return(
                     <div key={val.id} style={{"display":"flex","flexDirection":"column","width":"clamp(300px,70%,900px)","margin":"0 auto",
