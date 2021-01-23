@@ -41,6 +41,17 @@ module.exports = {
         })
         .then((dbPost) => {res.json(dbPost)})
         .catch( err => {throw err});
-    }
+    },
     // Still needs search by title and tag routes
+
+    // This is my attempt at the API route, its not correct, pls help -Morgan
+    findByTitle: function(req, res) {
+        db.Post.findAll({
+            where: {
+                title: req.body
+            }
+        })
+        .then((dbPost) => {res.json(dbPost)})
+        .catch( err => {throw err});
+    }
 };

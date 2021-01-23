@@ -63,6 +63,7 @@ class SearchResults extends Component {
                 <SearchResultsList>
                     {this.state.searchResults.map(codeSnippet => (
                         <SearchResultsItem
+                            codeId={codeSnippet.id}
                             title={codeSnippet.title}
                             description={codeSnippet.description}
                             code={codeSnippet.code}

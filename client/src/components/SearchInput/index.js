@@ -1,7 +1,7 @@
 import React from "react";
 import "./SearchInput.css";
 
-function SearchInput({ q, handleInputChange, handleSearchSubmit }) {
+function SearchInput({ query, handleInputChange, handleSearchSubmit }) {
     return (
         <div className="container">
                 
@@ -12,8 +12,8 @@ function SearchInput({ q, handleInputChange, handleSearchSubmit }) {
                     placeholder="Search For Code"
                     aria-describedby="button-addon2"
                     id="Title"
-                    value={q}
-                    name="q"
+                    value={query}
+                    name="query"
                     onChange={handleInputChange}
                     required
                 />
@@ -31,4 +31,3 @@ function SearchInput({ q, handleInputChange, handleSearchSubmit }) {
 }
   
 export default SearchInput;
-  
