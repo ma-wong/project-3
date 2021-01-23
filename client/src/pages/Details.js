@@ -64,7 +64,9 @@ class Details extends Component {
                         <label for="code-block-text">Code Block</label>
                     </div>
                     <div>
-                        <button type="button" className="btn btn-outline-primary" id="copy-btn" onClick={() => this.copyCodeToClipboard()}>
+                        <button type="button" className="btn btn-outline-primary"
+                            id="copy-btn"
+                            onClick={() => this.copyCodeToClipboard()}>
                             Copy to Clipboard
                         </button>
                         {
