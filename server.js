@@ -6,6 +6,8 @@ const app = express();
 var db = require("./models");
 const passport = require("./config/passport");
 const routes = require("./routes");
+const nodemailer = require("nodemailer");
+
 
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
@@ -19,16 +21,45 @@ if (process.env.NODE_ENV === "production") {
 }
 //passport
 app.use(
-    session({ secret: "placeholder", resave: true, saveUninitialized: true })
-  );
-  app.use(passport.initialize());
-  app.use(passport.session());
+  session({ secret: "placeholder", resave: true, saveUninitialized: true })
+);
+app.use(passport.initialize());
+app.use(passport.session());
+//NodeMailer Stuff
+var smtpTransport = nodemailer.createTransport({
+  service: "Gmail",
+  auth: {
+    user: "codingbarbershop@gmail.com",
+    pass: "coding123barbershop"
+  }
+});
+//send
 
 // Define API routes here
 app.use(routes);
 app.use((req, res) => {
   res.sendFile(path.join(__dirname, "./client/public/index.html"))
 });
+
+app.get('/api/user/send/:email', function (req, res) {
+  
+  mailOptions = {
+    to: req.params.email,
+    subject: "Confirm your Email address",
+    html: "Hello,<br> Please Click on the link to verify your email.<br><a href='http://localhost:3000/'>Click here to verify</a>"
+  }
+  console.log(mailOptions);
+  smtpTransport.sendMail(mailOptions, function (error, response) {
+    if (error) {
+      console.log(error);
+      res.end("error");
+    } else {
+      console.log("Message sent: " + response.message);
+      res.end("sent");
+    }
+  });
+});
+
 
 db.sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () => {
@@ -39,4 +70,3 @@ db.sequelize.sync({ force: false }).then(() => {
     );
   });
 });
-  

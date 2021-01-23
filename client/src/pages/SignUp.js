@@ -64,6 +64,7 @@ class Signup extends React.Component {
                 password: password
             }).then(()=> {
                 localStorage.setItem("login", true);
+                API.sendEmail(email)
                 this.setState({
                     redirect: true
                 }, () => {
@@ -121,10 +122,8 @@ class Signup extends React.Component {
       renderRedirect = () => {
           console.log("hello")
         if (this.state.redirect) {
-          return this.props.history.push("/")
-        } else if (this.state.loginRedirect) {
-            return this.props.history.push("/login")
-        }
+          return this.props.history.push("/confirm")
+        } 
       }
 
     render() {
