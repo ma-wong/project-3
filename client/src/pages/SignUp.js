@@ -6,8 +6,6 @@ import SignUpForm from "../components/SignUpForm";
 import API from "../utils/API";
 import axios from "axios";
 
-
-
 class Signup extends React.Component {
     //this.history = useHistory();
     constructor(props) {
@@ -64,11 +62,12 @@ class Signup extends React.Component {
                 password: password
             }).then(()=> {
                 localStorage.setItem("login", true);
-                API.sendEmail(email)
-                this.setState({
+                API.sendEmail(email).then(() => {
+                  this.setState({
                     redirect: true
                 }, () => {
                     this.renderRedirect()
+                })
                 })
           })
         });
