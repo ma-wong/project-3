@@ -27,11 +27,12 @@ class SearchResults extends Component {
 
     getSearchResults = () => {
         API.getPostsBySearch(this.state.query)
-        .then(res =>
+        .then(res => {
+            console.log(res)
             this.setState({
                 searchResults: res.data
             })
-        )
+        })
         .catch(() =>
             this.setState({
                 searchResults: [],

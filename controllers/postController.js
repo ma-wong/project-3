@@ -1,4 +1,5 @@
 const db = require("../models/");
+const { Op } = require("sequelize");
 
 module.exports = {
     create: function(req, res) {
@@ -68,6 +69,38 @@ module.exports = {
         .then((dbPost) => {res.json(dbPost)})
         .catch( err => {throw err});
     },
+    findByTitle: function(req, res) {
+        db.Post.findAll({
+            where: {
+                title: {
+                    [Op.regexp]: req.params.query
+                }
+            }, include: [{
+                model: db.PostData,
+                }],
+            order: [
+                [db.PostData, 'views', 'DESC']
+              ]
+        })
+        .then((dbPost) => {res.json(dbPost)})
+        .catch( err => {throw err});
+    },
+    findByTags: function(req, res) {
+        db.Post.findAll({
+            where: {
+                tags: {
+                    [Op.regexp]: req.params.query
+                }
+            }, include: [{
+                model: db.PostData,
+                }],
+            order: [
+                [db.PostData, 'views', 'DESC']
+              ]
+        })
+        .then((dbPost) => {res.json(dbPost)})
+        .catch( err => {throw err});
+    },
     findOne: function(req, res) {
         db.Post.findOne({
             where: {
@@ -78,14 +111,4 @@ module.exports = {
         .catch( err => {throw err});
     }
     // Still needs search by title and tag routes
-    // This is my attempt at the API route, its not correct, pls help -Morgan
-    findByTitle: function(req, res) {
-        db.Post.findAll({
-            where: {
-                title: req.body
-            }
-        })
-        .then((dbPost) => {res.json(dbPost)})
-        .catch( err => {throw err});
-    }
 };
