@@ -16,7 +16,7 @@ class Navhead extends Component {
   render() {
     return (
         <Navbar bg="dark" expand="lg">
-          <div class="col-sm-5 col-md-7 col-lg-11">
+          <div className="col-sm-5 col-md-7 col-lg-11">
             <Dropdown>
               <Dropdown.Toggle variant="success" id="dropdown-basic">
                 Left Dropdown
@@ -48,7 +48,7 @@ class Navhead extends Component {
         <div>
           {/* usercircle is what I used to create the blue circle */}
 
-          <DropdownButton id="dropdown-basic-button" id="usercircle">
+          <DropdownButton id="dropdown-basic-button" id="usercircle" title="">
           {/* <DropdownButton id="dropdown-basic-button" title="User cir button" onClick={() => this.setState({ viewBlocks: false, viewUserCircle: true })}>
             {this.state.viewUserCircle ? */}
 

@@ -20,22 +20,18 @@ export default {
   getUser: function() {
     return axios.get("api/user/user_data");
   },
-  getPost: async function(id) {
-    return axios.get("/api/post/" + id);
-  },
-
-  getPostAll: function(){
-    return axios.get("/api/post/")
+  getPostViews: function(){
+    return axios.get("/api/post/views/")
   },
   getPostLikes: function(){
-    return axios.get("/api/post/likes")
-  },
-  getPostViews: function(){
-    return axios.get("/api/post/views")
+    return axios.get("/api/post/likes/")
   },
   getPostComments: function(){
-    return axios.get("/api/post/comments")
+    return axios.get("/api/post/comments/")
   },
+  getPost: async function(id) {
+    return axios.get("/api/post/" + id);
+  },  
   getPostAll: function() {
     return axios.get("/api/post/");
   },

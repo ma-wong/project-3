@@ -1,4 +1,5 @@
 const { Sequelize } = require("sequelize");
+const { sequelize } = require(".");
 
 module.exports = function(sequelize, DataTypes) {
     const Post = sequelize.define("Post", {
@@ -25,21 +26,19 @@ module.exports = function(sequelize, DataTypes) {
         },
     });
     Post.associate = function(models) {
-        Post.hasMany(models.postData, {
-            onDelete:"cascade"
+        Post.hasOne(models.PostData, {
+            onDelete:"cascade",
+            allowNull: false
         });
-    };
-    Post.associate = function(models) {
         Post.hasMany(models.Comment, {
-          onDelete: "cascade"
-        });
-      };
-    Post.associate = function(models) {
+            onDelete: "cascade"
+          });
         Post.belongsTo(models.User, {
             foreignKey: {
                 allowNull: false
             }
         });
     };
+    
     return Post;
 }

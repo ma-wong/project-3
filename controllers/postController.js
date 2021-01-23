@@ -33,6 +33,41 @@ module.exports = {
         .then((dbPost) => {res.json(dbPost)})
         .catch( err => {throw err});
     },
+    views: function(req, res) {
+        db.Post.findAll({
+            include: [{
+                model: db.PostData,
+                }],
+            order: [
+                [db.PostData, 'views', 'DESC']
+              ]    
+        })
+        .then((dbPost) => {res.json(dbPost)})
+        .catch( err => {throw err});
+    },
+    likes: function(req,res){
+        db.Post.findAll({
+            include: [{
+                model: db.PostData,
+                }],
+            order: [
+                [db.PostData, 'clicks', 'DESC']
+              ]    
+        })
+        .then((dbPost) => {res.json(dbPost)})
+        .catch( err => {throw err});
+    },    
+    comments: function(req,res){
+        //still need to test if works
+        db.Post.findAll({
+            attributes: [
+                [sequelize.literal('(SELECT COUNT(*) FROM PostData WHERE PostData.PostId = Post.id)'), 'CommCount']
+            ],
+            order: [[sequelize.literal('CommCount'), 'DESC']]
+        })
+        .then((dbPost) => {res.json(dbPost)})
+        .catch( err => {throw err});
+    },
     findOne: function(req, res) {
         db.Post.findOne({
             where: {
@@ -41,42 +76,8 @@ module.exports = {
         })
         .then((dbPost) => {res.json(dbPost)})
         .catch( err => {throw err});
-    },
-    views: function(req,res){
-        db.Post.findAll({
-            include: {
-              model: PostData,
-              order: [
-                ['views', 'DESC']
-            ]}
-        })
-        .then((dbPost) => {res.json(dbPost)})
-        .catch( err => {throw err});
-    },
-    comments: function(req,res){
-        db.Post.findAll({
-            include: {
-              model: Comment,
-              order: [
-                ['views', 'DESC']
-            ]}
-        })
-        .then((dbPost) => {res.json(dbPost)})
-        .catch( err => {throw err});
-    },
-    likes: function(req,res){
-        db.Post.findAll({
-            include: {
-              model: PostData,
-              order: [
-                ['likes', 'DESC']
-            ]}
-        })
-        .then((dbPost) => {res.json(dbPost)})
-        .catch( err => {throw err});
     }
     // Still needs search by title and tag routes
-
     // This is my attempt at the API route, its not correct, pls help -Morgan
     findByTitle: function(req, res) {
         db.Post.findAll({
