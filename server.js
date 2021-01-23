@@ -6,6 +6,8 @@ const app = express();
 var db = require("./models");
 const passport = require("./config/passport");
 const routes = require("./routes");
+const nodemailer = require("nodemailer");
+
 
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
@@ -19,10 +21,37 @@ if (process.env.NODE_ENV === "production") {
 }
 //passport
 app.use(
-    session({ secret: "placeholder", resave: true, saveUninitialized: true })
-  );
-  app.use(passport.initialize());
-  app.use(passport.session());
+  session({ secret: "placeholder", resave: true, saveUninitialized: true })
+);
+app.use(passport.initialize());
+app.use(passport.session());
+//NodeMailer Stuff
+var smtpTransport = nodemailer.createTransport({
+  service: "Gmail",
+  auth: {
+    user: "codingbarbershop@gmail.com",
+    pass: "coding123barbershop"
+  }
+});
+//send
+
+app.get('/api/user/send', function (req, res) {
+  mailOptions = {
+    to: req.body.email,
+    subject: "Confirm your Email address",
+    html: "Hello,<br> Please Click on the link to verify your email.<br><a href='http://localhost:3000/'>Click here to verify</a>"
+  }
+  console.log(mailOptions);
+  smtpTransport.sendMail(mailOptions, function (error, response) {
+    if (error) {
+      console.log(error);
+      res.end("error");
+    } else {
+      console.log("Message sent: " + response.message);
+      res.end("sent");
+    }
+  });
+});
 
 // Define API routes here
 app.use(routes);
@@ -39,4 +68,3 @@ db.sequelize.sync({ force: false }).then(() => {
     );
   });
 });
-  

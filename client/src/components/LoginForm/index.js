@@ -36,13 +36,14 @@ function LoginForm({ username, password, handleInputChange, handleFormSubmit }) 
                 <label htmlFor="inputPassword">Password</label>
               </div>
               <button onClick={handleFormSubmit} className="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Log in</button>
+              <button className="btn githubBttn btn-block text-uppercase" type="submit">Log in with Github</button>
               <hr />
               <div className="terms">
-                    <a href="/">Terms of Service</a>
-                    <a href="/">Privacy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Privacy</a>
                 </div>
                 <div className="login-link-div">
-                    <a id="login-link" href="/signup">Don't have an account? Sign Up!</a>
+                    <a id="login-link" href="/signup">Don't have an account? Sign Up</a>
                 </div>
             </form>
         </div>

@@ -89,8 +89,8 @@ function SignUpForm({ username, email, password, confirmPassword, handleInputCha
               <button onClick={handleGithub} className="btn githubBttn btn-block text-uppercase" type="submit">Sign Up With Github</button>
               <hr />
               <div className="terms">
-                    <a href="/">Terms of Service</a>
-                    <a href="/">Privacy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Privacy</a>
                 </div>
                 <div className="login-link-div">
                     <a id="login-link" href="/login">Already have an account? Login</a>
