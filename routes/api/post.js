@@ -14,6 +14,9 @@ router.route("/likes/")
 router.route("/comments/")
     .get(postController.comments)    
 
+router.route("/search/:query")
+    .get(postController.findByTitle)
+
 router.route("/:id")
     .delete(postController.delete)
     .put(postController.update)
