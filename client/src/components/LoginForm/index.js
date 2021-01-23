@@ -41,6 +41,9 @@ function LoginForm({ username, password, handleInputChange, handleFormSubmit }) 
                     <a href="/">Terms of Service</a>
                     <a href="/">Privacy</a>
                 </div>
+                <div className="login-link-div">
+                    <a id="login-link" href="/signup">Don't have an account? Sign Up!</a>
+                </div>
             </form>
         </div>
       </div>

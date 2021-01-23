@@ -25,7 +25,6 @@ class Signup extends React.Component {
         previewSource: "",
         image: "",
         redirect: false,
-        loginRedirect: false
     }
 
 
@@ -128,13 +127,6 @@ class Signup extends React.Component {
         }
       }
 
-    handleLogin = () => {
-        this.setState({
-            loginRedirect: true
-        },() => {
-            this.renderRedirect()
-        })
-      }
     render() {
     return (
         <div>

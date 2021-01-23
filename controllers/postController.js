@@ -42,6 +42,39 @@ module.exports = {
         .then((dbPost) => {res.json(dbPost)})
         .catch( err => {throw err});
     },
+    views: function(req,res){
+        db.Post.findAll({
+            include: {
+              model: PostData,
+              order: [
+                ['views', 'DESC']
+            ]}
+        })
+        .then((dbPost) => {res.json(dbPost)})
+        .catch( err => {throw err});
+    },
+    comments: function(req,res){
+        db.Post.findAll({
+            include: {
+              model: Comment,
+              order: [
+                ['views', 'DESC']
+            ]}
+        })
+        .then((dbPost) => {res.json(dbPost)})
+        .catch( err => {throw err});
+    },
+    likes: function(req,res){
+        db.Post.findAll({
+            include: {
+              model: PostData,
+              order: [
+                ['likes', 'DESC']
+            ]}
+        })
+        .then((dbPost) => {res.json(dbPost)})
+        .catch( err => {throw err});
+    }
     // Still needs search by title and tag routes
 
     // This is my attempt at the API route, its not correct, pls help -Morgan
