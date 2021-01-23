@@ -35,9 +35,16 @@ var smtpTransport = nodemailer.createTransport({
 });
 //send
 
-app.get('/api/user/send', function (req, res) {
+// Define API routes here
+app.use(routes);
+app.use((req, res) => {
+  res.sendFile(path.join(__dirname, "./client/public/index.html"))
+});
+
+app.get('/api/user/send/:email', function (req, res) {
+  
   mailOptions = {
-    to: req.body.email,
+    to: req.params.email,
     subject: "Confirm your Email address",
     html: "Hello,<br> Please Click on the link to verify your email.<br><a href='http://localhost:3000/'>Click here to verify</a>"
   }
@@ -53,11 +60,6 @@ app.get('/api/user/send', function (req, res) {
   });
 });
 
-// Define API routes here
-app.use(routes);
-app.use((req, res) => {
-  res.sendFile(path.join(__dirname, "./client/public/index.html"))
-});
 
 db.sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () => {

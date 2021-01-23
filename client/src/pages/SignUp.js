@@ -64,6 +64,7 @@ class Signup extends React.Component {
                 password: password
             }).then(()=> {
                 localStorage.setItem("login", true);
+                API.sendEmail(email)
                 this.setState({
                     redirect: true
                 }, () => {

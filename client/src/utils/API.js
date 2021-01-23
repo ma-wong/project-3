@@ -28,5 +28,8 @@ export default {
   },
   getComments: function(postid) {
     return axios.get("api/comment/" + postid)
+  },
+  sendEmail: function(email) {
+    return axios.get("api/user/send" + email)
   }
 };
