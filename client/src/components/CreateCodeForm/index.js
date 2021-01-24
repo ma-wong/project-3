@@ -35,7 +35,12 @@ function CreateCodeForm(){
     }, [tags]);
 
     useEffect(() => {
-    }, [userCode]);
+        document.querySelectorAll("pre code").forEach(e => {
+            hljs.highlightBlock(e);
+          });
+    }, [userCode,selectedLanguage]);
+
+    
 
     function handleLanguageSelect(event) {
         setSelectedLanguage(event.target.value);
