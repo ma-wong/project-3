@@ -75,13 +75,8 @@ function CreateCodeForm(){
         setTags(newTagArray);
     };
 
-    function validateContent (event) {
-        event.preventDefault();
-        console.log(event.target.parentNode);
-    };
-
     function handleIndent(event) {
-        if (event.key == "Tab") {
+        if (event.key === "Tab") {
             event.preventDefault();
             var start = event.target.selectionStart;
             var end = event.target.selectionEnd;
@@ -95,22 +90,37 @@ function CreateCodeForm(){
     };
 
     function handleUserCodeInput(event) {
-        console.log(event.target.value);
         setUserCode(event.target.value);
+    };
+
+    function validateContent (event) {
+        event.preventDefault();
+        var codeTitle = document.getElementById("code-title").value.trim();
+        var codeDesc = document.getElementById("code-desc").value.trim();
+        if ((codeTitle === "") === false && (codeDesc === "") === false && (userCode.trim() === "") === false && (selectedLanguage.trim() === "") === false) {
+            createNewCodeBlock();
+        } else {
+            alert("submission has failed verification.");
+        }
+    };
+
+    function createNewCodeBlock () {
+        console.log("storing data...");
     };
 
     return(
         <div className="create-code-background">
             <div className="create-form-container">
                 <form className="create-form" autoComplete="off">
-                    <input type="text" name="title" placeholder="title" className="create-code-title"/>
-                    <label for="language">Select the coding language:</label>
-                    <select name="language" placeholder="language" onClick={handleLanguageSelect} onKeyup={handleLanguageSelect}>{languageOptions}</select>
-                    <div className="code-preview-container">
-                        <textarea name="code-block" onKeyDown={handleIndent} onKeyUp={handleUserCodeInput}/>
+                    <input type="text" id="code-title" name="title" placeholder="Title" className="create-code-title"/>
+                    <label htmlFor="language">Select the coding language:</label>
+                    <select name="language" placeholder="language" onClick={handleLanguageSelect} onKeyUp={handleLanguageSelect}>{languageOptions}</select>
+                    <div className="code-preview-container" name="code-preview-container">
+                        <textarea name="code-block" onKeyDown={handleIndent} onKeyUp={handleUserCodeInput} placeholder="//Code goes here..."/>
                         <pre><code className={selectedLanguage}>{userCode}</code></pre>
                     </div>
-                    <input type="text" name="tags" placeholder="tags" onKeyDown={tagsKeyDownFunction} onKeyUp={tagsKeyUpFunction} className="tag-input"/>
+                    <textarea name="code-desc" id="code-desc" className="code-desc" placeholder="Description goes here..."/>
+                    <input type="text" name="tags" placeholder="Tags" onKeyDown={tagsKeyDownFunction} onKeyUp={tagsKeyUpFunction} className="tag-input"/>
                     <div className="tags-box">
                         {renderedTags}
                     </div>

@@ -11,7 +11,7 @@
     display: flex;
     flex-direction: column;
     width: 33vw;
-    height: 50vh;
+    height: 75vh;
     align-items: center;
     justify-content: center;
     background-color: white;
@@ -21,7 +21,7 @@
     display: flex;
     width: 95%;
     justify-content: center;
-    height: 53%;
+    height: 40%;
 }
 
 .code-preview-container > * {
@@ -29,6 +29,11 @@
     height: 100%;
     margin-left: 2%;
     margin-right: 2%;
+}
+
+.code-desc {
+    height: 20%;
+    width: 70%;
 }
 
 .create-form > * {
