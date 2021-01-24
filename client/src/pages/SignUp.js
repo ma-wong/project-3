@@ -48,6 +48,7 @@ class Signup extends React.Component {
     };
 
      signUpUser = (email, username, password, profileUrl) => {
+       console.log(profileUrl)
         API.signUpUser({
           email: email,
           username: username,
