@@ -8,7 +8,8 @@ module.exports = {
             title: req.body.title,
             code: req.body.code,
             userid: req.body.userid,
-            tags: req.body.tags
+            tags: req.body.tags,
+            language: req.body.language
         })
         .then((dbPost) => {res.json(dbPost)})
         .catch(err => {throw err});

@@ -2,9 +2,11 @@ import React, { useState, useEffect } from "react";
 import "./createCodeForm.css";
 import hljs from "highlight.js"
 import { render } from "react-dom";
+import API from "../../utils/API.js";
+import { set } from "local-storage";
 
 function CreateCodeForm(){
-    var userSelectedLanguage = "";
+
     const languages = [["1C","1c"],["ABNF","abnf"],["Access logs","accesslog"],["Ada","ada"],["Arduino","arduino"],["ARM Assembler","armasm"],["AVR assembler","avrasm"],["ActionScript","actionscript"],["AngelScript","asc"],["Apache","apache"],["AppleScript","applescript"],["Arcade","arcade"],
     ["AsciiDoc","asciidoc"],["AspectJ","aspectj"],["AutoHotkey","autohotkey"],["AutoIt","autoit"],["Awk","awk"],["Bash","bash"],["Basic","basic"],["BNF","bnf"],["Brainfuck","bf"],["C#","cs"],["C","c"],["C++","cpp"],["C/AL","cal"],["Cache Object Script","cos"],["CMake","cmake"],["Coq","coq"],["CSP","csp"],["CSS","css"],
     ["Cap'n Proto","capnproto"],["Clojure","clojure"],["CoffeeScript","coffeescript"],["Crmsh","crmsh"],["Crystal","crystal"],["D","d"],["DNS Zone file","dns"],["DOS","dos"],["Dart", "dart"],["Delphi","dpr"],["Diff","diff"],["Django","jinja"],["Dockerfile","docker"],["dsconfig","dsconfig"],["DTS","dts"],["Dust","dst"],["EBNF","ebnf"],["Elixir","elixir"],["Elm","elm"],
@@ -21,6 +23,7 @@ function CreateCodeForm(){
 
     const [selectedLanguage, setSelectedLanguage] = useState("");
     const [tags, setTags] = useState([]);
+    const [userCode, setUserCode] = useState("");
 
     const renderedTags = tags.map((tag)=>
     <div className="create-code-tag" name={tag}>
@@ -31,11 +34,14 @@ function CreateCodeForm(){
     useEffect(() => {
     }, [tags]);
 
+    useEffect(() => {
+    }, [userCode]);
+
     function handleLanguageSelect(event) {
         setSelectedLanguage(event.target.value);
     };
 
-    function keyUpFunction(event) {
+    function tagsKeyUpFunction(event) {
         if (event.key === "Enter" && tags.length === 6) {
             alert("No more than 6 tags.")
             event.target.value = "";
@@ -50,7 +56,7 @@ function CreateCodeForm(){
         };
     };
 
-    function keyDownFunction(event) {
+    function tagsKeyDownFunction(event) {
         if (event.key === "Enter") {
             event.preventDefault();
             return false;
@@ -64,22 +70,46 @@ function CreateCodeForm(){
         setTags(newTagArray);
     };
 
+    function validateContent (event) {
+        event.preventDefault();
+        console.log(event.target.parentNode);
+    };
+
+    function handleIndent(event) {
+        if (event.key == "Tab") {
+            event.preventDefault();
+            var start = event.target.selectionStart;
+            var end = event.target.selectionEnd;
+
+            event.target.value = event.target.value.substring(0, start) +
+                "\t" + event.target.value.substring(end);
+
+            event.target.selectionStart = 
+                event.target.selectionEnd = start + 1;
+        }
+    };
+
+    function handleUserCodeInput(event) {
+        console.log(event.target.value);
+        setUserCode(event.target.value);
+    };
+
     return(
         <div className="create-code-background">
             <div className="create-form-container">
                 <form className="create-form" autoComplete="off">
                     <input type="text" name="title" placeholder="title" className="create-code-title"/>
                     <label for="language">Select the coding language:</label>
-                    <select name="language" placeholder="language" onClick={handleLanguageSelect}>{languageOptions}</select>
+                    <select name="language" placeholder="language" onClick={handleLanguageSelect} onKeyup={handleLanguageSelect}>{languageOptions}</select>
                     <div className="code-preview-container">
-                        <textarea name="code-block" />
-                        <pre><code className={selectedLanguage}></code></pre>
+                        <textarea name="code-block" onKeyDown={handleIndent} onKeyUp={handleUserCodeInput}/>
+                        <pre><code className={selectedLanguage}>{userCode}</code></pre>
                     </div>
-                    <input type="text" name="tags" placeholder="tags" onKeyDown={keyDownFunction} onKeyUp={keyUpFunction} className="tag-input"/>
+                    <input type="text" name="tags" placeholder="tags" onKeyDown={tagsKeyDownFunction} onKeyUp={tagsKeyUpFunction} className="tag-input"/>
                     <div className="tags-box">
                         {renderedTags}
                     </div>
-                    <button>Submit</button>
+                    <button onClick={validateContent}>Submit</button>
                 </form>
             </div>
         </div>
