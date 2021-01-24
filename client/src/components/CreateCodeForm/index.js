@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./createCodeForm.css";
 import hljs from "highlight.js"
 import { render } from "react-dom";
+import API from "../../utils/API.js";
 
 function CreateCodeForm(){
     var userSelectedLanguage = "";
@@ -64,6 +65,25 @@ function CreateCodeForm(){
         setTags(newTagArray);
     };
 
+    function validateContent (event) {
+        event.preventDefault();
+        console.log(event.target.parentNode);
+    };
+
+    function handleIndent(event) {
+        if (event.key == "Tab") {
+            event.preventDefault();
+            var start = event.target.selectionStart;
+            var end = event.target.selectionEnd;
+
+            event.target.value = event.target.value.substring(0, start) +
+                "\t" + event.target.value.substring(end);
+
+            event.target.selectionStart = 
+                event.target.selectionEnd = start + 1;
+        }
+    };
+
     return(
         <div className="create-code-background">
             <div className="create-form-container">
@@ -72,14 +92,14 @@ function CreateCodeForm(){
                     <label for="language">Select the coding language:</label>
                     <select name="language" placeholder="language" onClick={handleLanguageSelect}>{languageOptions}</select>
                     <div className="code-preview-container">
-                        <textarea name="code-block" />
+                        <textarea name="code-block" onKeyDown={handleIndent}/>
                         <pre><code className={selectedLanguage}></code></pre>
                     </div>
                     <input type="text" name="tags" placeholder="tags" onKeyDown={keyDownFunction} onKeyUp={keyUpFunction} className="tag-input"/>
                     <div className="tags-box">
                         {renderedTags}
                     </div>
-                    <button>Submit</button>
+                    <button onClick={validateContent}>Submit</button>
                 </form>
             </div>
         </div>
