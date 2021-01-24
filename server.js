@@ -7,7 +7,8 @@ var db = require("./models");
 const passport = require("./config/passport");
 const routes = require("./routes");
 const nodemailer = require("nodemailer");
-
+const sgMail = require('@sendgrid/mail');
+require('dotenv').config();
 
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
@@ -41,23 +42,26 @@ app.use((req, res) => {
   res.sendFile(path.join(__dirname, "./client/public/index.html"))
 });
 
-app.get('api/user/send', function (req, res) {
-  console.log("sending Email");
-  mailOptions = {
-    to: req.body.email,
-    subject: "Confirm your Email address",
-    html: "Hello,<br> Please Click on the link to verify your email.<br><a href='http://localhost:3000/'>Click here to verify</a>"
-  }
-  console.log(mailOptions);
-  smtpTransport.sendMail(mailOptions, function (error, response) {
-    if (error) {
-      console.log(error);
-      res.end("error");
-    } else {
-      console.log("Message sent: " + response.message);
-      res.end("sent");
-    }
-  });
+app.get("/api/user/send/", function(req, res) {
+
+const sgMail = require('@sendgrid/mail')
+sgMail.setApiKey(process.env.SENDGRID_API_KEY)
+const msg = {
+  to: req.body.email, // Change to your recipient
+  from: 'codingbarbershop@gmail.com', // Change to your verified sender
+  subject: 'Please Verify Your Email',
+  text: 'and easy to do anywhere, even with Node.js',
+  html: '<strong>Please click this link <a href="http://localhost:3000">Verify</a></strong>',
+}
+sgMail
+  .send(msg)
+  .then(() => {
+    console.log('Email sent')
+  })
+  .catch((error) => {
+    console.error(error)
+  })
+
 });
 
 
