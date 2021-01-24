@@ -48,7 +48,7 @@ export default {
     return axios.get("/api/comment/" + postid)
   },
   sendEmail: function(email) {
-    return axios.get("/api/user/send" + email)
+    return axios.get("/api/user/send/", email)
   },
   createPost: function(postData) {
     return axios.post("/api/post" + postData);

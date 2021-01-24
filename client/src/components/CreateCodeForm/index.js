@@ -25,6 +25,13 @@ function CreateCodeForm(){
     const [tags, setTags] = useState([]);
     const [userCode, setUserCode] = useState("");
 
+    const [userInfo, setUserInfo] = useState({
+        email: "",
+        username: "",
+        profileUrl: "",
+        createdAt: new Date().toLocaleString()
+    }); 
+
     const renderedTags = tags.map((tag)=>
     <div className="create-code-tag" name={tag}>
         <p>{tag}</p>
@@ -40,7 +47,19 @@ function CreateCodeForm(){
           });
     }, [userCode,selectedLanguage]);
 
-    
+    const getUser = () => {
+        API.getUser().then((response) => {
+            console.log(response)
+            setUserInfo({
+                ...userInfo,
+                id: response.data.id,
+                email: response.data.email,
+                username: response.data.username,
+                profileUrl: response.data.profileUrl,
+                createdAt: new Date(response.data.createdAt).toLocaleDateString("en-US")
+            })
+        })
+    }
 
     function handleLanguageSelect(event) {
         setSelectedLanguage(event.target.value);
