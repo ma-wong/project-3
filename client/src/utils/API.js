@@ -18,7 +18,7 @@ export default {
     return axios.get("/api/user/logout");
   },
   getUser: function() {
-    return axios.get("api/user/user_data");
+    return axios.get("/api/user/user_data");
   },
   getPostViews: function(){
     return axios.get("/api/post/views/")
@@ -45,9 +45,12 @@ export default {
     return axios.put("/api/postdata/" + id, postData);
   },
   getComments: function(postid) {
-    return axios.get("api/comment/" + postid)
+    return axios.get("/api/comment/" + postid)
   },
   sendEmail: function(email) {
-    return axios.get("api/user/send/", email)
+    return axios.get("/api/user/send" + email)
+  },
+  createPost: function(postData) {
+    return axios.post("/api/post" + postData);
   }
 };

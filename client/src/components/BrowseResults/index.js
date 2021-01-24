@@ -27,13 +27,13 @@ function BrowseResults (props){
             case "comments":
                 API.getPostComments()
                 .then(res => {
+                    console.log(res)
                     setCodeList(res.data);
                 }).catch(err => console.log(err))
                 break;
             default:
                 API.getPostAll()
                 .then(res => {
-                    console.log(res)
                     setCodeList(res.data);
                 }).catch(err => console.log(err))
             }
@@ -57,7 +57,7 @@ function BrowseResults (props){
                     <div style={{"display":"flex","flexDirection":"row"}}>                        
                         <Tag value={val.language}/>
                         {
-                        val.tags.split(",").map((v,i) =>{
+                        val.tags?.split(",").map((v,i) =>{
                             if(i < 4){
                                 return(
                                     <Tag value={v}/>)
