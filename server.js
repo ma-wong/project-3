@@ -41,10 +41,10 @@ app.use((req, res) => {
   res.sendFile(path.join(__dirname, "./client/public/index.html"))
 });
 
-app.get('/api/user/send/:email', function (req, res) {
+app.get('api/user/send', function (req, res) {
   console.log("sending Email");
   mailOptions = {
-    to: req.params.email,
+    to: req.body.email,
     subject: "Confirm your Email address",
     html: "Hello,<br> Please Click on the link to verify your email.<br><a href='http://localhost:3000/'>Click here to verify</a>"
   }

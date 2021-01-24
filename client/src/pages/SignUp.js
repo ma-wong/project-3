@@ -5,6 +5,7 @@ import { withRouter } from 'react-router-dom'
 import SignUpForm from "../components/SignUpForm";
 import API from "../utils/API";
 import axios from "axios";
+import ConfirmEmail from "./ConfirmEmailPage";
 
 class Signup extends React.Component {
     //this.history = useHistory();
@@ -48,6 +49,7 @@ class Signup extends React.Component {
     };
 
      signUpUser = (email, username, password, profileUrl) => {
+       console.log(profileUrl)
         API.signUpUser({
           email: email,
           username: username,
@@ -62,7 +64,9 @@ class Signup extends React.Component {
                 password: password
             }).then(()=> {
                 localStorage.setItem("login", true);
-                API.sendEmail(email).then(() => {
+                API.sendEmail({
+                  email: email
+                }).then(() => {
                   this.setState({
                     redirect: true
                 }, () => {
