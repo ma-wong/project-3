@@ -45,7 +45,6 @@ class Navhead extends Component {
             <Dropdown.Item href="#/action-3" id="usercirclefont">My Help</Dropdown.Item>
             <Dropdown.Item href="#/action-3" id="usercirclefont">Logout</Dropdown.Item>
           </DropdownButton>
-        
 
         {/* old colding below. Ignore */}
 
@@ -80,7 +79,6 @@ class Navhead extends Component {
             <Dropdown.Divider />
             <Dropdown.Item eventKey="4">Separated link</Dropdown.Item>
           </DropdownButton> */}
-
         </div>
         </div>
         </Navbar>
