@@ -88,11 +88,11 @@ class Details extends Component {
 
                         <textarea
                             className="form-control"
-                            id="code-block-text"
+                            id="code-block-textarea"
                             ref={(textarea) => this.textArea = textarea}
                             value={this.state.postDetails.code}
                         />
-                        <label for="code-block-text">Code Block</label>
+                        <label id="textarea-label" for="code-block-textarea">Code Block</label>
                     </div>
                     <div>
                         <button type="button" className="btn btn-outline-primary"
