@@ -133,8 +133,12 @@ function CreateCodeForm(){
         console.log(postData);
 
         API.createPost(postData)
-        .then(res => (res.json))
+        .then(res => {afterPostRedirect(res.data.id)})
         .catch(err => {throw err});
+    };
+
+    function afterPostRedirect (postID) {
+        
     };
 
     return(
