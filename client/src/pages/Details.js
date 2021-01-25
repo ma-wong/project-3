@@ -16,7 +16,8 @@ class Details extends Component {
         username: "",
         comments: [],
         postData: [],
-        copySuccess: false
+        copySuccess: false,
+        commentText: ""
         }
     }
 
@@ -66,6 +67,31 @@ class Details extends Component {
         })
         .catch(err => console.log(err));
     }
+
+    getComments = postId  => {
+        API.getComments(postId)
+            .then(res => {
+                this.setState({
+                    comments: res.data
+                })
+            })
+            .catch(err => console.log(err))
+    }
+
+    postComment = (postId, commentBody) => {
+        API.postComment(postId, commentBody)   
+    }
+
+    //TODO
+    //need an input did change function
+
+    handleInputChange = event => {
+        const { name, value } = event.target;
+        this.setState({
+          [name]: value
+        });
+      };
+
 
     // updateCopyCount = () => {
     //     API.updatePostData({
@@ -124,7 +150,11 @@ class Details extends Component {
 
                 <div className="row">
                     <div className="col-md-8">
-                        <Comments />
+                        <Comments 
+                        postComment={this.postComment(this.state.postDetails.id, this.state.commentText)}
+                        commentText={this.state.commentText}
+                        handleInputChange={this.handleInputChange}
+                        />
                     </div>
                     <div className="col-md-4">
                         <Rating />
