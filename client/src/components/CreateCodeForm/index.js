@@ -24,7 +24,7 @@ function CreateCodeForm(){
     const [selectedLanguage, setSelectedLanguage] = useState("");
     const [tags, setTags] = useState([]);
     const [userCode, setUserCode] = useState("");
-    const [username, setUserName] = useState("");
+    const [userID, setUserID] = useState("");
 
     const renderedTags = tags.map((tag)=>
     <div className="create-code-tag" name={tag}>
@@ -45,7 +45,7 @@ function CreateCodeForm(){
     const getUser = () => {
         API.getUser().then((response) => {
             console.log(response)
-            setUserName(response.data.username)
+            setUserID(response.data.id);
         })
     }
 
@@ -121,17 +121,24 @@ function CreateCodeForm(){
     };
 
     function createNewCodeBlock (title, desc) {
-        console.log("storing data...");
         var postData = {
             title: title,
             code: userCode,
             description: desc,
             tags: tags.toString(),
             language: getFullLanguageString(selectedLanguage),
-            user: username
+            UserId: userID
         };
-
+        console.log("storing data...");
         console.log(postData);
+
+        API.createPost(postData)
+        .then(res => {afterPostRedirect(res.data.id)})
+        .catch(err => {throw err});
+    };
+
+    function afterPostRedirect (postID) {
+        
     };
 
     return(

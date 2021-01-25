@@ -14,9 +14,10 @@ module.exports = {
         db.Post.create({
             title: req.body.title,
             code: req.body.code,
-            userid: req.body.userid,
+            description: req.body.description,
             tags: req.body.tags,
-            language: req.body.language
+            language: req.body.language,
+            UserId: req.body.UserId
         })
         .then((dbPost) => {res.json(dbPost)})
         .catch(err => {throw err});
