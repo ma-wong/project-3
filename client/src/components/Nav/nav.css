@@ -15,10 +15,13 @@
 */
 .wrapper {
     /* Box-model */
-    width: 1024px;
+    width: 100%;
   
     /* Positioning */
-    margin: 40px auto;
+    /* margin: 40px auto; */
+    margin: 0.5em auto;
+    display: flex;
+    justify-content: space-between;
   }
   
   #main-content,
@@ -45,14 +48,14 @@
   }
   
   @media screen and (max-width: 768px) {
-    body {
+    /* body {
       background-color: #333;
-    }
+    } */
   
     .wrapper {
       /* Box-model */
       width: 100%;
-      padding: 20px;
+      /* padding: 20px; */
     }
   
     #main-content,
@@ -69,9 +72,9 @@
   
   /* Width at 320px and below */
   @media screen and (max-width: 320px) {
-    body {
+    /* body {
       background-color: #333;
-    }
+    } */
   
     .wrapper {
       /* Box-model */
@@ -91,9 +94,9 @@
   
   /* Width at 168px and below */
   @media screen and (max-width: 168px) {
-    body {
+    /* body {
       background-color: #333;
-    }
+    } */
   
     .wrapper {
       /* Box-model */
@@ -110,3 +113,7 @@
       margin-top: 40px;
     }
   }
+
+  .dropdown-menu[style] {
+    right: 0%!important;
+}

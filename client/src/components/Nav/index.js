@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./nav.css";
 import { Navbar, Dropdown, DropdownButton, Image } from 'react-bootstrap'
+// import DropdownMenu from "react-bootstrap/esm/DropdownMenu";
 
 class Navhead extends Component {
 
@@ -16,7 +17,9 @@ class Navhead extends Component {
   render() {
     return (
         <Navbar bg="dark" expand="lg">
-          <div className="col-sm-5 col-md-7 col-lg-11">
+          <div className="wrapper">
+          {/* <div className="col-sm-5 col-md-7 col-lg-11"> */}
+          <div>
             <Dropdown>
               <Dropdown.Toggle variant="success" id="dropdown-basic">
                 Left Dropdown
@@ -29,6 +32,22 @@ class Navhead extends Component {
                 <Dropdown.Item href="#/action-4">Create Block</Dropdown.Item>
               </Dropdown.Menu>
             </Dropdown>
+          </div>
+        <div>
+
+          {/* usercircle is what I used to create the blue circle */}
+          {/* title is where the image is place w/in the blue circle */}
+          <DropdownButton id="usercircle" title={ <img src=""></img> } menuAlign="right">
+
+            <Dropdown.Item href="#/action-1" id="usercirclefont">My Account</Dropdown.Item>
+            <Dropdown.Item href="#/action-2" id="usercirclefont">Settings</Dropdown.Item>
+            <Dropdown.Item href="#/action-3" id="usercirclefont">My Help</Dropdown.Item>
+            <Dropdown.Item href="#/action-3" id="usercirclefont">Logout</Dropdown.Item>
+          </DropdownButton>
+        
+
+        {/* old colding below. Ignore */}
+
           {/* <Navbar.Brand href="#home">Left Dropdown</Navbar.Brand> */}
           {/* <Navbar.Toggle aria-controls="basic-navbar-nav" onClick={() => this.setState({ viewBlocks: true, viewUserCircle: false })} />
           <Navbar.Collapse id="basic-navbar-nav">
@@ -43,24 +62,25 @@ class Navhead extends Component {
                 </> : ""}
             </Nav>
           </Navbar.Collapse> */}
-          </div>
 
-        <div>
-          {/* usercircle is what I used to create the blue circle */}
-
-          <DropdownButton id="dropdown-basic-button" id="usercircle" title="">
+          {/* title={ <img src={{ uri: ''}} style={{ width: 51, height: 51}}> </img> } */}
           {/* <DropdownButton id="dropdown-basic-button" title="User cir button" onClick={() => this.setState({ viewBlocks: false, viewUserCircle: true })}>
             {this.state.viewUserCircle ? */}
 
-          {/* Image tag below is what I used to get the image but we may need to go with an npm package */}
+          {/* <DropdownButton
+            menuAlign="right"
+            title="ASDF"
+            id="dropdown-menu-align-right"
+            // drop="left"
+          >
+            <Dropdown.Item eventKey="1">Action</Dropdown.Item>
+            <Dropdown.Item eventKey="2">Another action</Dropdown.Item>
+            <Dropdown.Item eventKey="3">Something else here</Dropdown.Item>
+            <Dropdown.Divider />
+            <Dropdown.Item eventKey="4">Separated link</Dropdown.Item>
+          </DropdownButton> */}
 
-            {/* <Image source={{ uri: '' }}
-              style={{ width: 51, height: 51 }} /> */}
-            <Dropdown.Item href="#/action-1" id="usercirclefont">My Account</Dropdown.Item>
-            <Dropdown.Item href="#/action-2" id="usercirclefont">Settings</Dropdown.Item>
-            <Dropdown.Item href="#/action-3" id="usercirclefont">Help</Dropdown.Item>
-            <Dropdown.Item href="#/action-3" id="usercirclefont">Logout</Dropdown.Item>
-          </DropdownButton>
+        </div>
         </div>
         </Navbar>
     )
