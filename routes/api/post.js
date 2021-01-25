@@ -9,10 +9,7 @@ router.route("/views/")
     .get(postController.views)
 
 router.route("/likes/")
-    .get(postController.likes)
-
-router.route("/comments/")
-    .get(postController.comments)    
+    .get(postController.likes) 
 
 router.route("/search/:query")
     .get(postController.findByTitle)

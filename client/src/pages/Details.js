@@ -18,7 +18,8 @@ class Details extends Component {
         postData: [],
         copyCount: 0,
         copySuccess: false,
-        commentText: ""
+        commentText: "",
+        userid: ""
         }
     }
 
@@ -26,6 +27,7 @@ class Details extends Component {
         const url = new URL(window.location.href);
         const id = url.pathname.split("/")[2];
         console.log(id);
+        this.getUser()
         this.getPostById(id);
         this.getPostDataById(id);
     }
@@ -34,6 +36,16 @@ class Details extends Component {
         document.querySelectorAll("pre code").forEach(e => {
             hljs.highlightBlock(e);
         });
+    }
+
+    getUser = () => {
+        console.log("doing it");
+        API.getUser().then((response) => {
+            console.log(response)
+            this.setState({
+                userid: response.data.id
+            })
+        })
     }
 
     getPostById = id => {
@@ -101,7 +113,11 @@ class Details extends Component {
         console.log("clicked");
         console.log(this.state.postDetails.id);
         console.log(this.state.commentText)
-        API.postComment(this.state.postDetails.id, this.state.commentText).then(console.log("posted"));
+        API.postComment({
+            body: this.state.commentText,
+            postid: this.state.postDetails.id,
+            userid: this.state.userid
+        }).then(console.log("posted"));
     }
 
     //TODO

@@ -9,5 +9,4 @@ router.use("/postdata", postDataRoutes);
 router.use("/user", userRoutes);
 router.use("/comment", commentRoutes);
 
-
 module.exports = router;
