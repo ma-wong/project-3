@@ -2,7 +2,9 @@ const db = require("../models/");
 
 module.exports = {
     create: function(req, res) {
-        db.Cooment.create(req.body)
+        db.Cooment.create({
+          body: req.body.commentText,
+        })
         .then((dbPost) => {res.json(dbPost)})
         .catch(err => {throw err});
     },
