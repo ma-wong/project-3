@@ -117,7 +117,7 @@ class Details extends Component {
             body: this.state.commentText,
             postid: this.state.postDetails.id,
             userid: this.state.userid
-        }).then(console.log("posted"));
+        }).then(res=>console.log(res));
     }
 
     //TODO

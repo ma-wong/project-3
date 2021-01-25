@@ -45,10 +45,10 @@ export default {
     return axios.put("/api/postdata/" + postId, postData);
   },
   getComments: function(postId) {
-    return axios.get("api/comment/" + postId)
+    return axios.get("/api/comment/" + postId)
   },
-  postComment: function() {
-    return axios.post("api/comment")
+  postComment: function(commentData) {
+    return axios.post("/api/comment", commentData)
   },
   sendEmail: function(email) {
     return axios.get("/api/user/send/", email)
