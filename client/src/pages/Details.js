@@ -96,9 +96,12 @@ class Details extends Component {
             .catch(err => console.log(err))
     }
 
-    postComment = (postId, commentBody) => {
+    postComment = event => {
+        event.preventDefault();
         console.log("clicked");
-        API.postComment(postId, commentBody)   
+        console.log(this.state.postDetails.id);
+        console.log(this.state.commentText)
+        API.postComment(this.state.postDetails.id, this.state.commentText).then(console.log("posted"));
     }
 
     //TODO
@@ -156,9 +159,9 @@ class Details extends Component {
                 <div className="row">
                     <div className="col-md-8">
                         <Comments 
-                        postComment={this.postComment(this.state.postDetails.id, this.state.commentText)}
-                        commentText={this.state.commentText}
+                        postComment={this.postComment}
                         handleInputChange={this.handleInputChange}
+                        commentText={this.state.commentText}
                         />
                     </div>
                     <div className="col-md-4">

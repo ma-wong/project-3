@@ -2,10 +2,12 @@ const db = require("../models/");
 
 module.exports = {
     create: function(req, res) {
-        db.Cooment.create({
+      console.log(req)
+      console.log("SUP BITCH")
+        db.Comment.create({
           body: req.body.commentText,
         })
-        .then((dbPost) => {res.json(dbPost)})
+        .then((dbComment) => {res.json(dbComment)})
         .catch(err => {throw err});
     },
     readAll: function(req, res) {
