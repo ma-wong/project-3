@@ -24,9 +24,7 @@ function CreateCodeForm(){
     const [selectedLanguage, setSelectedLanguage] = useState("");
     const [tags, setTags] = useState([]);
     const [userCode, setUserCode] = useState("");
-    const [userInfo, setUserInfo] = useState({
-        username: ""
-    });
+    const [username, setUserName] = useState("");
 
     const renderedTags = tags.map((tag)=>
     <div className="create-code-tag" name={tag}>
@@ -35,7 +33,8 @@ function CreateCodeForm(){
     </div>);
 
     useEffect(() => {
-    }, [tags, userInfo]);
+        getUser();
+    }, [tags]);
 
     useEffect(() => {
         document.querySelectorAll("pre code").forEach(e => {
@@ -46,10 +45,7 @@ function CreateCodeForm(){
     const getUser = () => {
         API.getUser().then((response) => {
             console.log(response)
-            setUserInfo({
-                ...userInfo,
-                username: response.data.username,
-            })
+            setUserName(response.data.username)
         })
     }
 
@@ -106,7 +102,6 @@ function CreateCodeForm(){
 
     function validateContent (event) {
         event.preventDefault();
-        getUser();
         var codeTitle = document.getElementById("code-title").value.trim();
         var codeDesc = document.getElementById("code-desc").value.trim();
         if ((codeTitle === "") === false && (codeDesc === "") === false && (userCode.trim() === "") === false && (selectedLanguage.trim() === "") === false) {
@@ -133,7 +128,7 @@ function CreateCodeForm(){
             description: desc,
             tags: tags.toString(),
             language: getFullLanguageString(selectedLanguage),
-            user: userInfo.username
+            user: username
         };
 
         console.log(postData);
