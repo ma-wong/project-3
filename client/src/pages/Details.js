@@ -18,7 +18,8 @@ class Details extends Component {
         postData: [],
         copyCount: 0,
         copySuccess: false,
-        commentText: ""
+        commentText: "",
+        userid: ""
         }
     }
 
@@ -26,6 +27,7 @@ class Details extends Component {
         const url = new URL(window.location.href);
         const id = url.pathname.split("/")[2];
         console.log(id);
+        this.getUser()
         this.getPostById(id);
         this.getPostDataById(id);
     }
@@ -34,6 +36,16 @@ class Details extends Component {
         document.querySelectorAll("pre code").forEach(e => {
             hljs.highlightBlock(e);
         });
+    }
+
+    getUser = () => {
+        console.log("doing it");
+        API.getUser().then((response) => {
+            console.log(response)
+            this.setState({
+                userid: response.data.id
+            })
+        })
     }
 
     getPostById = id => {
@@ -96,8 +108,16 @@ class Details extends Component {
             .catch(err => console.log(err))
     }
 
-    postComment = (postId, commentBody) => {
-        API.postComment(postId, commentBody)   
+    postComment = event => {
+        event.preventDefault();
+        console.log("clicked");
+        console.log(this.state.postDetails.id);
+        console.log(this.state.commentText)
+        API.postComment({
+            body: this.state.commentText,
+            postid: this.state.postDetails.id,
+            userid: this.state.userid
+        }).then(console.log("posted"));
     }
 
     //TODO
@@ -108,6 +128,7 @@ class Details extends Component {
         this.setState({
           [name]: value
         });
+        console.log(this.state.commentText)
       };
 
     render() {
@@ -154,9 +175,9 @@ class Details extends Component {
                 <div className="row">
                     <div className="col-md-8">
                         <Comments 
-                        postComment={this.postComment(this.state.postDetails.id, this.state.commentText)}
-                        commentText={this.state.commentText}
+                        postComment={this.postComment}
                         handleInputChange={this.handleInputChange}
+                        commentText={this.state.commentText}
                         />
                     </div>
                     <div className="col-md-4">

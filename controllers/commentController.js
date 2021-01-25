@@ -2,10 +2,13 @@ const db = require("../models/");
 
 module.exports = {
     create: function(req, res) {
-        db.Cooment.create({
-          body: req.body.commentText,
+      console.log("SUP BITCH")
+        db.Comment.create({
+          body: req.body.body,
+          PostId: req.body.postid,
+          UserId: req.body.userid
         })
-        .then((dbPost) => {res.json(dbPost)})
+        .then((dbComment) => {res.json(dbComment)})
         .catch(err => {throw err});
     },
     readAll: function(req, res) {
@@ -20,6 +23,5 @@ module.exports = {
             res.status(401).json(err);
           });
     },
-    // Parameters for findone, delete and update may need to be adjusted to something other than ID idk;
-    // Still needs search by title and tag routes
+  
 };
