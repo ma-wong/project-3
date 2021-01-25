@@ -132,11 +132,11 @@ function CreateCodeForm(){
             code: userCode,
             description: desc,
             tags: tags.toString(),
-            language: getFullLanguageString(selectedLanguage)
+            language: getFullLanguageString(selectedLanguage),
+            user: userInfo.username
         };
 
-        console.log(getFullLanguageString(selectedLanguage));
-
+        console.log(postData);
     };
 
     return(

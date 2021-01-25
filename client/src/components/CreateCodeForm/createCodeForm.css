@@ -10,11 +10,15 @@
 .create-form {
     display: flex;
     flex-direction: column;
-    width: 33vw;
+    width: 60vw;
     height: 75vh;
     align-items: center;
     justify-content: center;
     background-color: white;
+}
+
+.create-form textarea{
+    font-size:14px;
 }
 
 .code-preview-container {
