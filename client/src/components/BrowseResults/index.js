@@ -12,7 +12,7 @@ function BrowseResults (props){
 
     let sort = props.sort;
 
-    useEffect(()=>{console.log(":)")},[page]);
+    useEffect(()=>{},[page]);
     
     useEffect( () => {
         switch(sort){

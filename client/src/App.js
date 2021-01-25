@@ -5,7 +5,6 @@ import Navhead from "./components/Nav";
 import Signup from "./pages/SignUp";
 import Login from "./pages/Login";
 import Home from './pages/Home';
-import SearchBar from './pages/Search'
 import Create from "./pages/Create";
 import Account from './pages/Account';
 import Details from "./pages/Details";
@@ -22,7 +21,6 @@ function App() {
       <Navhead />
           <Switch>
           <Route exact path="/" component={Home}/>
-          <Route exact path="/search" component={SearchBar}/>
           <Route exact path="/login" component={Login} />
           <Route exact path="/signup" component={Signup} />
           <Route exact path="/create" component={Create} />

@@ -10,7 +10,7 @@ function SplashLogin(){
         <div style={{"display":"flex", "justifyContent":"center"}}>
         <Container   style={{"padding":"0","maxWidth":"800px"}}>
             <div style={{"margin":"10% auto", "marginTop": "10%", "display":"flex", "flexDirection": "row"}}>
-            <Button style={btnStyle} href="/search">Search</Button>
+            <Button style={btnStyle} href="/results">Search</Button>
             <Button style={btnStyle} href="/browse">Browse</Button>
             <Button style={btnStyle} href="/create">Create</Button>
             </div>
