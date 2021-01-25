@@ -79,6 +79,7 @@ class Details extends Component {
     }
 
     postComment = (postId, commentBody) => {
+        console.log("clicked");
         API.postComment(postId, commentBody)   
     }
 
@@ -90,6 +91,7 @@ class Details extends Component {
         this.setState({
           [name]: value
         });
+        console.log(this.state.commentText)
       };
 
 
