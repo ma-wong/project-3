@@ -18,7 +18,7 @@ export default {
     return axios.get("/api/user/logout");
   },
   getUser: function() {
-    return axios.get("api/user/user_data");
+    return axios.get("/api/user/user_data");
   },
   getPostViews: function(){
     return axios.get("/api/post/views/")
@@ -48,6 +48,9 @@ export default {
     return axios.get("api/comment/" + postId)
   },
   sendEmail: function(email) {
-    return axios.get("api/user/send" + email)
+    return axios.get("/api/user/send/", email)
+  },
+  createPost: function(postData) {
+    return axios.post("/api/post" + postData);
   }
 };

@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useLayoutEffect } from 'react';
 import Tag from '../Tag'
+import {Button} from 'react-bootstrap'
 import hljs from 'highlight.js';
 import '../../pageStyles/atom-one-dark.css';
 import API from '../../utils/API'
@@ -7,33 +8,41 @@ import API from '../../utils/API'
 
 function BrowseResults (props){
     const [codeList, setCodeList] = useState([]);
+    const [page, setPage]=useState(0)
 
     let sort = props.sort;
+
+    useEffect(()=>{console.log(":)")},[page]);
     
     useEffect( () => {
         switch(sort){
             case "views":
+                setPage(0);
                 API.getPostViews()
                 .then(res => {
+                    console.log(res);
                     setCodeList(res.data);
                 }).catch(err => console.log(err))
                 break;
             case "likes":
+                setPage(0);
                 API.getPostLikes()
                 .then(res => {
                     setCodeList(res.data);
                 }).catch(err => console.log(err))
                 break;
             case "comments":
+                setPage(0);
                 API.getPostComments()
                 .then(res => {
+                    console.log(res)
                     setCodeList(res.data);
                 }).catch(err => console.log(err))
                 break;
             default:
+                setPage(0);
                 API.getPostAll()
                 .then(res => {
-                    console.log(res)
                     setCodeList(res.data);
                 }).catch(err => console.log(err))
             }
@@ -45,10 +54,18 @@ function BrowseResults (props){
           });
     })
 
+    function increasePage(){        
+        setPage(page+5)
+    };
+
+    function decreasePage(){
+        setPage(page-5)
+    };
+
     return(
         <>
-        {codeList?.map((val, index) => {
-                if(index < 4){
+        {codeList.map((val, index) => {
+                if(index < page + 5 && index >= page){
                 return(
                     <div key={val.id} style={{"display":"flex","flexDirection":"column","width":"clamp(300px,70%,900px)","margin":"0 auto",
                     "backgroundColor":"white", "padding":"20px", "borderRadius":"5px","boxShadow": "10px 10px 5px grey", "marginBottom":"15px"}} href="/">
@@ -57,7 +74,7 @@ function BrowseResults (props){
                     <div style={{"display":"flex","flexDirection":"row"}}>                        
                         <Tag value={val.language}/>
                         {
-                        val.tags.split(",").map((v,i) =>{
+                        val.tags?.split(",").map((v,i) =>{
                             if(i < 4){
                                 return(
                                     <Tag value={v}/>)
@@ -65,7 +82,11 @@ function BrowseResults (props){
                         })}
                     </div>
                 </div>)
-            }})}        
+            }})}
+        <div style={{"display":"flex","flexDirection":"row","justifyContent":"center"}}>
+        {page > 0 ? <Button onClick={()=>decreasePage()} style={{"marginRight":"10px"}}>Prev</Button> : <Button style={{"marginRight":"10px"}} disabled>Prev</Button>}
+        {page < codeList.length - 5 ? <Button onClick={()=>increasePage()}>Next</Button> : <Button disabled>Next</Button>}  
+        </div>        
         </>
     )
 };

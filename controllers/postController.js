@@ -1,19 +1,28 @@
 const db = require("../models/");
 const { Op } = require("sequelize");
 
+const getPagination = (page, size) => {
+  const limit = size ? +size : 3;
+  const offset = page ? page * limit : 0;
+
+  return { limit, offset };
+};
+
+
 module.exports = {
     create: function(req, res) {
         db.Post.create({
             title: req.body.title,
             code: req.body.code,
             userid: req.body.userid,
-            tags: req.body.tags
+            tags: req.body.tags,
+            language: req.body.language
         })
         .then((dbPost) => {res.json(dbPost)})
         .catch(err => {throw err});
     },
     readAll: function(req, res) {
-        db.Post.findAll({})
+        db.Post.findAll({limit: 100})
         .then((dbPost) => {res.json(dbPost)})
         .catch( err => {throw err});
     },
@@ -39,6 +48,7 @@ module.exports = {
             include: [{
                 model: db.PostData,
                 }],
+            limit: 100,
             order: [
                 [db.PostData, 'views', 'DESC']
               ]    
@@ -51,6 +61,7 @@ module.exports = {
             include: [{
                 model: db.PostData,
                 }],
+            limit: 100,
             order: [
                 [db.PostData, 'clicks', 'DESC']
               ]    
@@ -60,12 +71,14 @@ module.exports = {
     },    
     comments: function(req,res){
         //still need to test if works
-        db.Post.findAll({
-            attributes: [
-                [sequelize.literal('(SELECT COUNT(*) FROM PostData WHERE PostData.PostId = Post.id)'), 'CommCount']
-            ],
-            order: [[sequelize.literal('CommCount'), 'DESC']]
-        })
+        db.sequelize.query(`SELECT  posts.*,
+        COUNT(*) as comment_count
+        FROM posts
+        INNER JOIN comments
+            ON comments.PostId = posts.id
+        GROUP BY posts.id
+        LIMIT 100
+        ORDER BY comment_count DESC`, { type: db.sequelize.QueryTypes.SELECT})
         .then((dbPost) => {res.json(dbPost)})
         .catch( err => {throw err});
     },

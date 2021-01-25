@@ -10,7 +10,8 @@
     "start": "concurrently \"npm run server\" \"npm run client\"",
     "install": "cd client && npm install",
     "build": "cd client && npm run build",
-    "heroku-postbuild": "npm run build"
+    "heroku-postbuild": "npm run build",
+    "seed": "node db/seed.js"
   },
   "repository": {
     "type": "git",
@@ -24,6 +25,7 @@
   },
   "homepage": "https://github.com/ma-wong/project-3#readme",
   "dependencies": {
+    "@sendgrid/mail": "^7.4.2",
     "axios": "^0.21.1",
     "bcryptjs": "^2.4.3",
     "cloudinary": "^1.23.0",
