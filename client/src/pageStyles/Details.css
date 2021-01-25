@@ -1,7 +1,10 @@
 #code-block-textarea {
-    height: 400px;
     background-color: #282c34;
     color: #abb2bf;
+    opacity: 0.01;
+    height: 0;
+    position: absolute;
+    z-index: -1;
 }
 
 #copy-btn {
@@ -12,6 +15,6 @@
     margin-top: 4rem;
 }
 
-#textarea-label {
-    color: white;
+#details-code-block {
+    height: 400px;
 }
