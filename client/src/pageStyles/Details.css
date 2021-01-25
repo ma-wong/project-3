@@ -1,4 +1,4 @@
-#code-block-text {
+#code-block-textarea {
     height: 400px;
     background-color: #282c34;
     color: #abb2bf;
@@ -10,4 +10,8 @@
 
 #code-block-container {
     margin-top: 4rem;
+}
+
+#textarea-label {
+    color: white;
 }
