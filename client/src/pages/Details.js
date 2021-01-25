@@ -12,7 +12,8 @@ class Details extends Component {
         super(props)
 
         this.state = {
-        postDetails: [],
+        postDetails: {},
+        username: "",
         comments: [],
         postData: [],
         copySuccess: false
@@ -36,9 +37,9 @@ class Details extends Component {
     getPostById = id => {
         API.getPost(id)
         .then(res => {
-            console.log(res)
             this.setState({
-                postDetails: res.data
+                postDetails: res.data,
+                username: res.data.User.username
             },() => {
                 console.log(this.state.postDetails)
             })
@@ -56,6 +57,7 @@ class Details extends Component {
     getPostDataById = postId => {
         API.getPostData(postId)
         .then(res => {
+            console.log(res)
             this.setState({
                 postData: res.data
             }, () => {
@@ -116,7 +118,7 @@ class Details extends Component {
                         tags={this.state.postDetails.tags}
                         language={this.state.postDetails.language}
                         updatedAt={this.state.postDetails.updatedAt}
-                        userId={this.state.postDetails.UserId}
+                        userId={this.state.username}
                     />
                 </div>
 

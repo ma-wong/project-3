@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./nav.css";
 import { Navbar, Dropdown, DropdownButton, Image } from 'react-bootstrap'
+
 // import DropdownMenu from "react-bootstrap/esm/DropdownMenu";
 
 class Navhead extends Component {
@@ -36,7 +37,7 @@ class Navhead extends Component {
         <div>
 
           {/* usercircle is what I used to create the blue circle */}
-          {/* title is where the image is place w/in the blue circle */}
+          {/* title is where the image is place w/in the blue circle */}          
           <DropdownButton id="usercircle" title={ <img src=""></img> } menuAlign="right">
 
             <Dropdown.Item href="#/action-1" id="usercirclefont">My Account</Dropdown.Item>

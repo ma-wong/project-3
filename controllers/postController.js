@@ -77,8 +77,8 @@ module.exports = {
         INNER JOIN comments
             ON comments.PostId = posts.id
         GROUP BY posts.id
-        LIMIT 100
-        ORDER BY comment_count DESC`, { type: db.sequelize.QueryTypes.SELECT})
+        ORDER BY comment_count DESC
+        LIMIT 100`, { type: db.sequelize.QueryTypes.SELECT})
         .then((dbPost) => {res.json(dbPost)})
         .catch( err => {throw err});
     },
@@ -118,7 +118,8 @@ module.exports = {
         db.Post.findOne({
             where: {
                 id: req.params.id
-            }
+            },
+            include: db.User
         })
         .then((dbPost) => {res.json(dbPost)})
         .catch( err => {throw err});
