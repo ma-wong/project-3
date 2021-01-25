@@ -1,84 +1,67 @@
-@import 'https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300';
-
-
-/* div[class*=box] {
-	height: 33.33%;
-	width: 100%; 
-  display: flex;
-  justify-content: center;
-  align-items: center;
-} */
-
-.box-1 {
-    text-align: center;
-    height: 300px;
-    display: flex;
-    /* width: 100%; */
-    align-items: center;
-    margin-top: 10rem;
-    border-style: solid;
-    border-width: thin;
-    border-color: grey;
-}
-
-.home-btn {
-    margin: auto;
-	line-height: 50px;
-	/* height: 50px; */
-	text-align: center;
+.draw-border {
+	box-shadow: inset 0 0 0 4px #58afd1;
+	color: #58afd1;
+	transition: color 0.25s 0.0833333333s;
+	position: relative;
+	background: #1f1a25;
+	border: none;
+	cursor: pointer;
+	line-height: 1.5;
+	font: 700 1.2rem "Roboto Slab", sans-serif;
+	letter-spacing: 0.05rem;
 	width: 100%;
-    cursor: pointer;
+	height: 320px;
 }
 
-.btn-one {
-    /* color: #FFF; */
-    color: grey;
-	transition: all 0.3s;
-    position: relative;
-    display: block;
-}
-.btn-one span {
-	transition: all 0.3s;
-}
-.btn-one::before {
-	content: '';
+.draw-border::before, .draw-border::after {
+	border: 0 solid transparent;
+	box-sizing: border-box;
+	content: "";
+	pointer-events: none;
 	position: absolute;
+	width: 0;
+	height: 0;
 	bottom: 0;
-	left: 0;
+	right: 0;
+}
+
+.draw-border::before {
+	border-bottom-width: 4px;
+	border-left-width: 4px;
+}
+
+.draw-border::after {
+	border-top-width: 4px;
+	border-right-width: 4px;
+}
+
+.draw-border:hover {
+	color: #ffe593;
+}
+
+.draw-border:hover::before, .draw-border:hover::after {
+	border-color: #ffe593;
+	transition: border-color 0s, width 0.25s, height 0.25s;
 	width: 100%;
 	height: 100%;
-	z-index: 1;
-	opacity: 0;
-	transition: all 0.3s;
-	border-top-width: 1px;
-	border-bottom-width: 1px;
-	border-top-style: solid;
-	border-bottom-style: solid;
-	/* border-top-color: rgba(255,255,255,0.5);
-    border-bottom-color: rgba(255,255,255,0.5); */
-    border-top-color: grey;
-	border-bottom-color: grey;
-	transform: scale(0.1, 1);
 }
-.btn-one:hover span {
-	letter-spacing: 2px;
+
+.draw-border:hover::before {
+	transition-delay: 0s, 0s, 0.25s;
 }
-.btn-one:hover::before {
-	opacity: 1;	
-	transform: scale(1, 1);	
+
+.draw-border:hover::after {
+	transition-delay: 0s, 0.25s, 0s;
+  
 }
-.btn-one::after {
-	content: '';
-	position: absolute;
-	bottom: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	z-index: 1;
-	transition: all 0.3s;
-    background-color: rgba(255,255,255,0.1);
+
+.draw-border:focus {
+	outline: 2px dotted #55d7dc;
 }
-.btn-one:hover::after {
-	opacity: 0;	
-	transform: scale(0.1, 1);
+
+.btn-container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 100vh;
 }
