@@ -40,22 +40,3 @@ function App() {
 }
 
 export default App;
-
-
-
-
-// Morgans Testing Code -----------------
-// import React from "react";
-// import SearchResults from "./pages/SearchResults";
-// import Details from "./pages/Details"
-
-// function App() {
-//   return (
-//       <div>
-//           <Details />
-//       </div>
-//   )
-// }
-
-// export default App;
-// ------------------------------------------
