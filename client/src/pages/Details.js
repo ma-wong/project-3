@@ -5,6 +5,7 @@ import Rating from "../components/Rating";
 import Comments from "../components/Comments";
 import CommentDiv from "../components/CommentDiv"
 import API from "../utils/API";
+import hljs from 'highlight.js';
 
 class Details extends Component {
     constructor(props) {
@@ -13,6 +14,7 @@ class Details extends Component {
         this.state = {
         postDetails: [],
         comments: [],
+        postData: [],
         copySuccess: false
         }
     }
@@ -22,6 +24,13 @@ class Details extends Component {
         const id = url.pathname.split("/")[2];
         console.log(id);
         this.getPostById(id);
+        this.getPostDataById(id);
+    }
+
+    componentDidUpdate() {
+        document.querySelectorAll("pre code").forEach(e => {
+            hljs.highlightBlock(e);
+        });
     }
 
     getPostById = id => {
@@ -44,8 +53,21 @@ class Details extends Component {
         this.setState({copySuccess: true})
     }
 
+    getPostDataById = postId => {
+        API.getPostData(postId)
+        .then(res => {
+            this.setState({
+                postData: res.data
+            }, () => {
+                console.log(this.state.postData)
+            })
+        })
+        .catch(err => console.log(err));
+    }
+
     // updateCopyCount = () => {
     //     API.updatePostData({
+    //         PostId: this.state.postDetails.id,
 
     //     })
     // }
@@ -54,7 +76,16 @@ class Details extends Component {
         return (
             <div className="container">
                 <div className="row">
+                {/* <pre id="details-pre-code-block" ><code id="details-code-block" className={this.state.postDetails.language}>{this.state.postDetails.code}</code></pre> */}
                     <div className="form-floating" id="code-block-container">
+                        {/* <pre id="details-pre-code-block" >
+                            <code id="details-code-block"
+                                className={this.state.postDetails.language}
+                                ref={(code) => this.code = code}>
+                                {this.state.postDetails.code}
+                            </code>
+                        </pre> */}
+
                         <textarea
                             className="form-control"
                             id="code-block-text"

@@ -38,14 +38,14 @@ export default {
   getPostAll: function() {
     return axios.get("/api/post/");
   },
-  getPostData: function(id) {
-    return axios.get("/api/postdata/" + id);
+  getPostData: function(postId) {
+    return axios.get("/api/postdata/" + postId);
   },
-  updatePostData: function(id, postData) {
-    return axios.put("/api/postdata/" + id, postData);
+  updatePostData: function(postId, postData) {
+    return axios.put("/api/postdata/" + postId, postData);
   },
-  getComments: function(postid) {
-    return axios.get("/api/comment/" + postid)
+  getComments: function(postId) {
+    return axios.get("api/comment/" + postId)
   },
   sendEmail: function(email) {
     return axios.get("/api/user/send/", email)

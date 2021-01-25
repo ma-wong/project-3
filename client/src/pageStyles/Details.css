@@ -1,5 +1,7 @@
 #code-block-text {
     height: 400px;
+    background-color: #282c34;
+    color: #abb2bf;
 }
 
 #copy-btn {

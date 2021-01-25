@@ -7,6 +7,6 @@ router.route("/")
 
 router.route("/:id")
     .put(postDataController.update)
-    .get(postDataController.read)
+    .get(postDataController.readOne)
 
 module.exports = router;
