@@ -1,6 +1,13 @@
 const db = require("../models/");
 const { Op } = require("sequelize");
 
+const getPagination = (page, size) => {
+  const limit = size ? +size : 3;
+  const offset = page ? page * limit : 0;
+
+  return { limit, offset };
+};
+
 
 module.exports = {
     create: function(req, res) {
@@ -15,7 +22,7 @@ module.exports = {
         .catch(err => {throw err});
     },
     readAll: function(req, res) {
-        db.Post.findAll({})
+        db.Post.findAll({limit: 100})
         .then((dbPost) => {res.json(dbPost)})
         .catch( err => {throw err});
     },
@@ -41,6 +48,7 @@ module.exports = {
             include: [{
                 model: db.PostData,
                 }],
+            limit: 100,
             order: [
                 [db.PostData, 'views', 'DESC']
               ]    
@@ -53,6 +61,7 @@ module.exports = {
             include: [{
                 model: db.PostData,
                 }],
+            limit: 100,
             order: [
                 [db.PostData, 'clicks', 'DESC']
               ]    
@@ -68,6 +77,7 @@ module.exports = {
         INNER JOIN comments
             ON comments.PostId = posts.id
         GROUP BY posts.id
+        LIMIT 100
         ORDER BY comment_count DESC`, { type: db.sequelize.QueryTypes.SELECT})
         .then((dbPost) => {res.json(dbPost)})
         .catch( err => {throw err});
