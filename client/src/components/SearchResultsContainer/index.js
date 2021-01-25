@@ -20,7 +20,7 @@ export function SearchResultsItem({ codeId, title, description, tags, updatedAt,
     
     return (
         <div className="container">
-            <li className="list-group-item">
+            <li className="list-group-item results-list-item">
                 <div id="results-card-container" className="card">
                     <div className="row g-0">
                         <pre id="pre-code-block" className="col-md-7"><code id="code-block" className={language}>{code}</code></pre>

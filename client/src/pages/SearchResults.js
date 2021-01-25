@@ -25,6 +25,25 @@ class SearchResults extends Component {
     //     }
     // });
 
+    componentDidMount() {
+        // const bg = {
+        //     backgroundImage: 'none'
+        // }
+        this.getAllResults();
+        
+        // document.body.style.backgroundColor = "#282828";
+    }
+
+    getAllResults = () => {
+        API.getPostAll()
+        .then(res => {
+            this.setState({
+                searchResults: res.data
+            })
+        })
+        .catch(err => console.log(err));
+    }
+
     getSearchResults = () => {
         API.getPostsBySearch(this.state.query)
         .then(res => {

@@ -1,6 +1,15 @@
-/* .list-group-item {
-    background-color: lightgray;
-} */
+body {
+    background-color: black;
+}
+
+.list-group-item {
+    /* background-color: #666666; */
+    background-color: #0c0032;
+    /* background-color: #190061; */
+}
+hr {
+    color: #190061;
+}
 
 #results-card-title {
     font-size: 18pt;
@@ -8,6 +17,7 @@
 
 .results-body {
     padding: 0px;
+    color: #282828;
 }
 
 #code-block {
@@ -20,4 +30,13 @@
 
 #results-card-container {
     padding: 13px;
+    background-color:#c5c6c7;
+}
+
+.card-title {
+    color: #240090;
+}
+
+.results-list-item {
+    margin: .5rem 0rem;
 }
