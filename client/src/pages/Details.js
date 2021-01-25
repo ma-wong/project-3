@@ -16,6 +16,7 @@ class Details extends Component {
         username: "",
         comments: [],
         postData: [],
+        copyCount: 0,
         copySuccess: false
         }
     }
@@ -52,6 +53,7 @@ class Details extends Component {
         el.select()
         document.execCommand("copy")
         this.setState({copySuccess: true})
+        this.countCopies();
     }
 
     getPostDataById = postId => {
@@ -59,7 +61,8 @@ class Details extends Component {
         .then(res => {
             console.log(res)
             this.setState({
-                postData: res.data
+                postData: res.data,
+                copyCount: res.data.copies
             }, () => {
                 console.log(this.state.postData)
             })
@@ -67,26 +70,27 @@ class Details extends Component {
         .catch(err => console.log(err));
     }
 
-    // updateCopyCount = () => {
-    //     API.updatePostData({
-    //         PostId: this.state.postDetails.id,
+    countCopies = () => {
+        const url = new URL(window.location.href);
+        const id = url.pathname.split("/")[2];
+        this.state.copyCount +=1;
+        console.log(this.state.copyCount)
+        this.updateCopyCount(id);
+    }
 
-    //     })
-    // }
+    updateCopyCount = postId => {
+        API.updatePostData(postId, {
+            copies: this.state.copyCount
+        })
+        .catch(err => console.log(err));
+    }
 
     render() {
         return (
             <div className="container">
                 <div className="row">
-                {/* <pre id="details-pre-code-block" ><code id="details-code-block" className={this.state.postDetails.language}>{this.state.postDetails.code}</code></pre> */}
                     <div className="form-floating" id="code-block-container">
-                        {/* <pre id="details-pre-code-block" >
-                            <code id="details-code-block"
-                                className={this.state.postDetails.language}
-                                ref={(code) => this.code = code}>
-                                {this.state.postDetails.code}
-                            </code>
-                        </pre> */}
+                        <pre id="details-pre-code-block" ><code id="details-code-block" className={this.state.postDetails.language}>{this.state.postDetails.code}</code></pre>
 
                         <textarea
                             className="form-control"
@@ -94,7 +98,7 @@ class Details extends Component {
                             ref={(textarea) => this.textArea = textarea}
                             value={this.state.postDetails.code}
                         />
-                        <label id="textarea-label" for="code-block-textarea">Code Block</label>
+                        {/* <label id="textarea-label" for="code-block-textarea">Code Block</label> */}
                     </div>
                     <div>
                         <button type="button" className="btn btn-outline-primary"
