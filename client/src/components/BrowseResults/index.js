@@ -2,13 +2,16 @@ import React, { useEffect, useState, useLayoutEffect } from 'react';
 import Tag from '../Tag'
 import {Button} from 'react-bootstrap'
 import hljs from 'highlight.js';
+import './style.css';
 import '../../pageStyles/atom-one-dark.css';
 import API from '../../utils/API'
+import {useHistory} from 'react-router-dom';
 
 
 function BrowseResults (props){
     const [codeList, setCodeList] = useState([]);
-    const [page, setPage]=useState(0)
+    const [page, setPage]=useState(0);            
+    const history = useHistory();
 
     let sort = props.sort;
 
@@ -20,7 +23,6 @@ function BrowseResults (props){
                 setPage(0);
                 API.getPostViews()
                 .then(res => {
-                    console.log(res);
                     setCodeList(res.data);
                 }).catch(err => console.log(err))
                 break;
@@ -35,7 +37,6 @@ function BrowseResults (props){
                 setPage(0);
                 API.getPostComments()
                 .then(res => {
-                    console.log(res)
                     setCodeList(res.data);
                 }).catch(err => console.log(err))
                 break;
@@ -62,16 +63,20 @@ function BrowseResults (props){
         setPage(page-5)
     };
 
+    function redirectDetails(id){
+        history.push('/details/' + id);
+    }
+
     return(
         <>
         {codeList.map((val, index) => {
                 if(index < page + 5 && index >= page){
-                return(
-                    <div key={val.id} style={{"display":"flex","flexDirection":"column","width":"clamp(300px,70%,900px)","margin":"0 auto",
-                    "backgroundColor":"white", "padding":"20px", "borderRadius":"5px","boxShadow": "10px 10px 5px grey", "marginBottom":"15px"}} href="/">
+                return(                                                        
+                    <div key={val.id} className="browse-result"
+                    onClick={()=>redirectDetails(val.id)}>
                     <h2>{val.title}</h2>
-                    <pre><code style={{"borderRadius":"5px", "maxHeight":"10rem"}} className={val.language}>{val.code}</code></pre>
-                    <div style={{"display":"flex","flexDirection":"row"}}>                        
+                    <pre><code className="browse-code"  className={val.language}>{val.code}</code></pre>
+                    <div className="browse-tag-row">                        
                         <Tag value={val.language}/>
                         {
                         val.tags?.split(",").map((v,i) =>{
@@ -81,11 +86,12 @@ function BrowseResults (props){
                             }
                         })}
                     </div>
-                </div>)
+                </div>
+                )
             }})}
-        <div style={{"display":"flex","flexDirection":"row","justifyContent":"center"}}>
-        {page > 0 ? <Button onClick={()=>decreasePage()} style={{"marginRight":"10px"}}>Prev</Button> : <Button style={{"marginRight":"10px"}} disabled>Prev</Button>}
-        {page < codeList.length - 5 ? <Button onClick={()=>increasePage()}>Next</Button> : <Button disabled>Next</Button>}  
+        <div className="browse-nav-row">
+        {page > 0 ? <Button onClick={()=>decreasePage()} className="browse-nav-btn">Prev</Button> : <Button className="browse-nav-btn" disabled>Prev</Button>}
+        {page < codeList.length - 5 ? <Button onClick={()=>increasePage()} className="browse-nav-btn">Next</Button> : <Button className="browse-nav-btn" disabled>Next</Button>}  
         </div>        
         </>
     )
