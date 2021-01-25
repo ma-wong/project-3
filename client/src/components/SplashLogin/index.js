@@ -8,7 +8,7 @@ function SplashLogin(){
     // "padding":"clamp(15px, 5%, 50px)", "backgroundColor":"rgb(255, 255, 255, .4)", "border":"0", "color":"black"};
 
     return(
-        <>
+        <div>
         {/* <div style={{"display":"flex", "justifyContent":"center"}}>
         <Container   style={{"padding":"0","maxWidth":"800px"}}>
             <div style={{"margin":"10% auto", "marginTop": "10%", "display":"flex", "flexDirection": "row"}}>
@@ -19,33 +19,23 @@ function SplashLogin(){
         </Container>
         </div>   */}
 
-        <div className="container">
-            
-            <div className="row">
+            <div className="container btn-container">
                 
-                <Link class="box-1 col-md-4" to="/results">
-                    <div class="home-btn btn-one">
-                        <span>SEARCH</span>
-                    </div>
+                <Link to="/browse" className="col-md-4 d-flex justify-content-center">
+                    <button className="btn draw-border">BROWSE</button>
                 </Link>
 
-                <Link class="box-1 col-md-4" to="/browse">
-                    <div class="home-btn btn-one">
-                        <span>BROWSE</span>
-                    </div>
+                <Link to="/results" className="col-md-4 d-flex justify-content-center">
+                    <button className="btn draw-border">SEARCH</button>
                 </Link>
 
-                <Link class="box-1 col-md-4" to="/create">
-                    <div class="home-btn btn-one">
-                        <span>CREATE</span>
-                    </div>
+                <Link to="/create" className="col-md-4 d-flex justify-content-center">
+                    <button className="btn draw-border">CREATE</button>
                 </Link>
+
             </div>
 
         </div>
-
-
-        </>
     )
 }
 
