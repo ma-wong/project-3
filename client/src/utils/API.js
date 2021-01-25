@@ -54,6 +54,6 @@ export default {
     return axios.get("/api/user/send/", email)
   },
   createPost: function(postData) {
-    return axios.post("/api/post" + postData);
+    return axios.post("/api/post", postData);
   }
 };

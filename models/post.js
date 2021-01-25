@@ -24,10 +24,6 @@ module.exports = function(sequelize, DataTypes) {
             type: DataTypes.STRING,
             allowNull: false
         }
-        // user: {
-        //     type: DataTypes.STRING,
-        //     allowNull: false
-        // }
     });
     Post.associate = function(models) {
         Post.hasOne(models.PostData, {
