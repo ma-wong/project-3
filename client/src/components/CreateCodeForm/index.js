@@ -24,13 +24,9 @@ function CreateCodeForm(){
     const [selectedLanguage, setSelectedLanguage] = useState("");
     const [tags, setTags] = useState([]);
     const [userCode, setUserCode] = useState("");
-
     const [userInfo, setUserInfo] = useState({
-        email: "",
-        username: "",
-        profileUrl: "",
-        createdAt: new Date().toLocaleString()
-    }); 
+        username: ""
+    });
 
     const renderedTags = tags.map((tag)=>
     <div className="create-code-tag" name={tag}>
@@ -39,7 +35,7 @@ function CreateCodeForm(){
     </div>);
 
     useEffect(() => {
-    }, [tags]);
+    }, [tags, userInfo]);
 
     useEffect(() => {
         document.querySelectorAll("pre code").forEach(e => {
@@ -52,11 +48,7 @@ function CreateCodeForm(){
             console.log(response)
             setUserInfo({
                 ...userInfo,
-                id: response.data.id,
-                email: response.data.email,
                 username: response.data.username,
-                profileUrl: response.data.profileUrl,
-                createdAt: new Date(response.data.createdAt).toLocaleDateString("en-US")
             })
         })
     }
@@ -114,17 +106,37 @@ function CreateCodeForm(){
 
     function validateContent (event) {
         event.preventDefault();
+        getUser();
         var codeTitle = document.getElementById("code-title").value.trim();
         var codeDesc = document.getElementById("code-desc").value.trim();
         if ((codeTitle === "") === false && (codeDesc === "") === false && (userCode.trim() === "") === false && (selectedLanguage.trim() === "") === false) {
-            createNewCodeBlock();
+            createNewCodeBlock(codeTitle, codeDesc);
         } else {
             alert("submission has failed verification.");
         }
     };
 
-    function createNewCodeBlock () {
+    function getFullLanguageString (abbreviation) {
+        var i;
+        for (i=0;i<languages.length;i++) {
+            if (abbreviation === languages[i][1]) {
+                return(languages[i][0]);
+            };
+        };
+    };
+
+    function createNewCodeBlock (title, desc) {
         console.log("storing data...");
+        var postData = {
+            title: title,
+            code: userCode,
+            description: desc,
+            tags: tags.toString(),
+            language: getFullLanguageString(selectedLanguage),
+            user: userInfo.username
+        };
+
+        console.log(postData);
     };
 
     return(
