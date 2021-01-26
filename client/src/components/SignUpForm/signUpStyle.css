@@ -87,7 +87,7 @@
     margin-bottom: 0;
     /* Override default `<label>` margin */
     line-height: 1.5;
-    color: #495057;
+    color: white;
     border: 1px solid transparent;
     border-radius: .25rem;
     transition: all .1s ease-in-out;
@@ -122,7 +122,7 @@
     padding-top: calc(var(--input-padding-y) / 3);
     padding-bottom: calc(var(--input-padding-y) / 3);
     font-size: 12px;
-    color: #777;
+    color: white;
   }
 
   .terms{
@@ -150,7 +150,12 @@
   }
 
   .form-control:focus{
-    background-color: #0C0032;
+    background-color: #3500D3;
+    color: white;
+  }
+
+  .form-control{
+    color: white;
   }
 
   .fileInput{
@@ -175,7 +180,7 @@
       display: none;
     }
     .form-label-group input::-ms-input-placeholder {
-      color: #777;
+      color: white;
     }
   }
   
@@ -188,6 +193,6 @@
       display: none;
     }
     .form-label-group input:-ms-input-placeholder {
-      color: #777;
+      color: white;
     }
   }
