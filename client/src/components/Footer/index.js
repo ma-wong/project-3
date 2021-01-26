@@ -8,16 +8,16 @@ function Footer() {
         <div class="container">
           <div class="row footer">
             <div class="col-md-4 col-xs-4">
-              <a class="navbar-brand" href="https://github.com/wlawsonkelly"
+              <a class="navbar-brand footer-link" href="https://github.com/wlawsonkelly"
                 >Github</a>
             </div>
             <div class="col-md-4 col-xs-4">
-              <a class="navbar-brand" href="https://www.linkedin.com/in/law95/"
+              <a class="navbar-brand footer-link" href="https://www.linkedin.com/in/law95/"
                 >LinkedIn</a>
             </div>
             <div class="col-md-4 col-xs-4">
               <a
-                class="navbar-brand"
+                class="navbar-brand footer-link"
                 href="https://stackoverflow.com/users/10708100/guywitmanyhquestion"
                 >Stack Overflow</a>
             </div>

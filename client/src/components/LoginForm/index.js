@@ -35,7 +35,7 @@ function LoginForm({ username, password, handleInputChange, handleFormSubmit }) 
                 required />
                 <label htmlFor="inputPassword">Password</label>
               </div>
-              <button onClick={handleFormSubmit} className="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Log in</button>
+              <button onClick={handleFormSubmit} className="btn btn-lg btn-primary btn-block text-uppercase signupbtn" type="submit">Log in</button>
               <button className="btn githubBttn btn-block text-uppercase" type="submit">Log in with Github</button>
               <hr />
               <div className="terms">

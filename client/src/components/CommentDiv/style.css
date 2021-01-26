@@ -3,14 +3,14 @@
     margin-top: 10px;
     width: 70px;
     height: 70px;
-    border: 1px solid #0c0032;
+    border: 1px solid #1F2833;
 }
 
 .comment-container{
-    background-color: #0C0032;
+    background-color: #1F2833;
     height: 20%;
-    border: 1px solid #282828;
-    color: white;
+    border: 1px solid #45A29E;
+    color: #C5C6C7;
 }
 
 .comment-text{

@@ -4,7 +4,7 @@
   }
   
 .card-signin{
-  background-color: #282828;
+  background-color: #1F2833;
 }
   .signup-img{
     border-radius: 50%;
@@ -69,7 +69,7 @@
   .form-label-group input {
     height: auto;
     border-radius: 1rem;
-    background-color: #0C0032;
+    background-color: #45A29E;
     color: white;
   }
   
@@ -163,8 +163,8 @@
   }
 
   .signupbtn{
-    background-color: #3500D3;
-    border-color: #3500D3;
+    background-color: #45A29E;
+    border-color: #45A29E;
   }
 
   .custom-control-label{
