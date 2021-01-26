@@ -20,8 +20,6 @@ export function SearchResultsList({ children, increasePage, decreasePage, page }
 }
 
 export function SearchResultsItem({ codeId, title, description, tags, updatedAt, language, code }) {
-
-    console.log(codeId);
     useLayoutEffect( () => {
         document.querySelectorAll("pre code").forEach(e => {
             hljs.highlightBlock(e);
