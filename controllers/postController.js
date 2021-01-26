@@ -94,7 +94,17 @@ module.exports = {
                 }],
             order: [
                 [db.PostData, 'views', 'DESC']
-              ]
+              ],
+            limit: 100
+        })
+        .then((dbPost) => {res.json(dbPost)})
+        .catch( err => {throw err});
+    },
+    findByAuthor: function(req,res){
+        db.Post.findAll({
+            where: {UserId:req.params.author},
+            limit: 100,
+            order: [['createdAt', 'DESC']]
         })
         .then((dbPost) => {res.json(dbPost)})
         .catch( err => {throw err});

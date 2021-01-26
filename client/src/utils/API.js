@@ -32,6 +32,9 @@ export default {
   getPostsBySearch: function(query) {
     return axios.get("/api/post/search/" + query );
   },
+  getPostsByAuthor: function(author){
+    return axios.get("/api/post/author/" + author)
+  },
   getPost: async function(id) {
     return axios.get("/api/post/" + id);
   },  

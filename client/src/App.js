@@ -12,6 +12,7 @@ import SearchResults from "./pages/SearchResults";
 import Browse from './pages/Browse';
 import ConfirmEmail from './pages/ConfirmEmailPage'
 import Footer from "./components/Footer";
+import MyBlocks from './pages/MyBlocks'
 
 function App() {
 
@@ -31,6 +32,7 @@ function App() {
           <Route exact path="/results" component={SearchResults} />
           <Route exact path="/browse" component={Browse} />
           <Route exact path="/confirm" component={ConfirmEmail} />
+          <Route exact path="/myblocks" component={MyBlocks}/>
           <Route component={NoMatch} />
         </Switch>
         </div>
