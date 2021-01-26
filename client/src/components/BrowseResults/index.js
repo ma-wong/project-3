@@ -3,7 +3,8 @@ import Tag from '../Tag'
 import {Button} from 'react-bootstrap'
 import hljs from 'highlight.js';
 import './style.css';
-import '../../pageStyles/atom-one-dark.css';
+// import '../../pageStyles/atom-one-dark.css';
+import '../../pageStyles/rainbow.css'
 import API from '../../utils/API'
 import {useHistory} from 'react-router-dom';
 
@@ -30,7 +31,7 @@ function BrowseResults (props){
                 setPage(0);
                 API.getPostLikes()
                 .then(res => {
-                    setCodeList(res.data);
+                    setCodeList(res.data);  
                 }).catch(err => console.log(err))
                 break;
             case "comments":

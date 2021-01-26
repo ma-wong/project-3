@@ -196,7 +196,7 @@ class Details extends Component {
                     </div>
                 </div>
             <div style={{marginBottom: "100px"}}>
-               {this.state.comments.map(comment =>
+               {typeof this.state.comments === "object" ? (this.state.comments.map(comment =>
                  <CommentDiv
                   id={comment.id}
                   key={comment.id}
@@ -204,7 +204,7 @@ class Details extends Component {
                   userId={comment.userId}
                   createdAt={comment.createdAt}
                />
-                )}
+                )) : <h3>No Comments Yet</h3>}
             </div>
             </div>
         )

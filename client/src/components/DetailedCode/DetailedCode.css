@@ -1,8 +1,8 @@
 .description-card {
     margin: 2rem 0rem;
     background-color: #0c0032;
-    /* border-style: solid;
-    border-color: white; */
+    border-style: solid;
+    border-color: white;
 }
 
 .author-info {
@@ -17,8 +17,8 @@
 .details-card-body {
     background-color: #282828;
     color: white;
-    border-style: solid;
-    border-color: #240090;
+    /* border-style: solid;
+    border-color: white; */
 }
 
 .details-card-header {
