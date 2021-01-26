@@ -5,6 +5,7 @@ import hljs from 'highlight.js';
 import './style.css';
 // import '../../pageStyles/atom-one-dark.css';
 import '../../pageStyles/rainbow.css'
+import '../../pageStyles/docco.css'
 import API from '../../utils/API'
 import {useHistory} from 'react-router-dom';
 
