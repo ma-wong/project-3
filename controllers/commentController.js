@@ -16,6 +16,7 @@ module.exports = {
             where: {
               PostId: req.params.postid
             },
+            include: db.User,
             order: [
               ['updatedAt', 'DESC'],
           ],
