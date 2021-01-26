@@ -9,14 +9,14 @@
 }
 
 .comment-container{
+    display: block;
     background-color: #0C0032;
     height: 100px;
     border: 1px solid #282828;
     color: white;
 }
 
-.comment-header{
-}
+
 
 .comment-text{
     margin-top: 2px;

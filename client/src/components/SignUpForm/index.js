@@ -1,5 +1,6 @@
 import React from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { Form } from 'react-bootstrap';
 import './signUpStyle.css'
 
 function SignUpForm({ username, email, password, confirmPassword, handleInputChange, handleFormSubmit, handleGithub, fileInputState, handleFileInputChange, previewSource, handleLogin }) {
@@ -12,14 +13,16 @@ function SignUpForm({ username, email, password, confirmPassword, handleInputCha
           <div className="card-body">
             <h5 className="card-title text-center">Sign Up</h5>
             <form className="form-signin">
-            <div style={{marginBottom:"12px"}}>
-            <input
+            <div style={{marginBottom:"20px"}}>
+            <Form.File
                     id="fileInput"
+                    label="Upload a Profile Picture"
                     type="file"
                     name="image"
                     accept="image/*"
                     onChange={handleFileInputChange}
                     value={fileInputState}
+                    custom
                     />
                    {previewSource && (
                 <img
