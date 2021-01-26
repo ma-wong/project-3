@@ -19,7 +19,8 @@ class Details extends Component {
         copyCount: 0,
         copySuccess: false,
         commentText: "",
-        userid: ""
+        userid: "",
+        clicks: 0
         }
     }
 
@@ -75,7 +76,8 @@ class Details extends Component {
             console.log(res)
             this.setState({
                 postData: res.data,
-                copyCount: res.data.copies
+                copyCount: res.data.copies,
+                clicks: res.data.clicks
             }, () => {
                 console.log(this.state.postData)
             })
@@ -90,10 +92,19 @@ class Details extends Component {
         console.log(this.state.copyCount)
         this.updateCopyCount(id);
     }
+
+    countclicks = () => {
+        const url = new URL(window.location.href);
+        const id = url.pathname.split("/")[2];
+        this.state.clicks +=1;
+        console.log(this.state.clicks)
+        this.updateCopyCount(id);
+    }
     
     updateCopyCount = postId => {
         API.updatePostData(postId, {
-            copies: this.state.copyCount
+            copies: this.state.copyCount,
+            clicks: this.state.clicks
         })
         .catch(err => console.log(err));
     }
@@ -192,7 +203,9 @@ class Details extends Component {
                         />
                     </div>
                     <div className="col-md-4">
-                        <Rating />
+                        <Rating 
+                        handleLike={this.countclicks}
+                        />
                     </div>
                 </div>
             <div style={{marginBottom: "100px"}}>
