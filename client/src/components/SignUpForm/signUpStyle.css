@@ -3,10 +3,9 @@
     --input-padding-y: .75rem;
   }
   
-  body {
-    background: pink;
-  }
-
+.card-signin{
+  background-color: #282828;
+}
   .signup-img{
     border-radius: 50%;
     display: block;
@@ -46,6 +45,7 @@
   .form-input {
     display: block;
     margin-bottom: 10px;
+    
 }
   
   .form-signin {
@@ -69,6 +69,8 @@
   .form-label-group input {
     height: auto;
     border-radius: 1rem;
+    background-color: #0C0032;
+    color: white;
   }
   
   .form-label-group>input,
@@ -85,30 +87,30 @@
     margin-bottom: 0;
     /* Override default `<label>` margin */
     line-height: 1.5;
-    color: #495057;
+    color: white;
     border: 1px solid transparent;
     border-radius: .25rem;
     transition: all .1s ease-in-out;
   }
   
   .form-label-group input::-webkit-input-placeholder {
-    color: transparent;
+    color: white;
   }
   
   .form-label-group input:-ms-input-placeholder {
-    color: transparent;
+    color: white;
   }
   
   .form-label-group input::-ms-input-placeholder {
-    color: transparent;
+    color: white;
   }
   
   .form-label-group input::-moz-placeholder {
-    color: transparent;
+    color: white;
   }
   
   .form-label-group input::placeholder {
-    color: transparent;
+    color: white;
   }
   
   .form-label-group input:not(:placeholder-shown) {
@@ -120,7 +122,7 @@
     padding-top: calc(var(--input-padding-y) / 3);
     padding-bottom: calc(var(--input-padding-y) / 3);
     font-size: 12px;
-    color: #777;
+    color: white;
   }
 
   .terms{
@@ -142,6 +144,33 @@
   #login-link {
     text-align: center;
   }
+
+  .card-title {
+    color: white;
+  }
+
+  .form-control:focus{
+    background-color: #3500D3;
+    color: white;
+  }
+
+  .form-control{
+    color: white;
+  }
+
+  .fileInput{
+    color: white;
+  }
+
+  .signupbtn{
+    background-color: #3500D3;
+    border-color: #3500D3;
+  }
+
+  .custom-control-label{
+    color: white;
+  }
+  
   
   /* Fallback for Edge
   -------------------------------------------------- */
@@ -151,7 +180,7 @@
       display: none;
     }
     .form-label-group input::-ms-input-placeholder {
-      color: #777;
+      color: white;
     }
   }
   
@@ -164,6 +193,6 @@
       display: none;
     }
     .form-label-group input:-ms-input-placeholder {
-      color: #777;
+      color: white;
     }
   }

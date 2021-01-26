@@ -14,11 +14,37 @@
     height: 75vh;
     align-items: center;
     justify-content: center;
-    background-color: #282828;
+    background-color: #0C0032;
+    padding: 1%;
+}
+
+.create-form .create-code-title {
+    width: 60%;
+    margin-top: 1%;
+    padding: 1%;
+    background-color: #240090;
+    border: 3px solid #3500D3;
+    color: white;
+}
+
+.create-form label {
+    color: white;
+}
+
+.create-form select {
+    border: 3px solid #3500D3;
+    padding: 0.5%;
+    background-color: #240090;
+    color: white;
 }
 
 .create-form textarea{
     font-size:14px;
+    white-space: nowrap;
+    background-color: #240090;
+    color: white;
+    border: 3px solid #3500D3;
+    resize: none;
 }
 
 .code-preview-container {
@@ -45,13 +71,12 @@
     margin-bottom: 2%;
 }
 
-.create-form .create-code-title {
-    width: 60%;
-    margin-top: 1%;
-}
-
 .create-form .tag-input{
     width: 15%;
+    padding: 1%;
+    background-color: #240090;
+    border: 3px solid #3500D3;
+    color: white;
 }
 
 .create-form :nth-child(7){
@@ -90,10 +115,45 @@
 .delete-tag-button {
     height: 25px;
     font-size: 10px;
+    background-color: #3500D3;
+    color:white;
+    border: none;
 }
 
 .create-form-submit-button {
-    margin-top: 1%;
+    margin-top: 0%;
+    margin-bottom: 1%;
+    padding: 1%;
+    border: 2px solid #3500D3;
+    background-color: #240090;
+    color: white;
+    cursor: pointer;
+    transition: all 0.5s;
+}
+
+.create-form-submit-button span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
+
+.create-form-submit-button span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+}
+
+.create-form-submit-button:hover span {
+    padding-right: 20px;
+}
+
+.create-form-submit-button:hover span:after {
+    opacity: 1;
+    right: 0;
 }
 
 /* .create-code-tag button {

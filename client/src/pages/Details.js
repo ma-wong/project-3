@@ -118,8 +118,18 @@ class Details extends Component {
             body: this.state.commentText,
             postid: this.state.postDetails.id,
             userid: this.state.userid
-        }).then(res=>console.log(res));
+        }).then(res=>{
+            this.setState({
+                comments: [...this.state.comments, {
+                    body: this.state.commentText,
+                    postid: this.state.postDetails.id,
+                    userid: this.state.userid
+                }]
+            })
+        });
     }
+
+   
 
     //TODO
     //need an input did change function
@@ -191,7 +201,8 @@ class Details extends Component {
                   id={comment.id}
                   key={comment.id}
                   body={comment.body}
-                  userId={comment.userId}
+                  userName={comment.User.username}
+                  profileUrl={comment.User.profileUrl}
                   createdAt={comment.createdAt}
                />
                 )) : <h3>No Comments Yet</h3>}

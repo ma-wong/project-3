@@ -1,61 +1,40 @@
-import React, { useEffect, useState, useLayoutEffect } from 'react';
-import Tag from '../Tag'
-import {Button} from 'react-bootstrap'
-import hljs from 'highlight.js';
-import './style.css';
-// import '../../pageStyles/atom-one-dark.css';
-import '../../pageStyles/rainbow.css'
-import '../../pageStyles/docco.css'
-import API from '../../utils/API'
+import React, {useState, useEffect} from 'react';
+import API from '../utils/API';
+import hljs from 'highlight.js'
+import Tag from '../components/Tag'
+import {Button} from 'react-bootstrap';
 import {useHistory} from 'react-router-dom';
 
 
-function BrowseResults (props){
+function MyBlocks(){
     const [codeList, setCodeList] = useState([]);
-    const [page, setPage]=useState(0);            
+    const [userId, setUserId] = useState([]);    
+    const [page, setPage]=useState(0);                
     const history = useHistory();
 
-    let sort = props.sort;
+    useEffect(()=>{
+        API.getUser()
+        .then(res=>{
+            setUserId(res.data.id)})
+        .catch(err=>console.log(err))        
+    },[])
 
-    useEffect(()=>{},[page]);
-    
-    useEffect( () => {
-        switch(sort){
-            case "views":
-                setPage(0);
-                API.getPostViews()
-                .then(res => {
-                    setCodeList(res.data);
-                }).catch(err => console.log(err))
-                break;
-            case "likes":
-                setPage(0);
-                API.getPostLikes()
-                .then(res => {
-                    setCodeList(res.data);  
-                }).catch(err => console.log(err))
-                break;
-            case "comments":
-                setPage(0);
-                API.getPostComments()
-                .then(res => {
-                    setCodeList(res.data);
-                }).catch(err => console.log(err))
-                break;
-            default:
-                setPage(0);
-                API.getPostAll()
-                .then(res => {
-                    setCodeList(res.data);
-                }).catch(err => console.log(err))
-            }
-    },[sort])
+    useEffect(()=>{
+        if(typeof userId === "number"){
+            API.getPostsByAuthor(userId)
+            .then(res=>{
+                setCodeList(res.data);
+            })
+            .catch(err=>console.log(err))
+        }
+            
+    },[userId])
 
-    useLayoutEffect( () => {
+    useEffect(()=>{
         document.querySelectorAll("pre code").forEach(e => {
             hljs.highlightBlock(e);
-          });
-    })
+        });
+    },[page,codeList])
 
     function increasePage(){        
         setPage(page+5)
@@ -94,9 +73,10 @@ function BrowseResults (props){
         <div className="browse-nav-row">
         {page > 0 ? <Button onClick={()=>decreasePage()} className="browse-nav-btn">Prev</Button> : <Button className="browse-nav-btn" disabled>Prev</Button>}
         {page < codeList.length - 5 ? <Button onClick={()=>increasePage()} className="browse-nav-btn">Next</Button> : <Button className="browse-nav-btn" disabled>Next</Button>}  
-        </div>        
+        </div>
         </>
     )
-};
 
-export default BrowseResults;
+}
+
+export default MyBlocks;

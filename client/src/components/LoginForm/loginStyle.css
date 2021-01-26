@@ -2,10 +2,7 @@
     --input-padding-x: 1.5rem;
     --input-padding-y: .75rem;
   }
-  
-  body {
-    background: pink;
-  }
+
   
   .card-signin {
     border: 0;
@@ -60,7 +57,7 @@
     margin-bottom: 0;
     /* Override default `<label>` margin */
     line-height: 1.5;
-    color: #495057;
+    color: white;
     border: 1px solid transparent;
     border-radius: .25rem;
     transition: all .1s ease-in-out;
@@ -95,7 +92,7 @@
     padding-top: calc(var(--input-padding-y) / 3);
     padding-bottom: calc(var(--input-padding-y) / 3);
     font-size: 12px;
-    color: #777;
+    color: rgb(255, 255, 255);
   }
 
   .terms{
@@ -114,7 +111,7 @@
       display: none;
     }
     .form-label-group input::-ms-input-placeholder {
-      color: #777;
+      color: rgb(255, 255, 255);
     }
   }
   
@@ -127,6 +124,6 @@
       display: none;
     }
     .form-label-group input:-ms-input-placeholder {
-      color: #777;
+      color: rgb(255, 255, 255);
     }
   }

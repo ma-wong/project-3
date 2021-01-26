@@ -1,6 +1,7 @@
 import React from "react";
 import "./DetailedCode.css";
 import Tag from "../Tag";
+import '../../pageStyles/docco.css'
 
 function DetailedCode({ title, description, tags, language, updatedAt, userId }) {
     return (
