@@ -1,12 +1,7 @@
-body {
-    /* background-color: #0b0c10; */
-    background-image: url("./Img/test2.jpg");
-    /* background-size: cover; */
-}
-
 .list-group-item {
     background-color:#45A29E;
 }
+
 hr {
     color: white;
 }

@@ -12,7 +12,8 @@ import SearchResults from "./pages/SearchResults";
 import Browse from './pages/Browse';
 import ConfirmEmail from './pages/ConfirmEmailPage'
 import Footer from "./components/Footer";
-import MyBlocks from './pages/MyBlocks'
+import MyBlocks from './pages/MyBlocks';
+import "./pageStyles/universal.css";
 
 function App() {
 
