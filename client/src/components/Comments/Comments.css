@@ -5,12 +5,14 @@
 
 #submit-comment-btn {
     margin: 1rem 0rem;
-    background-color: #3500d3;
-    border-color: #3500d3;
+    background-color: #66FCF1;
+    border-color: #66FCF1;
+    color: #0B0C10;
 }
 
 #comment-input {
     height: 100px;
-    background-color: #282828;
+    background-color: #1F2833;
     color: white;
+
 }

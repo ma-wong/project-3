@@ -71,7 +71,6 @@ module.exports = {
         .catch( err => {throw err});
     },    
     comments: function(req,res){
-        //still need to test if works
         db.sequelize.query(`SELECT  posts.*,
         COUNT(*) as comment_count
         FROM posts

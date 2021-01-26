@@ -1,11 +1,11 @@
 body {
-    background-color: black;
+    /* background-color: #0b0c10; */
+    background-image: url("./Img/test2.jpg");
+    /* background-size: cover; */
 }
 
 .list-group-item {
-    /* background-color: #666666; */
-    background-color: #0c0032;
-    /* background-color: #190061; */
+    background-color:#45A29E;
 }
 hr {
     color: white;
@@ -17,13 +17,11 @@ hr {
 
 .results-body {
     padding: 0px;
-    color: white;
+    color: #C5C6C7;
 }
 
 #code-block {
     height: 100%;
-    border-style: solid;
-    border-color: #240090;
 }
 
 #pre-code-block {
@@ -32,11 +30,11 @@ hr {
 
 #results-card-container {
     padding: 13px;
-    background-color:#282828;
+    background-color:#1F2833;
 }
 
 .card-title {
-    color: white;
+    color:white;
 }
 
 .results-list-item {
