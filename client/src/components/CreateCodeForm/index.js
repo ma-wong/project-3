@@ -111,7 +111,7 @@ function CreateCodeForm(){
         if ((codeTitle === "") === false && (codeDesc === "") === false && (userCode.trim() === "") === false && (selectedLanguage.trim() === "") === false) {
             createNewCodeBlock(codeTitle, codeDesc);
         } else {
-            alert("submission has failed verification.");
+            alert("Error: A required field has been left blank. Fill it out and try to submit again.");
         }
     };
 
