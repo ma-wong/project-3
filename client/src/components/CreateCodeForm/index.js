@@ -5,6 +5,7 @@ import { render } from "react-dom";
 import API from "../../utils/API.js";
 import { set } from "local-storage";
 import { useHistory } from 'react-router-dom';
+import Tag from "../Tag";
 
 function CreateCodeForm(){
     const history = useHistory();
@@ -29,8 +30,10 @@ function CreateCodeForm(){
 
     const renderedTags = tags.map((tag)=>
     <div className="create-code-tag" name={tag}>
-        <p>{tag}</p>
-        <button name={tag} onClick={handleDeleteTag}>X</button>
+        <Tag 
+            value={tag}
+        />
+        <button name={tag} onClick={handleDeleteTag} className="delete-tag-button">X</button>
     </div>);
 
     useEffect(() => {
@@ -158,7 +161,7 @@ function CreateCodeForm(){
                     <div className="tags-box">
                         {renderedTags}
                     </div>
-                    <button onClick={validateContent}>Submit</button>
+                    <button onClick={validateContent} className="create-form-submit-button">Submit</button>
                 </form>
             </div>
         </div>
