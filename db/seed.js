@@ -36,7 +36,7 @@ app.use((req, res) => {
 
 db.sequelize.sync({ force: false }).then(() => {
     app.listen(PORT, () => {
-        for (i = 0; i < postSeeds.length; i++) {
+       for (i = 0; i < postSeeds.length; i++) {
             db.Post.create({
                 title: postSeeds[i].title,
                 code: postSeeds[i].code,
@@ -57,7 +57,7 @@ db.sequelize.sync({ force: false }).then(() => {
         }
 
         for (i = 0; i < commentSeed.length; i++) {
-            db.User.create({
+            db.Comment.create({
                 body: commentSeed[i].body,
                 UserId: commentSeed[i].UserId,
                 PostId: commentSeed[i].PostId,
@@ -116,6 +116,534 @@ let postSeeds = [
         user: "wlawsonkelly",
         UserId: 1
     },
+    {
+        title: "Fizz Buzz",
+        code: `enum FizzBuzz {
+            Fizz,
+            Buzz,
+            FizzBuzz,
+        }
+        fn main() {
+            let mut ans = vec![];
+            for i in 0..100 {
+                if i % 5 == 0 && i % 3 == 0 {
+                } else if i % 5 == 0 {
+                    vec.push(FizzBuzz::Fizz)
+                } else if i % 3 == 0 {
+                    vec.push(FizzBuzz::Buzz)
+                }
+            }
+        }`,
+        description: "A Rust implementation of fizzbuzz",
+        tags: "rust, fizzbuzz",
+        language: "Rust",
+        user: "wlawsonkelly",
+        UserId: 1
+    },
+    {
+        title: "Fizz Buzz",
+        code: `enum FizzBuzz {
+            Fizz,
+            Buzz,
+            FizzBuzz,
+        }
+        fn main() {
+            let mut ans = vec![];
+            for i in 0..100 {
+                if i % 5 == 0 && i % 3 == 0 {
+                } else if i % 5 == 0 {
+                    vec.push(FizzBuzz::Fizz)
+                } else if i % 3 == 0 {
+                    vec.push(FizzBuzz::Buzz)
+                }
+            }
+        }`,
+        description: "A Rust implementation of fizzbuzz",
+        tags: "rust, fizzbuzz",
+        language: "Rust",
+        user: "wlawsonkelly",
+        UserId: 1
+    },
+    {
+        title: "Fizz Buzz",
+        code: `enum FizzBuzz {
+            Fizz,
+            Buzz,
+            FizzBuzz,
+        }
+        fn main() {
+            let mut ans = vec![];
+            for i in 0..100 {
+                if i % 5 == 0 && i % 3 == 0 {
+                } else if i % 5 == 0 {
+                    vec.push(FizzBuzz::Fizz)
+                } else if i % 3 == 0 {
+                    vec.push(FizzBuzz::Buzz)
+                }
+            }
+        }`,
+        description: "A Rust implementation of fizzbuzz",
+        tags: "rust, fizzbuzz",
+        language: "Rust",
+        user: "wlawsonkelly",
+        UserId: 1
+    },
+    {
+        title: "Fizz Buzz",
+        code: `enum FizzBuzz {
+            Fizz,
+            Buzz,
+            FizzBuzz,
+        }
+        fn main() {
+            let mut ans = vec![];
+            for i in 0..100 {
+                if i % 5 == 0 && i % 3 == 0 {
+                } else if i % 5 == 0 {
+                    vec.push(FizzBuzz::Fizz)
+                } else if i % 3 == 0 {
+                    vec.push(FizzBuzz::Buzz)
+                }
+            }
+        }`,
+        description: "A Rust implementation of fizzbuzz",
+        tags: "rust, fizzbuzz",
+        language: "Rust",
+        user: "wlawsonkelly",
+        UserId: 1
+    },
+    {
+        title: "Fizz Buzz",
+        code: `enum FizzBuzz {
+            Fizz,
+            Buzz,
+            FizzBuzz,
+        }
+        fn main() {
+            let mut ans = vec![];
+            for i in 0..100 {
+                if i % 5 == 0 && i % 3 == 0 {
+                } else if i % 5 == 0 {
+                    vec.push(FizzBuzz::Fizz)
+                } else if i % 3 == 0 {
+                    vec.push(FizzBuzz::Buzz)
+                }
+            }
+        }`,
+        description: "A Rust implementation of fizzbuzz",
+        tags: "rust, fizzbuzz",
+        language: "Rust",
+        user: "wlawsonkelly",
+        UserId: 1
+    },
+    {
+        title: "Fizz Buzz",
+        code: `enum FizzBuzz {
+            Fizz,
+            Buzz,
+            FizzBuzz,
+        }
+        fn main() {
+            let mut ans = vec![];
+            for i in 0..100 {
+                if i % 5 == 0 && i % 3 == 0 {
+                } else if i % 5 == 0 {
+                    vec.push(FizzBuzz::Fizz)
+                } else if i % 3 == 0 {
+                    vec.push(FizzBuzz::Buzz)
+                }
+            }
+        }`,
+        description: "A Rust implementation of fizzbuzz",
+        tags: "rust, fizzbuzz",
+        language: "Rust",
+        user: "wlawsonkelly",
+        UserId: 1
+    },
+    {
+        title: "Fizz Buzz",
+        code: `enum FizzBuzz {
+            Fizz,
+            Buzz,
+            FizzBuzz,
+        }
+        fn main() {
+            let mut ans = vec![];
+            for i in 0..100 {
+                if i % 5 == 0 && i % 3 == 0 {
+                } else if i % 5 == 0 {
+                    vec.push(FizzBuzz::Fizz)
+                } else if i % 3 == 0 {
+                    vec.push(FizzBuzz::Buzz)
+                }
+            }
+        }`,
+        description: "A Rust implementation of fizzbuzz",
+        tags: "rust, fizzbuzz",
+        language: "Rust",
+        user: "wlawsonkelly",
+        UserId: 1
+    },
+    {
+        title: "Fizz Buzz",
+        code: `enum FizzBuzz {
+            Fizz,
+            Buzz,
+            FizzBuzz,
+        }
+        fn main() {
+            let mut ans = vec![];
+            for i in 0..100 {
+                if i % 5 == 0 && i % 3 == 0 {
+                } else if i % 5 == 0 {
+                    vec.push(FizzBuzz::Fizz)
+                } else if i % 3 == 0 {
+                    vec.push(FizzBuzz::Buzz)
+                }
+            }
+        }`,
+        description: "A Rust implementation of fizzbuzz",
+        tags: "rust, fizzbuzz",
+        language: "Rust",
+        user: "wlawsonkelly",
+        UserId: 1
+    },
+    {
+        title: "Fizz Buzz",
+        code: `enum FizzBuzz {
+            Fizz,
+            Buzz,
+            FizzBuzz,
+        }
+        fn main() {
+            let mut ans = vec![];
+            for i in 0..100 {
+                if i % 5 == 0 && i % 3 == 0 {
+                } else if i % 5 == 0 {
+                    vec.push(FizzBuzz::Fizz)
+                } else if i % 3 == 0 {
+                    vec.push(FizzBuzz::Buzz)
+                }
+            }
+        }`,
+        description: "A Rust implementation of fizzbuzz",
+        tags: "rust, fizzbuzz",
+        language: "Rust",
+        user: "wlawsonkelly",
+        UserId: 1
+    },
+    {
+        title: "Fizz Buzz",
+        code: `enum FizzBuzz {
+            Fizz,
+            Buzz,
+            FizzBuzz,
+        }
+        fn main() {
+            let mut ans = vec![];
+            for i in 0..100 {
+                if i % 5 == 0 && i % 3 == 0 {
+                } else if i % 5 == 0 {
+                    vec.push(FizzBuzz::Fizz)
+                } else if i % 3 == 0 {
+                    vec.push(FizzBuzz::Buzz)
+                }
+            }
+        }`,
+        description: "A Rust implementation of fizzbuzz",
+        tags: "rust, fizzbuzz",
+        language: "Rust",
+        user: "wlawsonkelly",
+        UserId: 1
+    },
+    {
+        title: "Fizz Buzz",
+        code: `enum FizzBuzz {
+            Fizz,
+            Buzz,
+            FizzBuzz,
+        }
+        fn main() {
+            let mut ans = vec![];
+            for i in 0..100 {
+                if i % 5 == 0 && i % 3 == 0 {
+                } else if i % 5 == 0 {
+                    vec.push(FizzBuzz::Fizz)
+                } else if i % 3 == 0 {
+                    vec.push(FizzBuzz::Buzz)
+                }
+            }
+        }`,
+        description: "A Rust implementation of fizzbuzz",
+        tags: "rust, fizzbuzz",
+        language: "Rust",
+        user: "wlawsonkelly",
+        UserId: 1
+    },
+    {
+        title: "Fizz Buzz",
+        code: `enum FizzBuzz {
+            Fizz,
+            Buzz,
+            FizzBuzz,
+        }
+        fn main() {
+            let mut ans = vec![];
+            for i in 0..100 {
+                if i % 5 == 0 && i % 3 == 0 {
+                } else if i % 5 == 0 {
+                    vec.push(FizzBuzz::Fizz)
+                } else if i % 3 == 0 {
+                    vec.push(FizzBuzz::Buzz)
+                }
+            }
+        }`,
+        description: "A Rust implementation of fizzbuzz",
+        tags: "rust, fizzbuzz",
+        language: "Rust",
+        user: "wlawsonkelly",
+        UserId: 1
+    },
+    {
+        title: "Fizz Buzz",
+        code: `enum FizzBuzz {
+            Fizz,
+            Buzz,
+            FizzBuzz,
+        }
+        fn main() {
+            let mut ans = vec![];
+            for i in 0..100 {
+                if i % 5 == 0 && i % 3 == 0 {
+                } else if i % 5 == 0 {
+                    vec.push(FizzBuzz::Fizz)
+                } else if i % 3 == 0 {
+                    vec.push(FizzBuzz::Buzz)
+                }
+            }
+        }`,
+        description: "A Rust implementation of fizzbuzz",
+        tags: "rust, fizzbuzz",
+        language: "Rust",
+        user: "wlawsonkelly",
+        UserId: 1
+    },
+    {
+        title: "Fizz Buzz",
+        code: `enum FizzBuzz {
+            Fizz,
+            Buzz,
+            FizzBuzz,
+        }
+        fn main() {
+            let mut ans = vec![];
+            for i in 0..100 {
+                if i % 5 == 0 && i % 3 == 0 {
+                } else if i % 5 == 0 {
+                    vec.push(FizzBuzz::Fizz)
+                } else if i % 3 == 0 {
+                    vec.push(FizzBuzz::Buzz)
+                }
+            }
+        }`,
+        description: "A Rust implementation of fizzbuzz",
+        tags: "rust, fizzbuzz",
+        language: "Rust",
+        user: "wlawsonkelly",
+        UserId: 1
+    },
+    {
+        title: "Fizz Buzz",
+        code: `enum FizzBuzz {
+            Fizz,
+            Buzz,
+            FizzBuzz,
+        }
+        fn main() {
+            let mut ans = vec![];
+            for i in 0..100 {
+                if i % 5 == 0 && i % 3 == 0 {
+                } else if i % 5 == 0 {
+                    vec.push(FizzBuzz::Fizz)
+                } else if i % 3 == 0 {
+                    vec.push(FizzBuzz::Buzz)
+                }
+            }
+        }`,
+        description: "A Rust implementation of fizzbuzz",
+        tags: "rust, fizzbuzz",
+        language: "Rust",
+        user: "wlawsonkelly",
+        UserId: 1
+    },
+    {
+        title: "Fizz Buzz",
+        code: `enum FizzBuzz {
+            Fizz,
+            Buzz,
+            FizzBuzz,
+        }
+        fn main() {
+            let mut ans = vec![];
+            for i in 0..100 {
+                if i % 5 == 0 && i % 3 == 0 {
+                } else if i % 5 == 0 {
+                    vec.push(FizzBuzz::Fizz)
+                } else if i % 3 == 0 {
+                    vec.push(FizzBuzz::Buzz)
+                }
+            }
+        }`,
+        description: "A Rust implementation of fizzbuzz",
+        tags: "rust, fizzbuzz",
+        language: "Rust",
+        user: "wlawsonkelly",
+        UserId: 1
+    },
+    {
+        title: "Fizz Buzz",
+        code: `enum FizzBuzz {
+            Fizz,
+            Buzz,
+            FizzBuzz,
+        }
+        fn main() {
+            let mut ans = vec![];
+            for i in 0..100 {
+                if i % 5 == 0 && i % 3 == 0 {
+                } else if i % 5 == 0 {
+                    vec.push(FizzBuzz::Fizz)
+                } else if i % 3 == 0 {
+                    vec.push(FizzBuzz::Buzz)
+                }
+            }
+        }`,
+        description: "A Rust implementation of fizzbuzz",
+        tags: "rust, fizzbuzz",
+        language: "Rust",
+        user: "wlawsonkelly",
+        UserId: 1
+    },
+    {
+        title: "Fizz Buzz",
+        code: `enum FizzBuzz {
+            Fizz,
+            Buzz,
+            FizzBuzz,
+        }
+        fn main() {
+            let mut ans = vec![];
+            for i in 0..100 {
+                if i % 5 == 0 && i % 3 == 0 {
+                } else if i % 5 == 0 {
+                    vec.push(FizzBuzz::Fizz)
+                } else if i % 3 == 0 {
+                    vec.push(FizzBuzz::Buzz)
+                }
+            }
+        }`,
+        description: "A Rust implementation of fizzbuzz",
+        tags: "rust, fizzbuzz",
+        language: "Rust",
+        user: "wlawsonkelly",
+        UserId: 1
+    },
+    {
+        title: "Fizz Buzz",
+        code: `enum FizzBuzz {
+            Fizz,
+            Buzz,
+            FizzBuzz,
+        }
+        fn main() {
+            let mut ans = vec![];
+            for i in 0..100 {
+                if i % 5 == 0 && i % 3 == 0 {
+                } else if i % 5 == 0 {
+                    vec.push(FizzBuzz::Fizz)
+                } else if i % 3 == 0 {
+                    vec.push(FizzBuzz::Buzz)
+                }
+            }
+        }`,
+        description: "A Rust implementation of fizzbuzz",
+        tags: "rust, fizzbuzz",
+        language: "Rust",
+        user: "wlawsonkelly",
+        UserId: 1
+    },
+    {
+        title: "Fizz Buzz",
+        code: `enum FizzBuzz {
+            Fizz,
+            Buzz,
+            FizzBuzz,
+        }
+        fn main() {
+            let mut ans = vec![];
+            for i in 0..100 {
+                if i % 5 == 0 && i % 3 == 0 {
+                } else if i % 5 == 0 {
+                    vec.push(FizzBuzz::Fizz)
+                } else if i % 3 == 0 {
+                    vec.push(FizzBuzz::Buzz)
+                }
+            }
+        }`,
+        description: "A Rust implementation of fizzbuzz",
+        tags: "rust, fizzbuzz",
+        language: "Rust",
+        user: "wlawsonkelly",
+        UserId: 1
+    },
+    {
+        title: "Fizz Buzz",
+        code: `enum FizzBuzz {
+            Fizz,
+            Buzz,
+            FizzBuzz,
+        }
+        fn main() {
+            let mut ans = vec![];
+            for i in 0..100 {
+                if i % 5 == 0 && i % 3 == 0 {
+                } else if i % 5 == 0 {
+                    vec.push(FizzBuzz::Fizz)
+                } else if i % 3 == 0 {
+                    vec.push(FizzBuzz::Buzz)
+                }
+            }
+        }`,
+        description: "A Rust implementation of fizzbuzz",
+        tags: "rust, fizzbuzz",
+        language: "Rust",
+        user: "wlawsonkelly",
+        UserId: 1
+    },
+    {
+        title: "Fizz Buzz",
+        code: `enum FizzBuzz {
+            Fizz,
+            Buzz,
+            FizzBuzz,
+        }
+        fn main() {
+            let mut ans = vec![];
+            for i in 0..100 {
+                if i % 5 == 0 && i % 3 == 0 {
+                } else if i % 5 == 0 {
+                    vec.push(FizzBuzz::Fizz)
+                } else if i % 3 == 0 {
+                    vec.push(FizzBuzz::Buzz)
+                }
+            }
+        }`,
+        description: "A Rust implementation of fizzbuzz",
+        tags: "rust, fizzbuzz",
+        language: "Rust",
+        user: "wlawsonkelly",
+        UserId: 1
+    }
 ];
 
 let userSeeds = [
