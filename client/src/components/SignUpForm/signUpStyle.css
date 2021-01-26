@@ -149,11 +149,6 @@
     color: white;
   }
 
-  .form-control:focus{
-    background-color: #3500D3;
-    color: white;
-  }
-
   .form-control{
     color: white;
   }

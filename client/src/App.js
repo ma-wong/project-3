@@ -22,7 +22,6 @@ function App() {
     <Router>
       <div>
       <Navhead />
-      <div style={{marginBottom:"60px"}}>
           <Switch>
           <Route exact path="/" component={Home}/>
           <Route exact path="/login" component={Login} />
@@ -37,8 +36,6 @@ function App() {
           <Route component={NoMatch} />
         </Switch>
         </div>
-        <Footer />
-      </div>
     </Router>
  </>
   );
