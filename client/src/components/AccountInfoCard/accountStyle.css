@@ -24,8 +24,8 @@
   font-size: 0.875rem;
   font-weight: 400;
   line-height: 1.5;
-  color: #4d5154;
-  background-color: #0C0032;
+  color: white;
+  background-color: #45A29E;
   background-clip: padding-box;
   border: 1px solid #eef0f3;
   border-radius: 0.25rem;
@@ -42,7 +42,7 @@
 }
 
 .account-nav-item{
-  background-color: #0C0032;
+  background-color: #45A29E;
 }
 .account-link-active{
   background-color: #3500D3;
