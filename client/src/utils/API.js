@@ -55,5 +55,8 @@ export default {
   },
   createPost: function(postData) {
     return axios.post("/api/post", postData);
+  },
+  getUserById: function(id) {
+    return axios.get("/api/user/" + id)
   }
 };

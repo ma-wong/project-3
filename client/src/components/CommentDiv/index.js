@@ -18,7 +18,7 @@ function CommentDiv({userId, body, createdAt}) {
 
     const getUser = () => {
         console.log("doing it");
-        API.getUser().then((response) => {
+        API.getUserById(userId).then((response) => {
             console.log(response)
             setUserInfo({
                 ...userInfo,
