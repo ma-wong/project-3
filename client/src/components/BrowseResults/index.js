@@ -39,6 +39,7 @@ function BrowseResults (props){
                 setPage(0);
                 API.getPostComments()
                 .then(res => {
+                    console.log(res);
                     setCodeList(res.data);
                 }).catch(err => console.log(err))
                 break;
@@ -71,7 +72,7 @@ function BrowseResults (props){
 
     return(
         <>
-        {codeList.map((val, index) => {
+        {codeList?.map((val, index) => {
                 if(index < page + 5 && index >= page){
                 return(                                                        
                     <div key={val.id} className="browse-result"
@@ -93,7 +94,7 @@ function BrowseResults (props){
             }})}
         <div className="browse-nav-row">
         {page > 0 ? <Button onClick={()=>decreasePage()} className="browse-nav-btn">Prev</Button> : <Button className="browse-nav-btn" disabled>Prev</Button>}
-        {page < codeList.length - 5 ? <Button onClick={()=>increasePage()} className="browse-nav-btn">Next</Button> : <Button className="browse-nav-btn" disabled>Next</Button>}  
+        {page < codeList?.length - 5 ? <Button onClick={()=>increasePage()} className="browse-nav-btn">Next</Button> : <Button className="browse-nav-btn" disabled>Next</Button>}  
         </div>        
         </>
     )
