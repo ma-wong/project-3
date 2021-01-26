@@ -11,9 +11,9 @@ function Rating() {
                     <i className="fa fa-thumbs-up fa-3x like" aria-hidden="true"></i>
                 </div>
                 {/* Thumbs Down */}
-                <div className="dislike grow">
+                {/* <div className="dislike grow">
                     <i className="fa fa-thumbs-down fa-3x like" aria-hidden="true"></i>
-                </div>
+                </div> */}
             </div>
         </div>
     )

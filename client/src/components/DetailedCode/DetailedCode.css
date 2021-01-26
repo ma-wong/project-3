@@ -1,8 +1,6 @@
 .description-card {
     margin: 2rem 0rem;
-    background-color: #0c0032;
-    border-style: solid;
-    border-color: white;
+    background-color: #45A29E;
 }
 
 .author-info {
@@ -15,22 +13,23 @@
 }
 
 .details-card-body {
-    background-color: #282828;
-    color: white;
-    /* border-style: solid;
-    border-color: white; */
+    background-color: #1F2833;
+    color: #C5C6C7;
 }
 
 .details-card-header {
     color: white;
+    font-size: 17pt;
 }
 
 .details-footer {
-   margin: 0px;  
+   margin: 0px;
+   color: white;
 }
 
 
 
 /* .details-card-footer {
-    background: #0c0032;
+    background-color: #45A29E;
+
 } */

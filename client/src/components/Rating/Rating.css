@@ -10,15 +10,15 @@
     margin: 10px;
 }
 
-.dislike:hover,
+/* .dislike:hover, */
 .like:hover {
-    color: #240090;
+    color: #66FCF1;
     transition: all .2s ease-in-out;
     transform: scale(1.1);
 }
 
 .active {
-    color: #240090;
+    color: #66FCF1;
 }
 
 .rating-container {
@@ -27,4 +27,9 @@
 
 #rating-text {
     color: white;
+    font-size: 20pt;
+}
+
+.fa-thumbs-up {
+    color: #45a29e;
 }
