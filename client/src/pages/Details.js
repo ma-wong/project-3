@@ -201,7 +201,8 @@ class Details extends Component {
                   id={comment.id}
                   key={comment.id}
                   body={comment.body}
-                  userId={comment.userId}
+                  userName={comment.User.username}
+                  profileUrl={comment.User.profileUrl}
                   createdAt={comment.createdAt}
                />
                 )) : <h3>No Comments Yet</h3>}

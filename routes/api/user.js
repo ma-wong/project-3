@@ -34,7 +34,6 @@ router.route('/user_data')
 router.route("/send/")
     .get(
         function (req, res) {
-            console.log(req);
             console.log("Sending the eamil");
             sgMail.setApiKey(process.env.SENDGRID_API_KEY)
             const msg = {
@@ -54,23 +53,6 @@ router.route("/send/")
                 })
         }
     )
-
-router.route("/:id")
-    .get(
-        function (req, res) {
-            db.User.findOne({
-                where: {
-                  id: req.params.postid
-                },
-              }).then(function(dbUser) {
-                res.json(dbUser);
-          
-              }).catch(function(err) {
-                res.status(401).json(err);
-              });
-        }
-    )
-
 
 
 module.exports = router;
