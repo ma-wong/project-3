@@ -34,20 +34,21 @@
 
 .acccount-container{
   color: white;
-  background-color: #282828;
+  background-color: #1F2833;
 }
 
 .accountBtn{
   background-color: #3500D3;
 }
 
-.account-nav-item{
+.account-nav-item > a{
   background-color: #45A29E;
+  color: white;
 }
 .account-link-active{
   background-color: #3500D3;
 }
-.account-link-active > .active  a{
+.nav-item > .active{
   background-color: #3500D3;
 }
 .active{
