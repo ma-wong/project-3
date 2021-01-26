@@ -14,7 +14,7 @@
     height: 75vh;
     align-items: center;
     justify-content: center;
-    background-color: white;
+    background-color: #282828;
 }
 
 .create-form textarea{
@@ -62,6 +62,7 @@
     width: 90%;
     display: flex;
     justify-content: center;
+    margin-bottom: 1%;
 }
 
 .create-form label {
@@ -74,6 +75,7 @@
     margin-right: 1%;
     margin-left: 1%;
     width: auto;
+    align-items: center;
 }
 
 .create-code-tag p {
@@ -85,11 +87,20 @@
     padding-right: 3%;
 }
 
-.create-code-tag button {
+.delete-tag-button {
+    height: 25px;
+    font-size: 10px;
+}
+
+.create-form-submit-button {
+    margin-top: 1%;
+}
+
+/* .create-code-tag button {
     height: 25px;
     width: 25px;
     font-size: 10px;
-}
+} */
 
 @media (max-width:1500px) {
     .create-form {
