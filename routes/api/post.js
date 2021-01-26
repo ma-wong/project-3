@@ -11,6 +11,9 @@ router.route("/views/")
 router.route("/likes/")
     .get(postController.likes) 
 
+router.route("/author/:author")
+    .get(postController.findByAuthor)
+
 router.route("/search/:query")
     .get(postController.findByTitle)
 
