@@ -131,7 +131,7 @@ class Signup extends React.Component {
 
     render() {
     return (
-        <div>
+        <div style={{marginBottom:"100px"}}>
             {this.renderRedirect}
             <SignUpForm
                 handleInputChange={this.handleInputChange}

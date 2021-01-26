@@ -15,7 +15,10 @@ module.exports = {
         db.Comment.findAll({
             where: {
               PostId: req.params.postid
-            }
+            },
+            order: [
+              ['updatedAt', 'DESC'],
+          ],
           }).then(function(dbComment) {
             res.json(dbComment);
       

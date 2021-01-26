@@ -12,7 +12,7 @@ function SignUpForm({ username, email, password, confirmPassword, handleInputCha
           <div className="card-body">
             <h5 className="card-title text-center">Sign Up</h5>
             <form className="form-signin">
-            <div className="form-label-group">
+            <div style={{marginBottom:"12px"}}>
             <input
                     id="fileInput"
                     type="file"
@@ -85,7 +85,7 @@ function SignUpForm({ username, email, password, confirmPassword, handleInputCha
                 <input type="checkbox" className="custom-control-input" id="customCheck1" />
                 <label className="custom-control-label" htmlFor="customCheck1">Agree to Terms and Conditions</label>
               </div>
-              <button onClick={handleFormSubmit} className="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Sign Up</button>
+              <button onClick={handleFormSubmit} className="btn btn-lg btn-primary btn-block text-uppercase signupbtn" type="submit">Sign Up</button>
               <button onClick={handleGithub} className="btn githubBttn btn-block text-uppercase" type="submit">Sign Up With Github</button>
               <hr />
               <div className="terms">

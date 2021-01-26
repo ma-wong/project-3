@@ -33,3 +33,11 @@
     padding: 1rem;
     transition: all 0.2s;
   }
+
+  .account-card-body{
+    color: white;
+
+  }
+  .usertext{
+    color: white;
+  }
