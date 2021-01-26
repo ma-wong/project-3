@@ -185,7 +185,7 @@ class Details extends Component {
                         <Rating />
                     </div>
                 </div>
-                
+            <div style={{marginBottom: "100px"}}>
                {this.state.comments.map(comment =>
                  <CommentDiv
                   id={comment.id}
@@ -195,6 +195,7 @@ class Details extends Component {
                   createdAt={comment.createdAt}
                />
                 )}
+            </div>
             </div>
         )
     }
