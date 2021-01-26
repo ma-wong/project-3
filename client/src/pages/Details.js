@@ -169,7 +169,7 @@ class Details extends Component {
                         {/* <label id="textarea-label" for="code-block-textarea">Code Block</label> */}
                     </div>
                     <div>
-                        <button type="button" className="btn btn-outline-primary"
+                        <button type="button" className="btn btn-outline-light"
                             id="copy-btn"
                             onClick={() => this.copyCodeToClipboard()}>
                             Copy to Clipboard

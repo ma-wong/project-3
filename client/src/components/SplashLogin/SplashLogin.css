@@ -1,19 +1,16 @@
-/* body {
-	background-image: url("./ImgTest/test4.jpg");
-	background-size: cover;
-} */
-
 
 .draw-border {
-	box-shadow: inset 0 0 0 4px #58afd1;
-	color: #58afd1;
+	box-shadow: inset 0 0 0 4px #66FCF1;
+	color: #66FCF1;
 	transition: color 0.25s 0.0833333333s;
 	position: relative;
 	background: #1f1a25;
 	border: none;
 	cursor: pointer;
 	line-height: 1.5;
-	font: 700 1.2rem "Roboto Slab", sans-serif;
+	font-family: 'IBM Plex Mono', monospace;
+	font-weight: 500;
+	font-size: 33pt;
 	letter-spacing: 0.05rem;
 	width: 100%;
 	height: 320px;

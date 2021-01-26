@@ -1,6 +1,8 @@
 .description-card {
     margin: 2rem 0rem;
     background-color: #45A29E;
+    font-weight: 300;
+    font-size: 13pt;
 }
 
 .author-info {
@@ -19,7 +21,9 @@
 
 .details-card-header {
     color: white;
-    font-size: 17pt;
+    font-size: 19pt;
+    font-weight: bold;
+    padding: 8px 20px;
 }
 
 .details-footer {
@@ -27,9 +31,7 @@
    color: white;
 }
 
-
-
-/* .details-card-footer {
-    background-color: #45A29E;
-
-} */
+.detail-name {
+    font-weight: 500;
+    color: white;
+}
