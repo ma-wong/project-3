@@ -11,6 +11,7 @@ import Details from "./pages/Details";
 import SearchResults from "./pages/SearchResults";
 import Browse from './pages/Browse';
 import ConfirmEmail from './pages/ConfirmEmailPage'
+import Footer from "./components/Footer";
 
 function App() {
 
@@ -31,6 +32,7 @@ function App() {
           <Route exact path="/confirm" component={ConfirmEmail} />
           <Route component={NoMatch} />
         </Switch>
+        <Footer />
       </div>
     </Router>
  </>

@@ -55,7 +55,7 @@ class Details extends Component {
                 postDetails: res.data,
                 username: res.data.User.username
             },() => {
-                console.log(this.state.postDetails)
+                this.getComments(id)
             })
         })
         .catch(err => console.log(err));
@@ -101,6 +101,7 @@ class Details extends Component {
     getComments = postId  => {
         API.getComments(postId)
             .then(res => {
+                console.log(res.data)
                 this.setState({
                     comments: res.data
                 })
@@ -187,11 +188,11 @@ class Details extends Component {
                 
                {this.state.comments.map(comment =>
                  <CommentDiv
-                 id={comment.id}
-                 key={comment.id}
-                 author={comment.author}
-                 profileUrl={comment.profileUrl}
-                 body={comment.body}
+                  id={comment.id}
+                  key={comment.id}
+                  body={comment.body}
+                  userId={comment.userId}
+                  createdAt={comment.createdAt}
                />
                 )}
             </div>
