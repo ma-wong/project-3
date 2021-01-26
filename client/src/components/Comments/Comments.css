@@ -1,11 +1,15 @@
 #comment-heading {
     text-align: center;
+    color: white;
 }
 
 #submit-comment-btn {
     margin: 1rem 0rem;
+    background-color: #3500d3;
+    border-color: #3500d3;
 }
 
 #comment-input {
     height: 100px;
+    background-color: #282828;
 }

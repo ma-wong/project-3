@@ -8,7 +8,7 @@ body {
     /* background-color: #190061; */
 }
 hr {
-    color: #190061;
+    color: white;
 }
 
 #results-card-title {
@@ -17,11 +17,13 @@ hr {
 
 .results-body {
     padding: 0px;
-    color: #282828;
+    color: white;
 }
 
 #code-block {
     height: 100%;
+    border-style: solid;
+    border-color: #240090;
 }
 
 #pre-code-block {
@@ -30,11 +32,11 @@ hr {
 
 #results-card-container {
     padding: 13px;
-    background-color:#c5c6c7;
+    background-color:#282828;
 }
 
 .card-title {
-    color: #240090;
+    color: white;
 }
 
 .results-list-item {
