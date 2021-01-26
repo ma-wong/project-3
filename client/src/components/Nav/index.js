@@ -1,29 +1,117 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
+import { Navbar, Nav, Dropdown, DropdownButton } from 'react-bootstrap'
 import "./nav.css";
-import { Navbar, Dropdown, DropdownButton, Image } from 'react-bootstrap'
+// import logo from "./Roki2.jpg"
 
-// import DropdownMenu from "react-bootstrap/esm/DropdownMenu";
 
-class Navhead extends Component {
+// class Navhead extends Component {
 
-  // constructor(props) {
-  //   super(props)
-  //   this.state = {
-  //     test: "testing",
-  //     viewBlocks: true,
-  //     viewUserCircle: false,
-  //   }
-  // }
+//   constructor(props) {
+//     super(props)
+//     this.state = {
+//       image: "./Roki2.jpg"
+//     }
+//   }
+
+  class Navhead extends Component {
+    state = {
+      open: false,
+      width: window.innerWidth
+    };
+  
+    updateWidth = () => {
+      const newState = { width: window.innerWidth };
+  
+      if (this.state.open && newState.width > 991) {
+        newState.open = false;
+      }
+  
+      this.setState(newState);
+    };
+  
+    toggleNav = () => {
+      this.setState({ open: !this.state.open });
+    };
+  
+    componentDidMount() {
+      window.addEventListener("resize", this.updateWidth);
+    }
+  
+    componentWillUnmount() {
+      window.removeEventListener("resize", this.updateWidth);
+    }
+
+
+
+
 
   render() {
     return (
         <Navbar bg="dark" expand="lg">
           <div className="wrapper">
-          {/* <div className="col-sm-5 col-md-7 col-lg-11"> */}
+            {/* <img src={logo} /> */}
           <div>
+
+          {/* <Navbar.Brand href="#home">Left Dropdown</Navbar.Brand> */}
+          <Nav className="basic-navbar-nav navbar navbar-expand-lg navbar-dark bg-dark p-0">
+            {/* <Link className="navbar-brand"> */}
+            {/* Blocks */}
+            {/* </Link> */}
+            {/* <button
+          onClick={this.toggleNav}
+          className="navbar-toggler"
+          data-toggle="collapse"
+          data-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span className="navbar-toggler-icon" />
+        </button>
+
+        <div className={`${this.state.open ? "" : "collapse "}navbar-collapse`} id="navbarNav">
+          <ul className="navbar-nav">
+            <li className="nav-item">
+              <Link
+                onClick={this.toggleNav}
+                className="nav-link"
+              >
+                My Blocks
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link
+                onClick={this.toggleNav}
+                className="nav-link"
+              >
+                Recent Blocks
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link
+                onClick={this.toggleNav}
+                className="nav-link"
+              >
+                Popular Blocks
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link
+                onClick={this.toggleNav}
+                className="nav-link"
+              >
+                Create Blocks
+              </Link>
+            </li>
+          </ul>
+        </div> */}
+            </Nav>
+
+
             <Dropdown>
-              <Dropdown.Toggle variant="success" id="dropdown-basic">
-                Left Dropdown
+              <Dropdown.Toggle variant="primary" id="dropdown-basic" className="dd-arrow">
+              <span className="navbar-toggler-icon" />
            </Dropdown.Toggle>
 
               <Dropdown.Menu>
@@ -38,7 +126,16 @@ class Navhead extends Component {
 
           {/* usercircle is what I used to create the blue circle */}
           {/* title is where the image is place w/in the blue circle */}          
-          <DropdownButton id="usercircle" title={ <img src=""></img> } menuAlign="right">
+
+          {/* <DropdownButton menuAlign="left" >
+          <span className="navbar-toggler-icon" />
+<Dropdown.Item href="#/action-1" id="usercirclefont">My Account</Dropdown.Item>
+<Dropdown.Item href="#/action-2" id="usercirclefont">Settings</Dropdown.Item>
+<Dropdown.Item href="#/action-3" id="usercirclefont">My Help</Dropdown.Item>
+<Dropdown.Item href="#/action-3" id="usercirclefont">Logout</Dropdown.Item>
+</DropdownButton> */}
+
+          <DropdownButton id="usercircle" menuAlign="right" style={{  backgroundImage: `url(${this.state.image})` }}>
 
             <Dropdown.Item href="#/action-1" id="usercirclefont">My Account</Dropdown.Item>
             <Dropdown.Item href="#/action-2" id="usercirclefont">Settings</Dropdown.Item>
