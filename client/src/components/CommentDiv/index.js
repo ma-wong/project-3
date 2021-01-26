@@ -36,7 +36,7 @@ function CommentDiv({userId, body, createdAt}) {
     <div className="container comment-container">
         <div className="row">
         <div className="col-xs-2 col-md-1 image-col">
-            <img src={userInfo.profileUrl} className="img-circle img-responsive" alt="" />
+            <img src={userInfo.profileUrl} className="img-circle-comment" alt="" />
         </div>
         <div className="col-xs-10 col-md-11">
             <div className="comment-header">
