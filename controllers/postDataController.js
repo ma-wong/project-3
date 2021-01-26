@@ -9,7 +9,8 @@ module.exports = {
     update: function(req, res) {
         db.PostData.update(
               {
-                copies: req.body.copies
+                copies: req.body.copies,
+                clicks: req.body.clicks
               },
               {
               where: {
