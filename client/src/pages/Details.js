@@ -118,8 +118,18 @@ class Details extends Component {
             body: this.state.commentText,
             postid: this.state.postDetails.id,
             userid: this.state.userid
-        }).then(res=>console.log(res));
+        }).then(res=>{
+            this.setState({
+                comments: [...this.state.comments, {
+                    body: this.state.commentText,
+                    postid: this.state.postDetails.id,
+                    userid: this.state.userid
+                }]
+            })
+        });
     }
+
+   
 
     //TODO
     //need an input did change function
