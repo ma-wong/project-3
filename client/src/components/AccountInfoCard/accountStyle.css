@@ -37,10 +37,6 @@
   background-color: #1F2833;
 }
 
-.accountBtn{
-  background-color: #3500D3;
-}
-
 .account-nav-item > a{
   background-color: #45A29E;
   color: white;
@@ -53,6 +49,13 @@
 }
 .active{
   background-color: #3500D3;
+}
+
+#account-save-button{
+  background-color: #66FCF1;
+  border-color: #66FCF1;
+  color: black;
+  font-weight: 500;
 }
 
 

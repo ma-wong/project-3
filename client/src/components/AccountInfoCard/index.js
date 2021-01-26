@@ -116,7 +116,7 @@ function AccountInfoCard({ email, username, profileUrl, createdAt, handleInputCh
                         </ul>
                     </div>
                 </div>
-                <button type="submit" className="btn accountBtn btn-primary">Save Change</button>
+                <button type="button" id="account-save-button" className="btn btn-primary">Save Changes</button>
             </form>
         </div>
     </div>
