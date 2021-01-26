@@ -161,7 +161,7 @@ function CreateCodeForm(){
                     <div className="tags-box">
                         {renderedTags}
                     </div>
-                    <button onClick={validateContent} className="create-form-submit-button">Submit</button>
+                    <button onClick={validateContent} className="create-form-submit-button"><span>Submit </span></button>
                 </form>
             </div>
         </div>
