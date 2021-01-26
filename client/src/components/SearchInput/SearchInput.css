@@ -3,9 +3,11 @@
 }
 
 .search-input {
-    border: 3px solid grey;
+    border: 3px solid #3500D3;
 }
 
 #search-input-btn {
-    border: 1px solid grey;
+    border: 1px solid #3500D3;
+    color: WHITE;
+    background-color: #3500D3;
 }

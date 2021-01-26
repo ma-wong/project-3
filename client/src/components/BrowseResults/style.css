@@ -1,0 +1,32 @@
+.browse-result{
+    display:flex;
+    flex-direction:column;
+    width:clamp(300px,70%,900px);
+    margin:0 auto;
+    background-color:white; 
+    padding:20px;
+    border-radius:5px;
+    box-shadow: 10px 10px 5px grey;
+    margin-bottom:15px
+}
+
+.browse-code{
+    border-radius:5px;
+    max-height:10rem
+}
+
+.browse-tag-row{
+    display:flex;
+    flex-direction:row
+}
+
+.browse-nav-row{
+    display:flex;
+    flex-direction:row;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.browse-nav-btn{
+    margin-right:10px
+}
