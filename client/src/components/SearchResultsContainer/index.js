@@ -40,7 +40,7 @@ export function SearchResultsItem({ codeId, title, description, tags, updatedAt,
                                 <hr/>
                                 <p className="card-text"> {description} </p>
                                 <div className="d-grid gap-2 d-md-block">
-                                    <p id="results-card-tags"> Tags:
+                                    <p id="results-card-tags"> <span className="results-id">Tags:</span>
                                         {tags?.split(",").map((v,i) =>{
                                         if(i < 4){
                                             return(
@@ -50,7 +50,7 @@ export function SearchResultsItem({ codeId, title, description, tags, updatedAt,
                                         })}
                                     </p>
                                 </div>
-                                <p className="card-text"><small className="text-muted">Last updated: {updatedAt} </small></p>
+                                <p className="card-text results-card-footer"><small className="text-muted"> <span className="results-id">Last updated: </span>{updatedAt} </small></p>
                             </div>
                         </div>
                     </div>

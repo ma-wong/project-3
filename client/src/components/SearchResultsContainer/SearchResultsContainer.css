@@ -13,6 +13,7 @@ hr {
 .results-body {
     padding: 0px;
     color: #C5C6C7;
+    font-weight: 300;
 }
 
 #code-block {
@@ -30,8 +31,18 @@ hr {
 
 .card-title {
     color:white;
+    font-weight: 400;
 }
 
 .results-list-item {
     margin: .5rem 0rem;
+}
+
+.results-card-footer {
+    font-size: 13pt;
+}
+
+.results-id {
+    color: white;
+    font-weight: 400; 
 }
