@@ -14,17 +14,29 @@
     height: 75vh;
     align-items: center;
     justify-content: center;
-    background-color: #0C0032;
+    background-color: #1f2833;
     padding: 1%;
+    font-family: 'IBM Plex Mono', monospace;
+    font-weight: 600;
 }
 
 .create-form .create-code-title {
     width: 60%;
     margin-top: 1%;
     padding: 1%;
-    background-color: #240090;
-    border: 3px solid #3500D3;
+    background-color: #45A29E;
+    border: 3px solid #66FCF1;
     color: white;
+}
+
+.create-form .create-code-title::placeholder {
+    color: white;
+    opacity: 0.70;
+}
+
+.create-form .create-code-title:focus {
+    background-color: #66FCF1;
+    outline: none;
 }
 
 .create-form label {
@@ -32,19 +44,33 @@
 }
 
 .create-form select {
-    border: 3px solid #3500D3;
+    border: 3px solid #66FCF1;
     padding: 0.5%;
-    background-color: #240090;
+    background-color: #45A29E;
     color: white;
+}
+
+.create-form select:focus {
+    outline: none;
 }
 
 .create-form textarea{
     font-size:14px;
     white-space: nowrap;
-    background-color: #240090;
+    background-color: #45A29E;
     color: white;
-    border: 3px solid #3500D3;
+    border: 3px solid #66FCF1;
     resize: none;
+}
+
+.create-form textarea::placeholder {
+    color: white;
+    opacity: 0.7;
+}
+
+.create-form textarea:focus {
+    outline:none;
+    background-color:#66FCF1;
 }
 
 .code-preview-container {
@@ -74,9 +100,19 @@
 .create-form .tag-input{
     width: 15%;
     padding: 1%;
-    background-color: #240090;
-    border: 3px solid #3500D3;
+    background-color: #45A29E;
+    border: 3px solid #66FCF1;
     color: white;
+}
+
+.create-form .tag-input::placeholder {
+    color: white;
+    opacity: 0.7;
+}
+
+.create-form .tag-input:focus {
+    outline: none;
+    background-color:#66FCF1;
 }
 
 .create-form :nth-child(7){
@@ -115,7 +151,7 @@
 .delete-tag-button {
     height: 25px;
     font-size: 10px;
-    background-color: #3500D3;
+    background-color: #45A29E;
     color:white;
     border: none;
 }
@@ -124,8 +160,10 @@
     margin-top: 0%;
     margin-bottom: 1%;
     padding: 1%;
-    border: 2px solid #3500D3;
-    background-color: #240090;
+    padding-left: 2%;
+    padding-right: 2%;
+    border: solid 3px #66FCF1;
+    background-color: #45A29E;
     color: white;
     cursor: pointer;
     transition: all 0.5s;

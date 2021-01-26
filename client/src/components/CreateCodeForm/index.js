@@ -111,7 +111,7 @@ function CreateCodeForm(){
         if ((codeTitle === "") === false && (codeDesc === "") === false && (userCode.trim() === "") === false && (selectedLanguage.trim() === "") === false) {
             createNewCodeBlock(codeTitle, codeDesc);
         } else {
-            alert("submission has failed verification.");
+            alert("Error: A required field has been left blank. Fill it out and try to submit again.");
         }
     };
 
@@ -149,14 +149,14 @@ function CreateCodeForm(){
         <div className="create-code-background">
             <div className="create-form-container">
                 <form className="create-form" autoComplete="off">
-                    <input type="text" id="code-title" name="title" placeholder="Title" className="create-code-title"/>
+                    <input type="text" id="code-title" name="title" placeholder="//title" className="create-code-title"/>
                     <label htmlFor="language">Select the coding language:</label>
                     <select name="language" placeholder="language" onClick={handleLanguageSelect} onKeyUp={handleLanguageSelect}>{languageOptions}</select>
                     <div className="code-preview-container" name="code-preview-container">
-                        <textarea name="code-block" onKeyDown={handleIndent} onKeyUp={handleUserCodeInput} placeholder="//Code goes here..."/>
+                        <textarea name="code-block" onKeyDown={handleIndent} onKeyUp={handleUserCodeInput} placeholder="//code goes here..."/>
                         <pre><code className={selectedLanguage}>{userCode}</code></pre>
                     </div>
-                    <textarea name="code-desc" id="code-desc" className="code-desc" placeholder="Description goes here..."/>
+                    <textarea name="code-desc" id="code-desc" className="code-desc" placeholder="//description goes here..."/>
                     <input type="text" name="tags" placeholder="Tags" onKeyDown={tagsKeyDownFunction} onKeyUp={tagsKeyUpFunction} className="tag-input"/>
                     <div className="tags-box">
                         {renderedTags}
