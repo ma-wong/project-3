@@ -4,7 +4,7 @@ import {Button} from 'react-bootstrap'
 import hljs from 'highlight.js';
 import './style.css';
 // import '../../pageStyles/atom-one-dark.css';
-import '../../pageStyles/shades-of-purple.css'
+import '../../pageStyles/rainbow.css'
 import API from '../../utils/API'
 import {useHistory} from 'react-router-dom';
 
