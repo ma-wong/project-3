@@ -4,7 +4,7 @@ import "./Rating.css";
 function Rating() {
     return (
         <div className="rating-container">
-            <h4>Was This Helpful?</h4>
+            <h4 id="rating-text">Was This Helpful?</h4>
             <div className="rating">
                 {/* Thumbs Up */}
                 <div className="like grow">

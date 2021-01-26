@@ -12,15 +12,19 @@
 
 .dislike:hover,
 .like:hover {
-    color: #2EBDD1;
+    color: #240090;
     transition: all .2s ease-in-out;
     transform: scale(1.1);
 }
 
 .active {
-    color: #2EBDD1;
+    color: #240090;
 }
 
 .rating-container {
     text-align: center;
+}
+
+#rating-text {
+    color: white;
 }
