@@ -44,14 +44,14 @@ module.exports = {
         .then((dbPost) => {res.json(dbPost)})
         .catch( err => {throw err});
     },
-    views: function(req, res) {
+    copies: function(req, res) {
         db.Post.findAll({
             include: [{
                 model: db.PostData,
                 }],
             limit: 100,
             order: [
-                [db.PostData, 'views', 'DESC']
+                [db.PostData, 'copies', 'DESC']
               ]    
         })
         .then((dbPost) => {res.json(dbPost)})
