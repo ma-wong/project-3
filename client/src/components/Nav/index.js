@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { Navbar, Nav, Dropdown, DropdownButton } from 'react-bootstrap'
 import "./nav.css";
+import API from "../../utils/API";
 // import logo from "./Roki2.jpg"
 
 
@@ -17,7 +18,9 @@ import "./nav.css";
   class Navhead extends Component {
     state = {
       open: false,
-      width: window.innerWidth
+      width: window.innerWidth,
+      image: "",
+      username: ""
     };
   
     updateWidth = () => {
@@ -36,19 +39,27 @@ import "./nav.css";
   
     componentDidMount() {
       window.addEventListener("resize", this.updateWidth);
+      this.getUserImage();
     }
   
     componentWillUnmount() {
       window.removeEventListener("resize", this.updateWidth);
     }
 
-
-
+    getUserImage = () => {
+      API.getUser().then((res) => {
+        console.log(res)
+        this.setState({
+          image: res.data.profileUrl,
+          username: res.data.username
+        })
+      })
+    }
 
 
   render() {
     return (
-        <Navbar bg="dark" expand="lg">
+        <Navbar expand="lg" style={{backgroundColor:"#1f2833"}}>
           <div className="wrapper">
             {/* <img src={logo} /> */}
           <div>
@@ -134,15 +145,22 @@ import "./nav.css";
 <Dropdown.Item href="#/action-3" id="usercirclefont">My Help</Dropdown.Item>
 <Dropdown.Item href="#/action-3" id="usercirclefont">Logout</Dropdown.Item>
 </DropdownButton> */}
-
-          <DropdownButton id="usercircle" menuAlign="right" style={{  backgroundImage: `url(${this.state.image})` }}>
+          
+        <style >
+          {`button#usercircle.dropdown-toggle.btn.btn-primary{
+            background-image: url("${this.state.image}");
+            background-size: cover;
+            border-color: #1f2833;
+          }`}
+        </style>
+          <DropdownButton id="usercircle" menuAlign="right" >
 
             <Dropdown.Item href="#/action-1" id="usercirclefont">My Account</Dropdown.Item>
             <Dropdown.Item href="#/action-2" id="usercirclefont">Settings</Dropdown.Item>
             <Dropdown.Item href="#/action-3" id="usercirclefont">My Help</Dropdown.Item>
             <Dropdown.Item href="#/action-3" id="usercirclefont">Logout</Dropdown.Item>
           </DropdownButton>
-
+    
         {/* old colding below. Ignore */}
 
           {/* <Navbar.Brand href="#home">Left Dropdown</Navbar.Brand> */}
