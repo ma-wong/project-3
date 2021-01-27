@@ -30,7 +30,7 @@ function CreateCodeForm(){
 
     const renderedTags = tags.map((tag)=>
     <div className="create-code-tag" name={tag}>
-        <Tag 
+        <Tag
             value={tag}
         />
         <button name={tag} onClick={handleDeleteTag} className="delete-tag-button">X</button>
@@ -38,7 +38,7 @@ function CreateCodeForm(){
 
     useEffect(() => {
         getUser();
-    }, [tags]);
+    }, []);
 
     useEffect(() => {
         document.querySelectorAll("pre code").forEach(e => {
@@ -147,19 +147,27 @@ function CreateCodeForm(){
 
     return(
         <div className="create-code-background">
+            
             <div className="create-form-container">
+                
+                <h2 style={{"color":"white"}}>Create New Code Block</h2>
                 <form className="create-form" autoComplete="off">
                     <input type="text" id="code-title" name="title" placeholder="//title" className="create-code-title"/>
-                    <label htmlFor="language">Select the coding language:</label>
+                    <div className="create-flex-row">
+                    <label htmlFor="language" style={{"margin":"auto 10px auto 0"}}>Select the coding language:</label>
                     <select name="language" placeholder="language" onClick={handleLanguageSelect} onKeyUp={handleLanguageSelect}>{languageOptions}</select>
-                    <div className="code-preview-container" name="code-preview-container">
-                        <textarea name="code-block" onKeyDown={handleIndent} onKeyUp={handleUserCodeInput} placeholder="//code goes here..."/>
-                        <pre><code className={selectedLanguage}>{userCode}</code></pre>
+                    </div>
+                    <div className="code-preview-container create-flex-row" name="code-preview-container">
+                        <textarea name="code-block" style={{"marginRight":"2%"}} onKeyDown={handleIndent} onKeyUp={handleUserCodeInput} placeholder="//code goes here..."/>
+                        <pre><code style={{"height":"100%","resize":"none"}} className={selectedLanguage}>{userCode}</code></pre>
                     </div>
                     <textarea name="code-desc" id="code-desc" className="code-desc" placeholder="//description goes here..."/>
-                    <input type="text" name="tags" placeholder="Tags" onKeyDown={tagsKeyDownFunction} onKeyUp={tagsKeyUpFunction} className="tag-input"/>
+                    
+                    <div class="create-flex-row" style={{"margin":"0"}}>
+                    <input type="text" name="tags" placeholder="//tags" onKeyDown={tagsKeyDownFunction} onKeyUp={tagsKeyUpFunction} className="tag-input"/>
                     <div className="tags-box">
                         {renderedTags}
+                    </div>
                     </div>
                     <button onClick={validateContent} className="create-form-submit-button"><span>Submit </span></button>
                 </form>

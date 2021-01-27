@@ -5,7 +5,7 @@ import BrowseResults from '../components/BrowseResults';
 function Browse(){
     const [sort, setSort] = useState("default");
 
-    function changeSortViews(){
+    function changeSortCopies(){
         setSort("views");
     }
 
@@ -20,7 +20,7 @@ function Browse(){
     return(
         <>
         <BrowseFilter 
-        changeSortViews={changeSortViews}
+        changeSortCopies={changeSortCopies}
         changeSortLikes={changeSortLikes}
         changeSortComments={changeSortComments}/>
         <br />

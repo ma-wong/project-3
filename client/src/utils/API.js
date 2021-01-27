@@ -20,8 +20,8 @@ export default {
   getUser: function() {
     return axios.get("/api/user/user_data");
   },
-  getPostViews: function(){
-    return axios.get("/api/post/views/")
+  getPostCopies: function(){
+    return axios.get("/api/post/copies/")
   },
   getPostLikes: function(){
     return axios.get("/api/post/likes/")

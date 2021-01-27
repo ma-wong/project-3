@@ -5,8 +5,8 @@ router.route("/")
     .post(postController.create)
     .get(postController.readAll)
 
-router.route("/views/")
-    .get(postController.views)
+router.route("/copies/")
+    .get(postController.copies)
 
 router.route("/likes/")
     .get(postController.likes) 
