@@ -176,7 +176,7 @@ class Details extends Component {
                         </button>
                         {
                             this.state.copySuccess ?
-                            <div style={{"color": "green"}}>
+                            <div style={{"color": "#66FCF1", "fontWeight": "bolder"}}>
                             Copied!
                             </div> : null
                         }
