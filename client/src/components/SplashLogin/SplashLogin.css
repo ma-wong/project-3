@@ -1,7 +1,7 @@
 
 .draw-border {
-	box-shadow: inset 0 0 0 4px #66FCF1;
-	color: #66FCF1;
+	box-shadow: inset 0 0 0 4px #66fcf1;
+	color: white;
 	transition: color 0.25s 0.0833333333s;
 	position: relative;
 	background: #1f1a25;
@@ -29,13 +29,13 @@
 }
 
 .draw-border::before {
-	border-bottom-width: 4px;
-	border-left-width: 4px;
+	border-bottom-width: 7px;
+	border-left-width: 7px;
 }
 
 .draw-border::after {
-	border-top-width: 4px;
-	border-right-width: 4px;
+	border-top-width: 7px;
+	border-right-width: 7px;
 }
 
 .draw-border:hover {
