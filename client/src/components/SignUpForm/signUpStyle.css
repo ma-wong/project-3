@@ -153,6 +153,11 @@
     color: white;
   }
 
+  .form-control:focus{
+    color: black;
+    background-color: #66FCF1;
+  }
+
   .fileInput{
     color: white;
   }
