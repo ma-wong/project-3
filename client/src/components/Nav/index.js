@@ -126,8 +126,8 @@ import API from "../../utils/API";
            </Dropdown.Toggle>
 
               <Dropdown.Menu>
+                <Dropdown.Item href="/" style={{ padding: "4px 30px 4px 10px" }}>Home</Dropdown.Item>
                 <Dropdown.Item href="/myblocks" style={{ padding: "4px 30px 4px 10px" }}>My Blocks</Dropdown.Item>
-                <Dropdown.Item href="#/action-2" style={{ padding: "4px 30px 4px 10px" }}>Recent Blocks</Dropdown.Item>
                 <Dropdown.Item href="/browse" style={{ padding: "4px 30px 4px 10px" }}>Popular Blocks</Dropdown.Item>
                 <Dropdown.Item href="/create" style={{ padding: "4px 30px 4px 10px" }}>Create Block</Dropdown.Item>
               </Dropdown.Menu>
