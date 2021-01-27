@@ -145,13 +145,11 @@ class Details extends Component {
                 createdAt: res.data.createdAt
             })
             this.setState({
-                comments: this.state.comments
+                comments: this.state.comments,
+                commentText: ""
             });
         });
     }
-
-   
-
     //TODO
     //need an input did change function
 
