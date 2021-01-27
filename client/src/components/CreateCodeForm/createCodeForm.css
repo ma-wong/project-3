@@ -29,7 +29,7 @@
     margin-top: 1%;
     padding: 1%;
     background-color: #45A29E;
-    border: 3px solid #66FCF1;
+    border: 3px solid #c5c6c7;
     color: black;
 }
 
@@ -176,7 +176,7 @@
     padding-left: 2%;
     padding-right: 2%;
     border: solid 3px #66FCF1;
-    background-color: #45A29E;
+    background-color: #66fcf1;
     color: black;
     cursor: pointer;
     font-weight: 500;
