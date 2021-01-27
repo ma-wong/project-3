@@ -64,11 +64,12 @@
 
 .btn-container {
 	display: flex;
+	flex-flow: row wrap;
 	align-items: center;
 	justify-content: center;
 	height: 100vh;
 }
 
 .btn-container a{
-	text-decoration: none;
+	text-decoration: none
 }
