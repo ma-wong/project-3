@@ -22,9 +22,9 @@ function BrowseResults (props){
     
     useEffect( () => {
         switch(sort){
-            case "views":
+            case "copies":
                 setPage(0);
-                API.getPostViews()
+                API.getPostCopies()
                 .then(res => {
                     setCodeList(res.data);
                 }).catch(err => console.log(err))
