@@ -6,7 +6,7 @@ function Browse(){
     const [sort, setSort] = useState("default");
 
     function changeSortCopies(){
-        setSort("views");
+        setSort("copies");
     }
 
     function changeSortLikes(){
