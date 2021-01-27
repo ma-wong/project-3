@@ -126,10 +126,10 @@ import API from "../../utils/API";
            </Dropdown.Toggle>
 
               <Dropdown.Menu>
-                <Dropdown.Item href="#/action-1">My Blocks</Dropdown.Item>
+                <Dropdown.Item href="/myblocks">My Blocks</Dropdown.Item>
                 <Dropdown.Item href="#/action-2">Recent Blocks</Dropdown.Item>
-                <Dropdown.Item href="#/action-3">Popular Blocks</Dropdown.Item>
-                <Dropdown.Item href="#/action-4">Create Block</Dropdown.Item>
+                <Dropdown.Item href="/browse">Popular Blocks</Dropdown.Item>
+                <Dropdown.Item href="/create">Create Block</Dropdown.Item>
               </Dropdown.Menu>
             </Dropdown>
           </div>
@@ -155,7 +155,7 @@ import API from "../../utils/API";
         </style>
           <DropdownButton id="usercircle" menuAlign="right" >
 
-            <Dropdown.Item href="#/action-1" id="usercirclefont">My Account</Dropdown.Item>
+            <Dropdown.Item href="/account" id="usercirclefont">My Account</Dropdown.Item>
             <Dropdown.Item href="#/action-2" id="usercirclefont">Settings</Dropdown.Item>
             <Dropdown.Item href="#/action-3" id="usercirclefont">My Help</Dropdown.Item>
             <Dropdown.Item href="#/action-3" id="usercirclefont">Logout</Dropdown.Item>
