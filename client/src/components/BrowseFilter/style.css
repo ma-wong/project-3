@@ -10,7 +10,7 @@
 }
 .sort-button-container{
     display:flex;
-    flex-direction:row;
+    flex-direction:row wrap;
     width:clamp(300px,70%,900px);
-    margin:0 auto
+    margin:0px auto;
 }
