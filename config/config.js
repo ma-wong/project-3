@@ -1,10 +1,10 @@
 require('dotenv').config();
 module.exports = {
   "development": {
-    "username": "root",
+    "username": "brandonpiercy",
     "password": process.env.DB_PASSWORD,
     "database": "snippet",
-    "host": "127.0.0.1",
+    "host": "brandon-aws-db.c0jpjktwneln.us-west-1.rds.amazonaws.com",
     "dialect": "mysql"
   },
   "test": {
