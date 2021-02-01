@@ -9,4 +9,8 @@ router.use("/postdata", postDataRoutes);
 router.use("/user", userRoutes);
 router.use("/comment", commentRoutes);
 
+router.use(function(req, res) {
+    res.sendFile(path.join(__dirname, "../../client/build/index.html"));
+  });
+
 module.exports = router;
