@@ -36,7 +36,7 @@ router.route("/send/")
     .get(
         function (req, res) {
             console.log("Sending the eamil");
-            sgMail.setApiKey(process.env.SENDGRID_API_KEY)
+            sgMail.setApiKey("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")
             const msg = {
                 to: req.user.email, // Change to your recipient
                 from: 'codingbarbershop@gmail.com', // Change to your verified sender
