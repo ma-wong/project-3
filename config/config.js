@@ -15,7 +15,10 @@ module.exports = {
     "dialect": "mysql"
   },
   "production": {
-    "use_env_variable": "JAWSDB_URL",
-      "dialect": "mysql"
+    "username": "brandonpiercy",
+    "password": "sqlROOTpW",
+    "database": "snippet",
+    "host": "brandon-aws-db.c0jpjktwneln.us-west-1.rds.amazonaws.com",
+    "dialect": "mysql"
   }
 };
