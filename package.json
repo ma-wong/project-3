@@ -4,14 +4,14 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "server": "node server.js",
-    "client": "cd client && npm start",
-    "start": "concurrently \"npm run server\" \"npm run client\"",
+    "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
+    "start:prod": "node server.js",
+    "start:dev": "concurrently \"nodemon --ignore 'client/*'\" \"npm run client\"",
+    "client": "cd client && npm run start",
+    "seed": "node scripts/seedDB.js",
     "install": "cd client && npm install",
     "build": "cd client && npm run build",
-    "heroku-postbuild": "npm run build",
-    "seed": "node db/seed.js"
+    "heroku-postbuild": "npm run build"
   },
   "repository": {
     "type": "git",
@@ -32,9 +32,12 @@
     "concurrently": "^5.3.0",
     "dotenv": "^8.2.0",
     "draft-js": "^0.11.7",
+    "env": "0.0.2",
     "express": "^4.17.1",
     "express-session": "^1.17.1",
     "highlight.js": "^10.5.0",
+    "if": "^2.0.0",
+    "if-env": "^1.0.4",
     "local-storage": "^2.0.0",
     "mysql2": "^2.2.5",
     "nodemailer": "^6.4.17",
