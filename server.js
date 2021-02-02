@@ -6,8 +6,6 @@ const app = express();
 var db = require("./models");
 const passport = require("./config/passport");
 const routes = require("./routes");
-const nodemailer = require("nodemailer");
-const sgMail = require('@sendgrid/mail');
 
 require('dotenv').config();
 

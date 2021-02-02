@@ -42,7 +42,7 @@ router.route("/send/")
                 from: 'codingbarbershop@gmail.com', // Change to your verified sender
                 subject: 'Please Verify Your Email',
                 text: 'Verify your email',
-                html: '<strong>Please click this link <a href="http://localhost:3000">Verify</a></strong>',
+                html: '<strong>Please click this link <a href="https://infinite-badlands-28326.herokuapp.com/">Verify</a></strong>',
             }
             sgMail
                 .send(msg)
