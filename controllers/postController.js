@@ -44,14 +44,14 @@ module.exports = {
         .then((dbPost) => {res.json(dbPost)})
         .catch( err => {throw err});
     },
-    views: function(req, res) {
+    copies: function(req, res) {
         db.Post.findAll({
             include: [{
                 model: db.PostData,
                 }],
             limit: 100,
             order: [
-                [db.PostData, 'views', 'DESC']
+                [db.PostData, 'copies', 'DESC']
               ]    
         })
         .then((dbPost) => {res.json(dbPost)})
@@ -71,7 +71,6 @@ module.exports = {
         .catch( err => {throw err});
     },    
     comments: function(req,res){
-        //still need to test if works
         db.sequelize.query(`SELECT  posts.*,
         COUNT(*) as comment_count
         FROM posts
@@ -94,7 +93,17 @@ module.exports = {
                 }],
             order: [
                 [db.PostData, 'views', 'DESC']
-              ]
+              ],
+            limit: 100
+        })
+        .then((dbPost) => {res.json(dbPost)})
+        .catch( err => {throw err});
+    },
+    findByAuthor: function(req,res){
+        db.Post.findAll({
+            where: {UserId:req.params.author},
+            limit: 100,
+            order: [['createdAt', 'DESC']]
         })
         .then((dbPost) => {res.json(dbPost)})
         .catch( err => {throw err});

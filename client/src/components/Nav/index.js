@@ -1,36 +1,135 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
+import { Navbar, Nav, Dropdown, DropdownButton } from 'react-bootstrap'
 import "./nav.css";
-import { Navbar, Dropdown, DropdownButton, Image } from 'react-bootstrap'
+import API from "../../utils/API";
+// import logo from "./Roki2.jpg"
 
-// import DropdownMenu from "react-bootstrap/esm/DropdownMenu";
 
-class Navhead extends Component {
+// class Navhead extends Component {
 
-  // constructor(props) {
-  //   super(props)
-  //   this.state = {
-  //     test: "testing",
-  //     viewBlocks: true,
-  //     viewUserCircle: false,
-  //   }
-  // }
+//   constructor(props) {
+//     super(props)
+//     this.state = {
+//       image: "./Roki2.jpg"
+//     }
+//   }
+
+  class Navhead extends Component {
+    state = {
+      open: false,
+      width: window.innerWidth,
+      image: "",
+      username: ""
+    };
+  
+    updateWidth = () => {
+      const newState = { width: window.innerWidth };
+  
+      if (this.state.open && newState.width > 991) {
+        newState.open = false;
+      }
+  
+      this.setState(newState);
+    };
+  
+    toggleNav = () => {
+      this.setState({ open: !this.state.open });
+    };
+  
+    componentDidMount() {
+      window.addEventListener("resize", this.updateWidth);
+      this.getUserImage();
+    }
+  
+    componentWillUnmount() {
+      window.removeEventListener("resize", this.updateWidth);
+    }
+
+    getUserImage = () => {
+      API.getUser().then((res) => {
+        console.log(res)
+        this.setState({
+          image: res.data.profileUrl,
+          username: res.data.username
+        })
+      })
+    }
+
 
   render() {
     return (
-        <Navbar bg="dark" expand="lg">
+        <Navbar expand="lg" style={{backgroundColor:"#1f2833"}}>
           <div className="wrapper">
-          {/* <div className="col-sm-5 col-md-7 col-lg-11"> */}
+            {/* <img src={logo} /> */}
           <div>
+
+          {/* <Navbar.Brand href="#home">Left Dropdown</Navbar.Brand> */}
+          <Nav className="basic-navbar-nav navbar navbar-expand-lg navbar-dark bg-dark p-0">
+            {/* <Link className="navbar-brand"> */}
+            {/* Blocks */}
+            {/* </Link> */}
+            {/* <button
+          onClick={this.toggleNav}
+          className="navbar-toggler"
+          data-toggle="collapse"
+          data-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span className="navbar-toggler-icon" />
+        </button>
+
+        <div className={`${this.state.open ? "" : "collapse "}navbar-collapse`} id="navbarNav">
+          <ul className="navbar-nav">
+            <li className="nav-item">
+              <Link
+                onClick={this.toggleNav}
+                className="nav-link"
+              >
+                My Blocks
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link
+                onClick={this.toggleNav}
+                className="nav-link"
+              >
+                Recent Blocks
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link
+                onClick={this.toggleNav}
+                className="nav-link"
+              >
+                Popular Blocks
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link
+                onClick={this.toggleNav}
+                className="nav-link"
+              >
+                Create Blocks
+              </Link>
+            </li>
+          </ul>
+        </div> */}
+            </Nav>
+
+
             <Dropdown>
-              <Dropdown.Toggle variant="success" id="dropdown-basic">
-                Left Dropdown
+              <Dropdown.Toggle variant="primary" id="dropdown-basic" className="dd-arrow">
+              <span className="navbar-toggler-icon" />
            </Dropdown.Toggle>
 
               <Dropdown.Menu>
-                <Dropdown.Item href="#/action-1">My Blocks</Dropdown.Item>
-                <Dropdown.Item href="#/action-2">Recent Blocks</Dropdown.Item>
-                <Dropdown.Item href="#/action-3">Popular Blocks</Dropdown.Item>
-                <Dropdown.Item href="#/action-4">Create Block</Dropdown.Item>
+                <Dropdown.Item href="/" style={{ padding: "4px 30px 4px 10px" }}>Home</Dropdown.Item>
+                <Dropdown.Item href="/myblocks" style={{ padding: "4px 30px 4px 10px" }}>My Blocks</Dropdown.Item>
+                <Dropdown.Item href="/browse" style={{ padding: "4px 30px 4px 10px" }}>Popular Blocks</Dropdown.Item>
+                <Dropdown.Item href="/create" style={{ padding: "4px 30px 4px 10px" }}>Create Block</Dropdown.Item>
               </Dropdown.Menu>
             </Dropdown>
           </div>
@@ -38,14 +137,30 @@ class Navhead extends Component {
 
           {/* usercircle is what I used to create the blue circle */}
           {/* title is where the image is place w/in the blue circle */}          
-          <DropdownButton id="usercircle" title={ <img src=""></img> } menuAlign="right">
 
-            <Dropdown.Item href="#/action-1" id="usercirclefont">My Account</Dropdown.Item>
+          {/* <DropdownButton menuAlign="left" >
+          <span className="navbar-toggler-icon" />
+<Dropdown.Item href="#/action-1" id="usercirclefont">My Account</Dropdown.Item>
+<Dropdown.Item href="#/action-2" id="usercirclefont">Settings</Dropdown.Item>
+<Dropdown.Item href="#/action-3" id="usercirclefont">My Help</Dropdown.Item>
+<Dropdown.Item href="#/action-3" id="usercirclefont">Logout</Dropdown.Item>
+</DropdownButton> */}
+          
+        <style >
+          {`button#usercircle.dropdown-toggle.btn.btn-primary{
+            background-image: url("${this.state.image}");
+            background-size: cover;
+            border-color: #1f2833;
+          }`}
+        </style>
+          <DropdownButton id="usercircle" menuAlign="right" >
+
+            <Dropdown.Item href="/account" id="usercirclefont">My Account</Dropdown.Item>
             <Dropdown.Item href="#/action-2" id="usercirclefont">Settings</Dropdown.Item>
             <Dropdown.Item href="#/action-3" id="usercirclefont">My Help</Dropdown.Item>
             <Dropdown.Item href="#/action-3" id="usercirclefont">Logout</Dropdown.Item>
           </DropdownButton>
-
+    
         {/* old colding below. Ignore */}
 
           {/* <Navbar.Brand href="#home">Left Dropdown</Navbar.Brand> */}

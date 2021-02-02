@@ -4,7 +4,7 @@
   }
   
 .card-signin{
-  background-color: #282828;
+  background-color: #1F2833;
 }
   .signup-img{
     border-radius: 50%;
@@ -69,7 +69,7 @@
   .form-label-group input {
     height: auto;
     border-radius: 1rem;
-    background-color: #0C0032;
+    background-color: #45A29E;
     color: white;
   }
   
@@ -149,13 +149,13 @@
     color: white;
   }
 
-  .form-control:focus{
-    background-color: #3500D3;
+  .form-control{
     color: white;
   }
 
-  .form-control{
-    color: white;
+  .form-control:focus{
+    color: black;
+    background-color: #66FCF1;
   }
 
   .fileInput{
@@ -163,8 +163,9 @@
   }
 
   .signupbtn{
-    background-color: #3500D3;
-    border-color: #3500D3;
+    background-color: #66FCF1;
+    border-color: #66FCF1;
+    color: black;
   }
 
   .custom-control-label{

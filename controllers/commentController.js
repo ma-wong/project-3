@@ -7,6 +7,8 @@ module.exports = {
           body: req.body.body,
           PostId: req.body.postid,
           UserId: req.body.userid
+        },{
+        include: db.User
         })
         .then((dbComment) => {res.json(dbComment)})
         .catch(err => {throw err});
@@ -16,6 +18,7 @@ module.exports = {
             where: {
               PostId: req.params.postid
             },
+            include: db.User,
             order: [
               ['updatedAt', 'DESC'],
           ],

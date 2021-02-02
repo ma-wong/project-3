@@ -13,13 +13,16 @@ class Details extends Component {
 
         this.state = {
         postDetails: {},
+        User: {},
         username: "",
+        profileUrl: "",
         comments: [],
         postData: [],
         copyCount: 0,
         copySuccess: false,
         commentText: "",
-        userid: ""
+        userid: "",
+        clicks: 0
         }
     }
 
@@ -43,7 +46,10 @@ class Details extends Component {
         API.getUser().then((response) => {
             console.log(response)
             this.setState({
-                userid: response.data.id
+                User: response.data,
+                userid: response.data.id,
+                username: response.data.username,
+                profileUrl: response.data.profileUrl
             })
         })
     }
@@ -75,7 +81,8 @@ class Details extends Component {
             console.log(res)
             this.setState({
                 postData: res.data,
-                copyCount: res.data.copies
+                copyCount: res.data.copies,
+                clicks: res.data.clicks
             }, () => {
                 console.log(this.state.postData)
             })
@@ -90,10 +97,19 @@ class Details extends Component {
         console.log(this.state.copyCount)
         this.updateCopyCount(id);
     }
+
+    countclicks = () => {
+        const url = new URL(window.location.href);
+        const id = url.pathname.split("/")[2];
+        this.state.clicks +=1;
+        console.log(this.state.clicks)
+        this.updateCopyCount(id);
+    }
     
     updateCopyCount = postId => {
         API.updatePostData(postId, {
-            copies: this.state.copyCount
+            copies: this.state.copyCount,
+            clicks: this.state.clicks
         })
         .catch(err => console.log(err));
     }
@@ -114,23 +130,26 @@ class Details extends Component {
         console.log("clicked");
         console.log(this.state.postDetails.id);
         console.log(this.state.commentText)
+        console.log(this.state.userid)
         API.postComment({
             body: this.state.commentText,
             postid: this.state.postDetails.id,
             userid: this.state.userid
         }).then(res=>{
-            this.setState({
-                comments: [...this.state.comments, {
-                    body: this.state.commentText,
-                    postid: this.state.postDetails.id,
-                    userid: this.state.userid
-                }]
+            console.log(res.data)
+           this.state.comments.unshift({
+                body: res.data.body,
+                postid: res.data.PostId,
+                userid: res.data.UserId,
+                User: this.state.User,
+                createdAt: res.data.createdAt
             })
+            this.setState({
+                comments: this.state.comments,
+                commentText: ""
+            });
         });
     }
-
-   
-
     //TODO
     //need an input did change function
 
@@ -158,14 +177,14 @@ class Details extends Component {
                         {/* <label id="textarea-label" for="code-block-textarea">Code Block</label> */}
                     </div>
                     <div>
-                        <button type="button" className="btn btn-outline-primary"
+                        <button type="button" className="btn btn-outline-light"
                             id="copy-btn"
                             onClick={() => this.copyCodeToClipboard()}>
                             Copy to Clipboard
                         </button>
                         {
                             this.state.copySuccess ?
-                            <div style={{"color": "green"}}>
+                            <div style={{"color": "#66FCF1", "fontWeight": "bolder"}}>
                             Copied!
                             </div> : null
                         }
@@ -192,7 +211,9 @@ class Details extends Component {
                         />
                     </div>
                     <div className="col-md-4">
-                        <Rating />
+                        <Rating 
+                        handleLike={this.countclicks}
+                        />
                     </div>
                 </div>
             <div style={{marginBottom: "100px"}}>
@@ -201,7 +222,8 @@ class Details extends Component {
                   id={comment.id}
                   key={comment.id}
                   body={comment.body}
-                  userId={comment.userId}
+                  userName={comment.User.username}
+                  profileUrl={comment.User.profileUrl}
                   createdAt={comment.createdAt}
                />
                 )) : <h3>No Comments Yet</h3>}

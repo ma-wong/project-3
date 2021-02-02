@@ -20,8 +20,8 @@ export default {
   getUser: function() {
     return axios.get("/api/user/user_data");
   },
-  getPostViews: function(){
-    return axios.get("/api/post/views/")
+  getPostCopies: function(){
+    return axios.get("/api/post/copies/")
   },
   getPostLikes: function(){
     return axios.get("/api/post/likes/")
@@ -31,6 +31,9 @@ export default {
   },
   getPostsBySearch: function(query) {
     return axios.get("/api/post/search/" + query );
+  },
+  getPostsByAuthor: function(author){
+    return axios.get("/api/post/author/" + author)
   },
   getPost: async function(id) {
     return axios.get("/api/post/" + id);
@@ -55,5 +58,8 @@ export default {
   },
   createPost: function(postData) {
     return axios.post("/api/post", postData);
+  },
+  getUserById: function() {
+    return axios.get("/api/user/")
   }
 };

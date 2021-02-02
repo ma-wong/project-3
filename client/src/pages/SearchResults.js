@@ -11,7 +11,8 @@ class SearchResults extends Component {
     state = {
         searchResults: [],
         query: "",
-        message: ""
+        message: "",
+        page: 0
     }
 
     // const history = useHistory();
@@ -72,6 +73,18 @@ class SearchResults extends Component {
         this.getSearchResults();
     };
 
+    increasePage = () => {        
+        this.setState({
+            page: this.state.page+5
+        })
+    };
+
+    decreasePage = () =>{
+        this.setState({
+            page: this.state.page-5
+        })
+    };
+
     render() {
         return (
             <div>
@@ -80,18 +93,24 @@ class SearchResults extends Component {
                     handleSearchSubmit={this.handleSearchSubmit}
                     query={this.state.query}
                 />
-                <SearchResultsList>
-                    {this.state.searchResults.map(codeSnippet => (
-                        <SearchResultsItem
-                            codeId={codeSnippet.id}
-                            title={codeSnippet.title}
-                            description={codeSnippet.description}
-                            code={codeSnippet.code}
-                            tags={codeSnippet.tags}
-                            language={codeSnippet.language}
-                            updatedAt={codeSnippet.updatedAt}
-                        />
-                    ))}
+                <SearchResultsList
+                    increasePage={this.increasePage}
+                    decreasePage={this.decreasePage}
+                    page={this.state.page}>
+                    {this.state.searchResults.map((codeSnippet, index) => {
+                        if(index < this.state.page + 5 && index >= this.state.page){
+                            return(
+                                <SearchResultsItem
+                                    codeId={codeSnippet.id}
+                                    title={codeSnippet.title}
+                                    description={codeSnippet.description}
+                                    code={codeSnippet.code}
+                                    tags={codeSnippet.tags}
+                                    language={codeSnippet.language}
+                                    updatedAt={codeSnippet.updatedAt}
+                                />)
+                        }
+                    })}
     
                 </SearchResultsList>
             </div>

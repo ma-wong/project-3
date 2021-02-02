@@ -1,12 +1,17 @@
 #usercirclefont {
-  font-size: 12px;
+  font-size: 16px;
 }
 
 #usercircle {
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    font-size: 0;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  font-size: 0;
+}
+
+#dropdown-basic {
+  background-color: #45a29e;
+  border-color: #45a29e;
 }
 
 /*
@@ -45,6 +50,16 @@
   
     /* Visual */
     background: #eee;
+  }
+
+  .dd-arrow {
+     /* padding: 0 !; */
+     margin-top: 0;
+     margin-bottom: 0;
+  }
+
+  .dd-arrow::after {
+    display: none !important;
   }
   
   @media screen and (max-width: 768px) {

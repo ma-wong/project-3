@@ -1,14 +1,13 @@
 import React from 'react';
-import {Button} from 'react-bootstrap';
+import {Button} from 'react-bootstrap'
+import './style.css'
 
 function BrowseFilter(props){    
-    const btnStyle = {"display":"block", "margin":"1%", "flex":"1", "position":"relative"};
-    
     return(
-        <div style={{"display":"flex","flexDirection":"row","width":"clamp(300px,70%,900px)","margin":"0 auto"}}>
-        <Button variant="light" size="lg" style={btnStyle} onClick={()=>props.changeSortViews()}>Most Viewed</Button>
-        <Button variant="light" size="lg" style={btnStyle} onClick={()=>props.changeSortLikes()}>Most Likes</Button>
-        <Button variant="light" size="lg" style={btnStyle} onClick={()=>props.changeSortComments()}>Most Comments</Button>
+        <div class="sort-button-container">
+        <Button variant="light" size="lg" className="sort-button" onClick={()=>props.changeSortCopies()}>Most Copies</Button>
+        <Button variant="light" size="lg" className="sort-button" onClick={()=>props.changeSortLikes()}>Most Likes</Button>
+        <Button variant="light" size="lg" className="sort-button" onClick={()=>props.changeSortComments()}>Most Comments</Button>
         </div>
     )
 };

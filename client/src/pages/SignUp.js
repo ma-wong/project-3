@@ -106,6 +106,7 @@ class Signup extends React.Component {
     };
 
      uploadImage = async () => {
+       if (this.state.image !== "") {
         const formData = new FormData();
         formData.append('file', this.state.image);
         formData.append('upload_preset', "gogabeqt");
@@ -120,6 +121,9 @@ class Signup extends React.Component {
         } catch (err) {
           console.error(err);
         }
+      } else {
+        this.signUpUser(this.state.email, this.state.username, this.state.password, "https://picsum.photos/300/300")
+      }
       };
 
       renderRedirect = () => {

@@ -5,11 +5,17 @@ router.route("/")
     .post(postController.create)
     .get(postController.readAll)
 
-router.route("/views/")
-    .get(postController.views)
+router.route("/copies/")
+    .get(postController.copies)
 
 router.route("/likes/")
     .get(postController.likes) 
+
+router.route("/comments")
+    .get(postController.comments)
+
+router.route("/author/:author")
+    .get(postController.findByAuthor)
 
 router.route("/search/:query")
     .get(postController.findByTitle)

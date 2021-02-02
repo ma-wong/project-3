@@ -1,13 +1,18 @@
 .results-search-bar {
-    margin: 2rem 0rem;
+    margin: 2.5rem 0rem 2rem;
 }
 
 .search-input {
-    border: 3px solid #3500D3;
+    background-color: #C5C6C7;
+    border: 3px solid #45A29E;
+    color: #0B0C10;
+    font-weight: bolder;
+    height: auto;
+    font-size: 12pt;
 }
 
 #search-input-btn {
-    border: 1px solid #3500D3;
+    border: 1px solid #45A29E;
     color: WHITE;
-    background-color: #3500D3;
+    background-color: #45A29E;
 }

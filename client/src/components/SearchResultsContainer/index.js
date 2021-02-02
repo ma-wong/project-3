@@ -1,17 +1,25 @@
-import React, { useLayoutEffect } from "react";
-import Img from "./Img/cow.jpg";
+import React, { useLayoutEffect} from "react";
 import "./SearchResultsContainer.css";
 import hljs from 'highlight.js';
 import Tag from "../Tag";
 import { Link } from "react-router-dom";
+import {Button} from 'react-bootstrap';
 
-export function SearchResultsList({ children }) {
-    return <ul className="list-group">{children}</ul>;
+
+
+export function SearchResultsList({ children, increasePage, decreasePage, page }) {
+    return (
+        <>
+        <ul className="list-group">{children}</ul>
+        <div className="browse-nav-row">
+        {page > 0 ? <Button onClick={()=>decreasePage()} className="browse-nav-btn">Prev</Button> : <Button className="browse-nav-btn" disabled>Prev</Button>}
+        {page < children.length - 5 ? <Button onClick={()=>increasePage()} className="browse-nav-btn">Next</Button> : <Button className="browse-nav-btn" disabled>Next</Button>}  
+        </div>
+        </>
+        );
 }
 
 export function SearchResultsItem({ codeId, title, description, tags, updatedAt, language, code }) {
-
-    console.log(codeId);
     useLayoutEffect( () => {
         document.querySelectorAll("pre code").forEach(e => {
             hljs.highlightBlock(e);
@@ -32,7 +40,7 @@ export function SearchResultsItem({ codeId, title, description, tags, updatedAt,
                                 <hr/>
                                 <p className="card-text"> {description} </p>
                                 <div className="d-grid gap-2 d-md-block">
-                                    <p id="results-card-tags"> Tags:
+                                    <p id="results-card-tags"> <span className="results-id">Tags:</span>
                                         {tags?.split(",").map((v,i) =>{
                                         if(i < 4){
                                             return(
@@ -42,7 +50,7 @@ export function SearchResultsItem({ codeId, title, description, tags, updatedAt,
                                         })}
                                     </p>
                                 </div>
-                                <p className="card-text"><small className="text-muted">Last updated: {updatedAt} </small></p>
+                                <p className="card-text results-card-footer"><small className="text-muted"> <span className="results-id">Last updated: </span>{updatedAt} </small></p>
                             </div>
                         </div>
                     </div>

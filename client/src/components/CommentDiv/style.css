@@ -1,26 +1,23 @@
-.img-circle{
-    position: absolute;
+.img-circle-comment{
     border-radius: 50%;
-    margin-top: 10px;
-    width: 80px;
-    height: 80px;
-    margin-right: 5%;
-    border: 1px solid #0c0032;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    width: 70px;
+    height: 70px;
+    border: 1px solid #1F2833;
 }
 
 .comment-container{
-    display: block;
-    background-color: #0C0032;
-    height: 100px;
-    border: 1px solid #282828;
-    color: white;
+    background-color: #1F2833;
+    height: 20%;
+    border: 1px solid #45A29E;
+    color: #C5C6C7;
 }
-
-
 
 .comment-text{
     margin-top: 2px;
     color: white;
+    margin-left: 10px;
 }
 
 .widget .panel-body {

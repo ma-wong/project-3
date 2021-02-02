@@ -57,25 +57,25 @@ function AccountInfoCard({ email, username, profileUrl, createdAt, handleInputCh
                 <div className="form-row">
                     <div className="form-group-account col-md-6">
                         <label for="firstname">Firstname</label>
-                        <input type="text" id="firstname" className="form-control" placeholder="Firstname" />
+                        <input type="text" id="firstname" value="Firstname" className="form-control" placeholder="Firstname" />
                     </div>
                     <div className="form-group-account col-md-6">
                         <label for="lastname">Lastname</label>
-                        <input type="text" id="lastname" className="form-control" placeholder="Lastname" />
+                        <input type="text" id="lastname" value="Lastname" className="form-control" placeholder="Lastname" />
                     </div>
                 </div>
                 <div className="form-group-account">
                     <label for="inputEmail4">Email</label>
-                    <input type="email" className="form-control" id="inputEmail4" placeholder={email} />
+                    <input type="email" className="form-control" value={email} id="inputEmail4" placeholder={email} />
                 </div>
                 <div className="form-group-account">
                     <label for="inputAddress5">Address</label>
-                    <input type="text" className="form-control" id="inputAddress5" placeholder="Enter Billing Address" />
+                    <input type="text" className="form-control" value="Address" id="inputAddress5" placeholder="Enter Billing Address" />
                 </div>
                 <div className="form-row">
                     <div className="form-group-account col-md-6">
                         <label for="inputCompany5">Company</label>
-                        <input type="text" className="form-control" id="inputCompany5" placeholder="Your Company" />
+                        <input type="text" className="form-control" value="Company" id="inputCompany5" placeholder="Your Company" />
                     </div>
                     <div className="form-group-account col-md-4">
                         <label for="inputState5">State</label>
@@ -86,7 +86,7 @@ function AccountInfoCard({ email, username, profileUrl, createdAt, handleInputCh
                     </div>
                     <div className="form-group-account col-md-2">
                         <label for="inputZip5">Zip</label>
-                        <input type="text" className="form-control" id="inputZip5" placeholder="Zip" />
+                        <input type="text" className="form-control" value="Zip" id="inputZip5" placeholder="Zip" />
                     </div>
                 </div>
                 <hr className="my-4" />
@@ -116,7 +116,7 @@ function AccountInfoCard({ email, username, profileUrl, createdAt, handleInputCh
                         </ul>
                     </div>
                 </div>
-                <button type="submit" className="btn accountBtn btn-primary">Save Change</button>
+                <button type="button" id="account-save-button" className="btn btn-primary">Save Changes</button>
             </form>
         </div>
     </div>

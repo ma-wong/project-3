@@ -8,6 +8,7 @@ import '../../pageStyles/rainbow.css'
 import '../../pageStyles/docco.css'
 import API from '../../utils/API'
 import {useHistory} from 'react-router-dom';
+import { SearchResultsItem } from "../../components/SearchResultsContainer";
 
 
 function BrowseResults (props){
@@ -21,9 +22,9 @@ function BrowseResults (props){
     
     useEffect( () => {
         switch(sort){
-            case "views":
+            case "copies":
                 setPage(0);
-                API.getPostViews()
+                API.getPostCopies()
                 .then(res => {
                     setCodeList(res.data);
                 }).catch(err => console.log(err))
@@ -39,6 +40,7 @@ function BrowseResults (props){
                 setPage(0);
                 API.getPostComments()
                 .then(res => {
+                    console.log(res);
                     setCodeList(res.data);
                 }).catch(err => console.log(err))
                 break;
@@ -71,29 +73,23 @@ function BrowseResults (props){
 
     return(
         <>
-        {codeList.map((val, index) => {
-                if(index < page + 5 && index >= page){
-                return(                                                        
-                    <div key={val.id} className="browse-result"
-                    onClick={()=>redirectDetails(val.id)}>
-                    <h2>{val.title}</h2>
-                    <pre><code className="browse-code"  className={val.language}>{val.code}</code></pre>
-                    <div className="browse-tag-row">                        
-                        <Tag value={val.language}/>
-                        {
-                        val.tags?.split(",").map((v,i) =>{
-                            if(i < 4){
-                                return(
-                                    <Tag value={v}/>)
-                            }
-                        })}
-                    </div>
-                </div>
-                )
-            }})}
+        {codeList?.map((val, index) => {
+            if(index < page + 5 && index >= page){
+                return(
+                    <SearchResultsItem
+                        codeId={val.id}
+                        title={val.title}
+                        description={val.description}
+                        code={val.code}
+                        tags={val.tags}
+                        language={val.language}
+                        updatedAt={val.updatedAt}
+                    />)
+                }
+            })}
         <div className="browse-nav-row">
         {page > 0 ? <Button onClick={()=>decreasePage()} className="browse-nav-btn">Prev</Button> : <Button className="browse-nav-btn" disabled>Prev</Button>}
-        {page < codeList.length - 5 ? <Button onClick={()=>increasePage()} className="browse-nav-btn">Next</Button> : <Button className="browse-nav-btn" disabled>Next</Button>}  
+        {page < codeList?.length - 5 ? <Button onClick={()=>increasePage()} className="browse-nav-btn">Next</Button> : <Button className="browse-nav-btn" disabled>Next</Button>}  
         </div>        
         </>
     )

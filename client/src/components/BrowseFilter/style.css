@@ -1,0 +1,16 @@
+.sort-button{
+    display:block;
+    margin:1%;
+    flex:1;
+    position:relative;
+    background-color:#66FCF1;
+    border-color:#66FCF1;
+    font-weight:500;
+    color:#0B0C10
+}
+.sort-button-container{
+    display:flex;
+    flex-direction:row;
+    width:clamp(300px,70%,900px);
+    margin:0 auto
+}

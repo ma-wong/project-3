@@ -1,10 +1,11 @@
 import React from 'react';
 import {Button} from 'react-bootstrap';
+import './style.css'
 
 function Tag(props){
     return(
         <>
-        <Button size="md" style={{"margin":"10px","backgroundColor":"#3500d3","borderColor":"#3500d3","fontWeight":"500"}}>{props.value}</Button>
+        <Button size="md" className="tag">{props.value}</Button>
         </>
     )
 }
