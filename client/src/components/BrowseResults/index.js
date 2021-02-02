@@ -67,10 +67,6 @@ function BrowseResults (props){
         setPage(page-5)
     };
 
-    function redirectDetails(id){
-        history.push('/details/' + id);
-    }
-
     return(
         <>
         {codeList?.map((val, index) => {

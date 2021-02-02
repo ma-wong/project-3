@@ -111,8 +111,13 @@ module.exports = {
     findByTags: function(req, res) {
         db.Post.findAll({
             where: {
-                tags: {
-                    [Op.regexp]: req.params.query
+                [Op.or]: {
+                    tags: {
+                        [Op.regexp]: req.params.tag
+                    },
+                    language: {
+                        [Op.regexp]: req.params.tag
+                    }
                 }
             }, include: [{
                 model: db.PostData,
