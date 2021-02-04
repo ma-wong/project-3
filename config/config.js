@@ -1,10 +1,9 @@
 require('dotenv').config();
 module.exports = {
   "development": {
-    "username": process.env.DB_USERNAME,
-    "password": process.env.DB_PASSWORD,
-    "database": process.env.DB_DATABASE,
-    "host": process.env.DB_HOST,
+    "password": process.ENV.DBPassword,
+    "database": "snippet",
+    "host": "brandon-aws-db.c0jpjktwneln.us-west-1.rds.amazonaws.com",
     "dialect": "mysql"
   },
   "test": {
@@ -15,10 +14,10 @@ module.exports = {
     "dialect": "mysql"
   },
   "production": {
-    "username": "brandonpiercy",
-    "password": "sqlROOTpW",
-    "database": "snippet",
-    "host": "brandon-aws-db.c0jpjktwneln.us-west-1.rds.amazonaws.com",
+    "username": "heubwt8pzctfthfn",
+    "password": "b83u2mjk63vugrhk",
+    "database": "jowowlugy12yujcd",
+    "host": "dt3bgg3gu6nqye5f.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
     "dialect": "mysql"
   }
 };
