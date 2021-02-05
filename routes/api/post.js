@@ -14,6 +14,9 @@ router.route("/likes/")
 router.route("/comments")
     .get(postController.comments)
 
+router.route("/tag/:tag")
+    .get(postController.findByTags)
+
 router.route("/author/:author")
     .get(postController.findByAuthor)
 

@@ -41,6 +41,7 @@ export function SearchResultsItem({ codeId, title, description, tags, updatedAt,
                                 <p className="card-text"> {description} </p>
                                 <div className="d-grid gap-2 d-md-block">
                                     <p id="results-card-tags"> <span className="results-id">Tags:</span>
+                                        <Tag value={language} />
                                         {tags?.split(",").map((v,i) =>{
                                         if(i < 4){
                                             return(
