@@ -3,32 +3,24 @@ import API from '../utils/API';
 import hljs from 'highlight.js'
 import {SearchResultsItem} from '../components/SearchResultsContainer'
 import {Button} from 'react-bootstrap';
-import {useHistory} from 'react-router-dom';
+import {useHistory, useParams} from 'react-router-dom';
 
 
-function MyBlocks(){
+function TagView(){
     const [codeList, setCodeList] = useState([]);
+    const {tag} = useParams();
     const [userId, setUserId] = useState([]);    
     const [page, setPage]=useState(0);                
     const history = useHistory();
 
     useEffect(()=>{
-        API.getUser()
+        API.getPostsByTag(tag)
         .then(res=>{
-            setUserId(res.data.id)})
+            console.log(res);
+            setCodeList(res.data);
+        })
         .catch(err=>console.log(err))        
     },[])
-
-    useEffect(()=>{
-        if(typeof userId === "number"){
-            API.getPostsByAuthor(userId)
-            .then(res=>{
-                setCodeList(res.data);
-            })
-            .catch(err=>console.log(err))
-        }
-            
-    },[userId])
 
     useEffect(()=>{
         document.querySelectorAll("pre code").forEach(e => {
@@ -69,4 +61,4 @@ function MyBlocks(){
 
 }
 
-export default MyBlocks;
+export default TagView;
