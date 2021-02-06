@@ -15,6 +15,7 @@ class Details extends Component {
         postDetails: {},
         User: {},
         username: "",
+        author: "",
         profileUrl: "",
         comments: [],
         postData: [],
@@ -59,7 +60,7 @@ class Details extends Component {
         .then(res => {
             this.setState({
                 postDetails: res.data,
-                username: res.data.User.username
+                author: res.data.User.username
             },() => {
                 this.getComments(id)
             })
@@ -198,7 +199,7 @@ class Details extends Component {
                         tags={this.state.postDetails.tags}
                         language={this.state.postDetails.language}
                         updatedAt={this.state.postDetails.updatedAt}
-                        userId={this.state.username}
+                        userId={this.state.author}
                     />
                 </div>
 

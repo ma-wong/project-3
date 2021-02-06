@@ -12,7 +12,7 @@ function DetailedCode({ title, description, tags, language, updatedAt, userId })
                 </div>
                 <div className="card-body details-card-body">
                     <div className="row">
-                        <p className="language-info col-md-3"><span className="detail-name">Language: </span>{language}</p>
+                        <p className="language-info col-md-3"><span className="detail-name">Language: </span><Tag value={language}/></p>
                         <p className="details-card-tags col-md-9"><span className="detail-name">Tags: </span>
                             {tags?.split(",").map((v,i) =>{
                             if(i < 4){

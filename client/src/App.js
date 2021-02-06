@@ -11,6 +11,7 @@ import Details from "./pages/Details";
 import SearchResults from "./pages/SearchResults";
 import Browse from './pages/Browse';
 import ConfirmEmail from './pages/ConfirmEmailPage'
+import TagView from './pages/TagView'
 import Footer from "./components/Footer";
 import MyBlocks from './pages/MyBlocks';
 import GithubRedirect from './pages/GithubRedirect';
@@ -30,6 +31,7 @@ function App() {
           <Route exact path="/create" component={Create} />
           <Route exact path="/account" component={Account} />
           <Route exact path="/details/:id" component={Details} />
+          <Route exact path="/tag/:tag" component={TagView} />
           <Route exact path="/results" component={SearchResults} />
           <Route exact path="/browse" component={Browse} />
           <Route exact path="/confirm" component={ConfirmEmail} />

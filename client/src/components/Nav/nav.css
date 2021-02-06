@@ -1,134 +1,84 @@
-#usercirclefont {
-  font-size: 16px;
+.nav-menu {
+  background: #47a3da;
+	position: fixed;
 }
 
-#usercircle {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  font-size: 0;
+.nav-menu h3 {
+  color: #afdefa;
+	font-size: 1.9em;
+	padding: 20px;
+	margin: 0;
+	font-weight: 300;
+	background: #0d77b6;
 }
 
-#dropdown-basic {
-  background-color: #45a29e;
-  border-color: #45a29e;
+.nav-menu a {
+	display: block;
+	color: #fff;
+	font-size: 1.1em;
+	font-weight: 300;
 }
 
-/*
-  The width of the wrapper will be 1024px
-  at browser widths above 768px
-*/
-.wrapper {
-    /* Box-model */
-    width: 100%;
-  
-    /* Positioning */
-    /* margin: 40px auto; */
-    margin: 0.5em auto;
-    display: flex;
-    justify-content: space-between;
-  }
-  
-  #main-content,
-  #sidebar {
-    /* Box-model */
-    width: 500px;
-    padding: 30px;
-  }
-  
-  #main-content {
-    /* Positioning */
-    float: left;
-  
-    /* Visual */
-    background: #fff;
-  }
-  
-  #sidebar {
-    /* Positioning */
-    float: right;
-  
-    /* Visual */
-    background: #eee;
-  }
+.nav-menu a:hover {
+	background: #258ecd;
+}
 
-  .dd-arrow {
-     /* padding: 0 !; */
-     margin-top: 0;
-     margin-bottom: 0;
-  }
+.nav-menu a:active {
+	background: #afdefa;
+	color: #47a3da;
+}
 
-  .dd-arrow::after {
-    display: none !important;
-  }
-  
-  @media screen and (max-width: 768px) {
-    /* body {
-      background-color: #333;
-    } */
-  
-    .wrapper {
-      /* Box-model */
-      width: 100%;
-      /* padding: 20px; */
-    }
-  
-    #main-content,
-    #sidebar {
-      width: 100%;
-    }
-  
-    #sidebar {
-      margin-top: 40px;
-    }
-  }
-  
-  /* Additional Screen Sizes */
-  
-  /* Width at 320px and below */
-  @media screen and (max-width: 320px) {
-    /* body {
-      background-color: #333;
-    } */
-  
-    .wrapper {
-      /* Box-model */
-      width: 100%;
-      padding: 20px;
-    }
-  
-    #main-content,
-    #sidebar {
-      width: 100%;
-    }
-  
-    #sidebar {
-      margin-top: 40px;
-    }
-  }
-  
-  /* Width at 168px and below */
-  @media screen and (max-width: 168px) {
-    /* body {
-      background-color: #333;
-    } */
-  
-    .wrapper {
-      /* Box-model */
-      width: 100%;
-      padding: 20px;
-    }
-  
-    #main-content,
-    #sidebar {
-      width: 100%;
-    }
-  
-    #sidebar {
-      margin-top: 40px;
-    }
-  }
+.nav-menu-vertical {
+	width: 240px;
+	height: 100%;
+	top: 0;
+	z-index: 1000;
+}
 
-  .dropdown-menu[style] {
-    right: 0%!important;
+.nav-menu-vertical a {
+	border-bottom: 1px solid #258ecd;
+	padding: 1em;
+}
+
+.nav-menu-left {
+	left: -240px;
+}
+
+.nav-menu-right {
+	right: -240px;
+}
+
+.nav-menu-left.nav-menu-open {
+	left: 0px;
+}
+
+.nav-menu-right.nav-menu-open {
+	right: 0px;
+}
+
+.nav-menu-push {
+	overflow-x: hidden;
+	position: relative;
+	left: 0;
+}
+
+.nav-menu-push-toright {
+	margin-left: 240px;
+}
+
+.nav-menu-push-toleft {
+	margin-right: 240px;
+}
+
+.nav-menu,
+.nav-menu-push,
+.nav-menu-push-toright,
+.nav-menu-push-toleft {
+	-webkit-transition: all 0.3s ease;
+	-moz-transition: all 0.3s ease;
+	transition: all 0.3s ease;
+}
+
+.account-button {
+	float: right;
 }
