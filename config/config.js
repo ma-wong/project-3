@@ -4,7 +4,7 @@ module.exports = {
     "username": "root",
     "password": process.env.DBPassword,
     "database": "snippet",
-    "host": "brandon-aws-db.c0jpjktwneln.us-west-1.rds.amazonaws.com",
+    "host": process.env.DB_HOST,
     "dialect": "mysql"
   },
   "test": {
