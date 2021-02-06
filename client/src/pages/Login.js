@@ -46,9 +46,13 @@ function Login() {
                 }
                 });
           }
+         const handleGithub = () => {
+         //   window.location.href = 'https://github.com/login/oauth/authorize?client_id=7910389ed19df31e2a02'
+          }
 
     return(
         <LoginForm 
+        handleGithub ={handleGithub}
         handleInputChange={handleInputChange}
         handleFormSubmit = {handleFormSubmit}
         username = {userState.username}

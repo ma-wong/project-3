@@ -61,5 +61,8 @@ export default {
   },
   getUserById: function() {
     return axios.get("/api/user/")
+  },
+  githubRedirect: function(code) {
+    return axios.get("/auth/github/callback")
   }
 };

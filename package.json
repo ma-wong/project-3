@@ -11,7 +11,8 @@
     "seed": "node scripts/seedDB.js",
     "install": "cd client && npm install",
     "build": "cd client && npm run build",
-    "heroku-postbuild": "npm run build"
+    "heroku-postbuild": "npm run build",
+    "lawson": "concurrently \"node server\" \"npm run client\""
   },
   "repository": {
     "type": "git",
@@ -30,6 +31,8 @@
     "bcryptjs": "^2.4.3",
     "cloudinary": "^1.23.0",
     "concurrently": "^5.3.0",
+    "cookie-session": "^1.4.0",
+    "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "draft-js": "^0.11.7",
     "env": "0.0.2",
@@ -42,9 +45,11 @@
     "mysql2": "^2.2.5",
     "nodemailer": "^6.4.17",
     "passport": "^0.4.1",
+    "passport-github2": "^0.1.12",
     "passport-local": "^1.0.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
+    "react-github-login": "^1.0.3",
     "sequelize": "^6.3.5",
     "sequelize-cli": "^6.2.0"
   }

@@ -2,6 +2,7 @@ const router = require('express').Router();
 const passport = require('passport');
 const userController = require("../../controllers/userController");
 const sgMail = require('@sendgrid/mail');
+const axios = require('axios') 
 
 router.route("/")
     .post(userController.create)
