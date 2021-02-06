@@ -1,5 +1,7 @@
 const passport = require("passport");
 const LocalStrategy = require("passport-local").Strategy;
+const GitHubStrategy = require('passport-github2').Strategy;
+
 
 const db = require("../models");
 
@@ -32,6 +34,17 @@ passport.use(
     }
   )
 );
+
+passport.use(new GitHubStrategy({
+  clientID: process.env.CLIENT_ID,
+  clientSecret: process.env.CLIENT_SECRET,
+  callbackURL: "http://localhost:3000/auth/github/callback"
+},
+function(accessToken, refreshToken, profile, done) {
+  console.log("Access Token: " + accessToken);
+  return done(null, profile);
+}
+));
 
 // In order to help keep authentication state across HTTP requests,
 // Sequelize needs to serialize and deserialize the user

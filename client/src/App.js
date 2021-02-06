@@ -14,6 +14,7 @@ import ConfirmEmail from './pages/ConfirmEmailPage'
 import TagView from './pages/TagView'
 import Footer from "./components/Footer";
 import MyBlocks from './pages/MyBlocks';
+import GithubRedirect from './pages/GithubRedirect';
 import "./pageStyles/universal.css";
 
 function App() {
@@ -35,6 +36,7 @@ function App() {
           <Route exact path="/browse" component={Browse} />
           <Route exact path="/confirm" component={ConfirmEmail} />
           <Route exact path="/myblocks" component={MyBlocks}/>
+          <Route path = "/auth/github/callback" component={GithubRedirect} />
           <Route component={NoMatch} />
         </Switch>
         </div>

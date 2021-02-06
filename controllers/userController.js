@@ -36,13 +36,21 @@ module.exports = {
           } else {
             // Otherwise send back the user's email and id
             // Sending back a password, even a hashed password, isn't a good idea
-            res.json({
-              email: req.user.email,
-              username: req.user.username,
-              id: req.user.id,
-              profileUrl: req.user.profileUrl,
-              createdAt: req.user.createdAt
-            });
+            db.User.findOne({
+                where: {username: req.user.username}
+            }).then((dbUser) => {
+                console.log(dbUser)
+                delete dbUser.dataValues.password
+                delete dbUser._previousDataValues.password
+                res.json(dbUser)
+            })
+            // res.json({
+            //   email: req.user.email,
+            //   username: req.user.username,
+            //   id: req.user.id,
+            //   profileUrl: req.user.profileUrl,
+            //   createdAt: req.user.createdAt
+            // });
           }
     },
     delete: function(req, res) {

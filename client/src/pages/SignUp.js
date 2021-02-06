@@ -78,12 +78,6 @@ class Signup extends React.Component {
     }
 
     //Github functionality
-
-     handleGithub = event => {
-        event.preventDefault();
-
-    }
-
     //image functionality
 
      handleFileInputChange = (e) => {
@@ -133,14 +127,19 @@ class Signup extends React.Component {
         } 
       }
 
+      handleGithub = () => {
+        console.log("clicked")
+        window.location.href = "http://localhost:3001/auth/github"
+      }
+
     render() {
     return (
         <div style={{marginBottom:"100px"}}>
             {this.renderRedirect}
             <SignUpForm
+                handleGithub = {this.handleGithub}
                 handleInputChange={this.handleInputChange}
                 handleFormSubmit = {this.handleFormSubmit}
-                handleGithub = {this.handleGithub}
                 username = {this.state.username}
                 email = {this.state.emai}
                 password = {this.state.password}

@@ -1,8 +1,8 @@
 import React from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './loginStyle.css'
-
-function LoginForm({ username, password, handleInputChange, handleFormSubmit }) {
+//use process.env for production
+function LoginForm({ username, password, handleInputChange, handleFormSubmit, handleGithub }) {
   return (
  <div className="container">
     <div className="row">
@@ -36,7 +36,7 @@ function LoginForm({ username, password, handleInputChange, handleFormSubmit }) 
                 <label htmlFor="inputPassword">Password</label>
               </div>
               <button onClick={handleFormSubmit} className="btn btn-lg btn-primary btn-block text-uppercase signupbtn" type="submit">Log in</button>
-              <button className="btn githubBttn btn-block text-uppercase" type="submit">Log in with Github</button>
+              <button onClick={handleGithub} className="btn githubBttn btn-block text-uppercase" type="button">Log in with Github</button>
               <hr />
               <div className="terms">
                     <a href="#">Terms of Service</a>
