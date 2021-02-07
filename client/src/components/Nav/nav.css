@@ -1,15 +1,15 @@
 .nav-menu {
-  background: #47a3da;
+  background: #1f2833;
 	position: fixed;
 }
 
 .nav-menu h3 {
-  color: #afdefa;
+  color: white;
 	font-size: 1.9em;
 	padding: 20px;
 	margin: 0;
 	font-weight: 300;
-	background: #0d77b6;
+	background: #45A29E;
 }
 
 .nav-menu a {
@@ -20,7 +20,8 @@
 }
 
 .nav-menu a:hover {
-	background: #258ecd;
+	background: #45A29E;
+	color: white;
 }
 
 .nav-menu a:active {
@@ -36,7 +37,7 @@
 }
 
 .nav-menu-vertical a {
-	border-bottom: 1px solid #258ecd;
+	border-bottom: 1px solid #45A29E;
 	padding: 1em;
 }
 
@@ -78,6 +79,60 @@
 	-moz-transition: all 0.3s ease;
 	transition: all 0.3s ease;
 }
+
+.hamburger-button {
+	float: left;
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 80px;
+	height: 80px;
+	cursor: pointer;
+	transition: all .5s ease-in-out;
+}
+
+.hamburger-button-burger {
+	width: 50px;
+	height: 6px;
+	background: #66FCF1;
+	border-radius: 5px;
+	transition: all .5s ease-in-out;
+}
+
+.hamburger-button-burger::before,
+.hamburger-button-burger::after {
+	content: '';
+	position: absolute;
+	width: 50px;
+	height: 6px;
+	background: #66FCF1;
+	border-radius: 5px;
+	transition: all .5s ease-in-out;
+}
+
+.hamburger-button-burger::before {
+	transform: translateY(-16px);
+}
+
+.hamburger-button-burger::after {
+	transform: translateY(16px);
+}
+
+.hamburger-button.open .hamburger-button-burger {
+	transform: translateX(-50px);
+	background: transparent;
+}
+
+.hamburger-button.open .hamburger-button-burger::before {
+	transform: rotate(45deg) translate(35px, -35px)
+}
+
+.hamburger-button.open .hamburger-button-burger::after {
+	transform: rotate(-45deg) translate(35px, 35px)
+}
+
+
 
 .account-button {
 	float: right;
