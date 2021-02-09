@@ -31,6 +31,9 @@ function Login() {
           loginUser(userState.username, userState.password);
 
         };
+
+        console.log("logging you in")
+        console.log(userState.username)
       
           const loginUser = (username, password) => {
             API.loginUser({
@@ -39,7 +42,6 @@ function Login() {
             })
               .then(response => {
                 console.log(response)
-                   
                 if (response.status === 200) {
                     history.push("/");
                     localStorage.setItem("login", true);
