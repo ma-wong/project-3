@@ -36,7 +36,10 @@ function LoginForm({ username, password, handleInputChange, handleFormSubmit, ha
                 <label htmlFor="inputPassword">Password</label>
               </div>
               <button onClick={handleFormSubmit} className="btn btn-lg btn-primary btn-block text-uppercase signupbtn" type="submit">Log in</button>
-              <button onClick={handleGithub} className="btn githubBttn btn-block text-uppercase" type="button">Log in with Github</button>
+              {/* <button onClick={handleGithub} className="btn githubBttn btn-block text-uppercase" type="button">Log in with Github</button> */}
+              <div className="login-link-div">
+                    <a style={{textAlign: "center"}} href="/forgot">Forgot your passowrd?</a>
+              </div>
               <hr />
               <div className="terms">
                     <a href="#">Terms of Service</a>

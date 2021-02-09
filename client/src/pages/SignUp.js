@@ -129,7 +129,7 @@ class Signup extends React.Component {
 
       handleGithub = () => {
         console.log("clicked")
-        window.location.href = "http://localhost:3001/auth/github"
+        this.props.history.push("/api/github")
       }
 
     render() {

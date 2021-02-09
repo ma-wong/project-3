@@ -36,21 +36,21 @@ module.exports = {
           } else {
             // Otherwise send back the user's email and id
             // Sending back a password, even a hashed password, isn't a good idea
-            db.User.findOne({
-                where: {username: req.user.username}
-            }).then((dbUser) => {
-                console.log(dbUser)
-                delete dbUser.dataValues.password
-                delete dbUser._previousDataValues.password
-                res.json(dbUser)
-            })
-            // res.json({
-            //   email: req.user.email,
-            //   username: req.user.username,
-            //   id: req.user.id,
-            //   profileUrl: req.user.profileUrl,
-            //   createdAt: req.user.createdAt
-            // });
+            // db.User.findOne({
+            //     where: {username: req.user.username}
+            // }).then((dbUser) => {
+            //     console.log(dbUser)
+            //     delete dbUser.dataValues.password
+            //     delete dbUser._previousDataValues.password
+            //     res.json(dbUser)
+            // })
+            res.json({
+              email: req.user.email,
+              username: req.user.username,
+              id: req.user.id,
+              profileUrl: req.user.profileUrl,
+              createdAt: req.user.createdAt
+            });
           }
     },
     delete: function(req, res) {
@@ -62,11 +62,25 @@ module.exports = {
     },
     update: function(req, res) {
         db.User.update({
-            email: req.body.email,
             password: req.body.password,
-            username: req.body.username
-        }, { where: { id: req.body.id }})
+        }, { where: { username: req.body.username }})
         .then((dbUser) => {res.json(dbUser)})
         .catch( err => {throw err});
+    },
+
+    readOneNotLoggedin: function(req, res) {
+        console.log("looking for user with email")
+            db.User.findOne({
+                where: {email: req.params.email}
+            }).then((dbUser) => {
+                if (!dbUser) {
+                    res.json({})
+                } else {
+                console.log(dbUser)
+                delete dbUser.dataValues.password
+                delete dbUser._previousDataValues.password
+                res.json(dbUser)
+                }
+            }).catch(err => {throw err});
     }
 };

@@ -20,6 +20,14 @@ export default {
   getUser: function() {
     return axios.get("/api/user/user_data");
   },
+  getUserEmail: function(email) {
+    return axios.get("/api/user/check_user_email/" + email)
+  },
+
+  updatePassword: function() {
+    return axios.put("/api/user/")
+  },
+
   getPostCopies: function(){
     return axios.get("/api/post/copies/")
   },
@@ -59,13 +67,16 @@ export default {
   sendEmail: function(email) {
     return axios.get("/api/user/send/", email)
   },
+  sendResetEmail: function(email) {
+    return axios.get("api/user/send/reset/" + email)
+  },
   createPost: function(postData) {
     return axios.post("/api/post", postData);
   },
   getUserById: function() {
     return axios.get("/api/user/")
   },
-  githubRedirect: function(code) {
-    return axios.get("/auth/github/callback")
+  githubRedirect: function() {
+    return axios.get("/api/github/callback")
   }
 };
