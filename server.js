@@ -7,7 +7,6 @@ var db = require("./models");
 const passport = require("./config/passport");
 const routes = require("./routes");
 
-
 require('dotenv').config();
 
 // Define middleware here
