@@ -15,10 +15,10 @@ module.exports = {
     "dialect": "mysql"
   },
   "production": {
-    "username": "rbawcypictsdyqlb",
-    "password": "a24s3d5izjdk76ac",
-    "database": "f0lf97qsgzo6m0n8",
-    "host": "j21q532mu148i8ms.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
+    "username": "etqf5uxcwq6frqwy",
+    "password": "g0gda0kd1eqwjpe7",
+    "database": "ntkd0otqp9hcrpcf",
+    "host": "z5zm8hebixwywy9d.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
     "dialect": "mysql"
   }
 };
