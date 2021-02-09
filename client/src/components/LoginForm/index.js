@@ -1,6 +1,8 @@
 import React from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './loginStyle.css'
+import './loginStyle.css';
+import {Link} from 'react-router-dom';
+
 //use process.env for production
 function LoginForm({ username, password, handleInputChange, handleFormSubmit, handleGithub }) {
   return (
@@ -38,15 +40,15 @@ function LoginForm({ username, password, handleInputChange, handleFormSubmit, ha
               <button onClick={handleFormSubmit} className="btn btn-lg btn-primary btn-block text-uppercase signupbtn" type="submit">Log in</button>
               {/* <button onClick={handleGithub} className="btn githubBttn btn-block text-uppercase" type="button">Log in with Github</button> */}
               <div className="login-link-div">
-                    <a style={{textAlign: "center"}} href="/forgot">Forgot your passowrd?</a>
+                    <Link style={{textAlign: "center"}} to="/forgot">Forgot your passowrd?</Link>
               </div>
               <hr />
               <div className="terms">
-                    <a href="#">Terms of Service</a>
-                    <a href="#">Privacy</a>
+                    <Link to="#">Terms of Service</Link>
+                    <Link to="#">Privacy</Link>
                 </div>
                 <div className="login-link-div">
-                    <a id="login-link" href="/signup">Don't have an account? Sign Up</a>
+                    <Link id="login-link" to="/signup">Don't have an account? Sign Up</Link>
                 </div>
             </form>
         </div>
