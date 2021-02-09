@@ -9,7 +9,7 @@ export default {
     return axios.get(BASEURL);
   },
   signUpUser: function(userData) {
-    return axios.post("/api/user/", userData)
+    return axios.post("/api/user", userData)
   },
   loginUser: function(userData) {
     return axios.post("/api/user/login", userData)
