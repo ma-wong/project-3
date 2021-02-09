@@ -4,13 +4,14 @@ import {Image, Video, Transformation, CloudinaryContext} from 'cloudinary-react'
 import './accountStyle.css'
 
 function AccountInfoCard({ email, username, profileUrl, createdAt, handleInputChange, handleFormSubmit, handleLogout}) {
+
   return (
 <div className="container acccount-container">
 <div className="row justify-content-center">
     <div className="col-12 col-lg-10 col-xl-8 mx-auto">
-        <h2 className="h3 mb-4 page-title">Settings</h2>
+        <h2 className="h3 mb-4 page-title">Your Profile</h2>
         <div className="my-4">
-            <ul className="nav nav-tabs mb-4" id="myTab" role="tablist">
+            {/* <ul className="nav nav-tabs mb-4" id="myTab" role="tablist">
                 <li className="nav-item account-nav-item">
                     <a className="nav-link active account-link-active" id="home-tab" data-toggle="tab" href="#" role="tab" aria-controls="home" aria-selected="false">Profile</a>
                 </li>
@@ -23,8 +24,7 @@ function AccountInfoCard({ email, username, profileUrl, createdAt, handleInputCh
                 <li className="nav-item account-nav-item">
                     <a className="nav-link" id="home-tab" data-toggle="tab" href="#" role="tab" aria-controls="home" aria-selected="false">Custimize Your BarberShop</a>
                 </li>
-            </ul>
-            <form>
+            </ul> */}
                 <div className="row mt-5 align-items-center">
                     <div className="col-md-3 text-center mb-5">
                         <div className="avatar avatar-xl">
@@ -45,15 +45,10 @@ function AccountInfoCard({ email, username, profileUrl, createdAt, handleInputCh
                                     Member since: {createdAt}
                                 </p>
                             </div>
-                            <div className="col">
-                                <p className="small mb-0 text-muted">Billing Address</p>
-                                <p className="small mb-0 text-muted"> Billing Address 2</p>
-                                <p className="small mb-0 text-muted">Phone Number</p>
-                            </div>
                         </div>
                     </div>
                 </div>
-                <hr className="my-4" />
+                {/* <hr className="my-4" />
                 <div className="form-row">
                     <div className="form-group-account col-md-6">
                         <label for="firstname">Firstname</label>
@@ -117,8 +112,11 @@ function AccountInfoCard({ email, username, profileUrl, createdAt, handleInputCh
                     </div>
                 </div>
                 <button type="button" id="account-save-button" className="btn btn-primary">Save Changes</button>
-            </form>
+            </form> */}
         </div>
+    </div>
+    <div>
+        <button onClick={handleLogout}>Logout</button>
     </div>
 </div>
 

@@ -2,7 +2,6 @@ const router = require('express').Router();
 const passport = require('passport');
 const db = require("../../models");
 
-
 router.route('/')
     .get(
     passport.authenticate('github',{ scope: [ 'user:email' ] }
@@ -36,6 +35,7 @@ router.route('/callback')
                }
            }).then(() => {
             console.log("redirecting to home")
+            res.redirect("/")
            })
         }
     )

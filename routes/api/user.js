@@ -29,6 +29,9 @@ router.route("/all")
 router.route('/user_data')
     .get(userController.readOne)
 
+router.route('/check_user_email/:email')
+    .get(userController.readOneNotLoggedin)
+
 // router.route("/image")
 //     .post(
 //         cloudinary.v2.uploader.unsigned_upload(req.body.image, "prof_pic")
@@ -55,6 +58,29 @@ router.route("/send/")
                 })
         }
     )
+
+    router.route("/send/reset/:email")
+        .get(
+            function (req, res) {
+                console.log("Sending the eamil");
+                sgMail.setApiKey(process.env.SENDGRID_API_KEY)
+                const msg = {
+                    to: req.params.email, // Change to your recipient
+                    from: 'codingbarbershop@gmail.com', // Change to your verified sender
+                    subject: 'Password change request',
+                    text: 'Click the link to change password',
+                    html: '<strong>Please click this link <a href="http://localhost:3000/reset">Change Password</a></strong>',
+                }
+                sgMail
+                    .send(msg)
+                    .then(() => {
+                        console.log('Email sent')
+                    })
+                    .catch((error) => {
+                        console.error(error)
+                    })
+            }
+        )
 
 
 module.exports = router;

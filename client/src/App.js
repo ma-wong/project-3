@@ -14,7 +14,9 @@ import ConfirmEmail from './pages/ConfirmEmailPage'
 import TagView from './pages/TagView'
 import Footer from "./components/Footer";
 import MyBlocks from './pages/MyBlocks';
-import GithubRedirect from './pages/GithubRedirect';
+import ForgotPassword from './pages/ForgotPassword';
+import ResetPassword from './pages/ResestPassword';
+
 import "./pageStyles/universal.css";
 
 function App() {
@@ -36,7 +38,8 @@ function App() {
           <Route exact path="/browse" component={Browse} />
           <Route exact path="/confirm" component={ConfirmEmail} />
           <Route exact path="/myblocks" component={MyBlocks}/>
-          <Route path = "/auth/github/callback" component={GithubRedirect} />
+          <Route exact path = "/forgot" component={ForgotPassword} />
+          <Route exact path = "/reset" component={ResetPassword} />
           <Route component={NoMatch} />
         </Switch>
         </div>

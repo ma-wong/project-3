@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import AccountInfoCard from "../components/AccountInfoCard";
 import { useHistory } from 'react-router-dom'
 import API from "../utils/API";
+import MyBlocks from "./MyBlocks"
 
 function Account() {
     const history = useHistory();
@@ -71,6 +72,7 @@ function Account() {
            profileUrl={userInfo.profileUrl}
            createdAt={userInfo.createdAt}
            />
+           <MyBlocks />
        </div>
     )
 

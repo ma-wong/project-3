@@ -89,7 +89,7 @@ function SignUpForm({ username, email, password, confirmPassword, handleInputCha
                 <label className="custom-control-label" htmlFor="customCheck1">Agree to Terms and Conditions</label>
               </div>
               <button onClick={handleFormSubmit} className="btn btn-lg btn-primary btn-block text-uppercase signupbtn" type="submit">Sign Up</button>
-              <button onClick={handleGithub} className="btn githubBttn btn-block text-uppercase" type="button">Sign Up With Github</button>
+              {/* <button onClick={handleGithub} className="btn githubBttn btn-block text-uppercase" type="button">Sign Up With Github</button> */}
               <hr />
               <div className="terms">
                     <a href="#">Terms of Service</a>
