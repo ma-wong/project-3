@@ -13,7 +13,7 @@ router.use("/comment", commentRoutes);
 router.use("/github", githubRoutes)
 
 router.use(function(req, res) {
-    res.sendFile(path.join(__dirname, "../../client/public/index.html"));
+    res.sendFile(path.join(__dirname, "../../client/build/index.html"));
   });
 
 module.exports = router;
