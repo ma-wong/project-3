@@ -6,7 +6,6 @@ const app = express();
 var db = require("./models");
 const passport = require("./config/passport");
 const routes = require("./routes");
-var cors = require('cors')
 
 
 require('dotenv').config();
@@ -27,8 +26,6 @@ app.use(
 );
 app.use(passport.initialize());
 app.use(passport.session());
-
-app.use(cors())
 
 // Define API routes here
 app.use(routes);
