@@ -40,13 +40,13 @@ router.route("/send/")
     .get(
         function (req, res) {
             console.log("Sending the eamil");
-            sgMail.setApiKey(process.env.SENDGRID_API_KEY)
+            sgMail.setApiKey("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")
             const msg = {
                 to: req.user.email, // Change to your recipient
                 from: 'codingbarbershop@gmail.com', // Change to your verified sender
                 subject: 'Please Verify Your Email',
                 text: 'Verify your email',
-                html: '<strong>Please click this link <a href="https://infinite-badlands-28326.herokuapp.com/">Verify</a></strong>',
+                html: '<strong>Please click this link <a href="https://polar-plateau-33965.herokuapp.com/">Verify</a></strong>',
             }
             sgMail
                 .send(msg)
@@ -63,13 +63,13 @@ router.route("/send/")
         .get(
             function (req, res) {
                 console.log("Sending the eamil");
-                sgMail.setApiKey(process.env.SENDGRID_API_KEY)
+                sgMail.setApiKey("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")
                 const msg = {
                     to: req.params.email, // Change to your recipient
                     from: 'codingbarbershop@gmail.com', // Change to your verified sender
                     subject: 'Password change request',
                     text: 'Click the link to change password',
-                    html: '<strong>Please click this link <a href="http://localhost:3000/reset">Change Password</a></strong>',
+                    html: '<strong>Please click this link <a href="https://polar-plateau-33965.herokuapp.com/reset">Change Password</a></strong>',
                 }
                 sgMail
                     .send(msg)
