@@ -46,7 +46,7 @@ router.route("/send/")
                 from: 'codingbarbershop@gmail.com', // Change to your verified sender
                 subject: 'Please Verify Your Email',
                 text: 'Verify your email',
-                html: '<strong>Please click this link <a href="https://infinite-badlands-28326.herokuapp.com/">Verify</a></strong>',
+                html: '<strong>Please click this link <a href="https://polar-plateau-33965.herokuapp.com/">Verify</a></strong>',
             }
             sgMail
                 .send(msg)
@@ -69,7 +69,7 @@ router.route("/send/")
                     from: 'codingbarbershop@gmail.com', // Change to your verified sender
                     subject: 'Password change request',
                     text: 'Click the link to change password',
-                    html: '<strong>Please click this link <a href="http://localhost:3000/reset">Change Password</a></strong>',
+                    html: '<strong>Please click this link <a href="https://polar-plateau-33965.herokuapp.com/reset">Change Password</a></strong>',
                 }
                 sgMail
                     .send(msg)
