@@ -2,6 +2,7 @@ import React from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Form } from 'react-bootstrap';
 import './signUpStyle.css'
+import { Link } from 'react-router-dom';
 
 function SignUpForm({ username, email, password, confirmPassword, handleInputChange, handleFormSubmit, fileInputState, handleFileInputChange, previewSource, handleLogin, handleGithub }) {
 
@@ -92,11 +93,11 @@ function SignUpForm({ username, email, password, confirmPassword, handleInputCha
               {/* <button onClick={handleGithub} className="btn githubBttn btn-block text-uppercase" type="button">Sign Up With Github</button> */}
               <hr />
               <div className="terms">
-                    <a href="#">Terms of Service</a>
-                    <a href="#">Privacy</a>
+                    <Link to="#">Terms of Service</Link>
+                    <Link to="#">Privacy</Link>
                 </div>
                 <div className="login-link-div">
-                    <a id="login-link" href="/login">Already have an account? Login</a>
+                    <Link id="login-link" to="/login">Already have an account? Login</Link>
                 </div>
             </form>
         </div>

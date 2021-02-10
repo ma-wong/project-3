@@ -12,6 +12,10 @@ import { Link } from "react-router-dom";
       username: ""
     };
 
+    componentDidMount() {
+      this.getUserImage();
+    }
+
     getUserImage = () => {
       API.getUser().then((res) => {
         console.log(res)
@@ -78,7 +82,7 @@ import { Link } from "react-router-dom";
           <div className={ this.state.isNavMenuOpen ? "hamburger-button open": "hamburger-button"} onClick={this.handleNavMenuClick} value="navigation-menu">
             <div className="hamburger-button-burger" value="navigation-menu"></div>
           </div>
-          <div className="account-button" onClick={this.handleNavMenuClick} value="account-menu">{ this.state.image ? <img href={this.state.image} alt="user-profile picture"></img>:""}</div>
+          <div className="account-button" onClick={this.handleNavMenuClick} value="account-menu" style={{ backgroundImage: `url(${this.state.image })`, backgroundSize: "cover"}}></div>
         </div>
       </div>
     )
