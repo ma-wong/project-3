@@ -2,7 +2,6 @@ const db = require("../models/");
 
 module.exports = {
     create: function(req, res) {
-      console.log("SUP BITCH")
         db.Comment.create({
           body: req.body.body,
           PostId: req.body.postid,
